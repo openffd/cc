@@ -10,8 +10,19 @@ import Foundation
 import SQLite3
 
 extension SQLite {
+    static let sharedDatabaseURL = URL.documentDirectory.appendingPathComponent("Shared.sqlite")
+    
     class Database {
-        static let shared = Database()
+        static let shared: Database = {
+            let database: Database
+            do {
+                database = try Database.open(path: SQLite.sharedDatabaseURL.absoluteString)
+                return database
+            } catch {
+                print(error.localizedDescription)
+                return Database(databasePointer: nil)
+            }
+        }()
         
         private let databasePointer: DatabasePointer?
         
