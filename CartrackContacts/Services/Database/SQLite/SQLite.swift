@@ -7,5 +7,23 @@
 //
 
 import Foundation
+import SQLite3
 
 enum SQLite {}
+
+extension SQLite {
+    enum Error: Swift.Error {
+        case opening(message: String)
+        
+        static let genericMessage = "An unknown error occurred."
+    }
+}
+
+extension OpaquePointer {
+    var recentErrorMessage: String {
+        guard let errorPointer = sqlite3_errmsg(self) else {
+            return SQLite.Error.genericMessage
+        }
+        return String(cString: errorPointer)
+    }
+}
