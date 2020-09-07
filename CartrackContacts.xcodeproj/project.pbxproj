@@ -13,6 +13,7 @@
 		8172A1F02505E3F700FF1A3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EF2505E3F700FF1A3F /* Assets.xcassets */; };
 		8172A1F32505E3F700FF1A3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1F12505E3F700FF1A3F /* LaunchScreen.storyboard */; };
 		8172A1FE2505E3F700FF1A3F /* CartrackContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1FD2505E3F700FF1A3F /* CartrackContactsTests.swift */; };
+		8172A20B2505E53E00FF1A3F /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A20A2505E53E00FF1A3F /* LandingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		8172A1F92505E3F700FF1A3F /* CartrackContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CartrackContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1FD2505E3F700FF1A3F /* CartrackContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartrackContactsTests.swift; sourceTree = "<group>"; };
 		8172A1FF2505E3F700FF1A3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8172A20A2505E53E00FF1A3F /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +100,19 @@
 		8172A2082505E4E600FF1A3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8172A1EC2505E3F600FF1A3F /* Landing.storyboard */,
+				8172A2092505E52E00FF1A3F /* Landing */,
 				8172A1F12505E3F700FF1A3F /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8172A2092505E52E00FF1A3F /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				8172A1EC2505E3F600FF1A3F /* Landing.storyboard */,
+				8172A20A2505E53E00FF1A3F /* LandingViewController.swift */,
+			);
+			path = Landing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */,
+				8172A20B2505E53E00FF1A3F /* LandingViewController.swift in Sources */,
 				8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
