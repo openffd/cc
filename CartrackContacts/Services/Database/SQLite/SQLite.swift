@@ -28,6 +28,7 @@ extension SQLite {
         case open(message: String)
         case prepare(message: String)
         case step(message: String)
+        case bind(message: String)
         
         static let genericMessage = "An unknown error occurred."
     }
