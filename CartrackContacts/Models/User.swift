@@ -14,3 +14,9 @@ struct User {
     let digest: String
     let country: String
 }
+
+protocol UserDatabase {
+    func createTable()
+    func insertUser(user: User)
+    func getUser(username: String) -> User?
+}
