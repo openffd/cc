@@ -10,7 +10,7 @@ import Foundation
 import SQLite3
 
 extension SQLite.Database: UserDatabase {
-    func createTable() throws {
+    func createUserTable() throws {
         try createTable(model: User.self)
     }
     
