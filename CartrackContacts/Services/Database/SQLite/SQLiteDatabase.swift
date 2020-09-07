@@ -47,6 +47,14 @@ extension SQLite {
             return SQLite.Database(databasePointer: pointer)
         }
         
+        func createTable(model: SQLiteTableModel.Type) throws {
+            let statementPointer = try prepareStatement(query: model.tableCreationQuery)
+            defer { sqlite3_finalize(statementPointer) }
+            guard sqlite3_step(statementPointer) == SQLITE_DONE else {
+                throw SQLite.Error.step(message: recentErrorMessage)
+            }
+        }
+        
         private var recentErrorMessage: String {
             guard let databasePointer = self.databasePointer else { return Error.genericMessage }
             return databasePointer.recentErrorMessage

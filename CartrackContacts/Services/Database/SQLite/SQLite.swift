@@ -9,6 +9,10 @@
 import Foundation
 import SQLite3
 
+protocol SQLiteTableModel {
+    static var tableCreationQuery: String { get }
+}
+
 enum SQLite {
     static let sharedDatabaseURL = URL.documentDirectory.appendingPathComponent("Shared.sqlite")
 }
@@ -23,6 +27,7 @@ extension SQLite {
     enum Error: Swift.Error {
         case open(message: String)
         case prepare(message: String)
+        case step(message: String)
         
         static let genericMessage = "An unknown error occurred."
     }
