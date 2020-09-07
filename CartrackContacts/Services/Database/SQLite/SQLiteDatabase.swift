@@ -13,9 +13,9 @@ extension SQLite {
     class Database {
         static let shared = Database()
         
-        private let databasePointer: OpaquePointer?
+        private let databasePointer: DatabasePointer?
         
-        private init(databasePointer: OpaquePointer? = nil) {
+        private init(databasePointer: DatabasePointer? = nil) {
             self.databasePointer = databasePointer
         }
         

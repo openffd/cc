@@ -12,6 +12,11 @@ import SQLite3
 enum SQLite {}
 
 extension SQLite {
+    typealias GenericPointer = OpaquePointer
+    typealias DatabasePointer = OpaquePointer
+}
+
+extension SQLite {
     enum Error: Swift.Error {
         case opening(message: String)
         
@@ -19,7 +24,7 @@ extension SQLite {
     }
 }
 
-extension OpaquePointer {
+extension SQLite.GenericPointer {
     var recentErrorMessage: String {
         guard let errorPointer = sqlite3_errmsg(self) else {
             return SQLite.Error.genericMessage
