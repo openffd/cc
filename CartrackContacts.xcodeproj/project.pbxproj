@@ -29,6 +29,7 @@
 		8172A22D2506151700FF1A3F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A22C2506151700FF1A3F /* String+.swift */; };
 		8172A22F2506192600FF1A3F /* SHA256Digest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A22E2506192600FF1A3F /* SHA256Digest+.swift */; };
 		8172A2312506271300FF1A3F /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2302506271300FF1A3F /* DynamicValue.swift */; };
+		8172A2382506616400FF1A3F /* DataDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2372506616400FF1A3F /* DataDecodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		8172A22C2506151700FF1A3F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8172A22E2506192600FF1A3F /* SHA256Digest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SHA256Digest+.swift"; sourceTree = "<group>"; };
 		8172A2302506271300FF1A3F /* DynamicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
+		8172A2372506616400FF1A3F /* DataDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		8172A2212505EDAC00FF1A3F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8172A2322506594900FF1A3F /* Network */,
 				8172A2222505EDF100FF1A3F /* Database */,
 			);
 			path = Services;
@@ -213,6 +216,14 @@
 				8172A22A2506044900FF1A3F /* SQLiteDatabase+User.swift */,
 			);
 			path = SQLite;
+			sourceTree = "<group>";
+		};
+		8172A2322506594900FF1A3F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8172A2372506616400FF1A3F /* DataDecodable.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +344,7 @@
 				8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */,
 				8172A21F2505ECA200FF1A3F /* User.swift in Sources */,
 				8172A2292505F32700FF1A3F /* URL+.swift in Sources */,
+				8172A2382506616400FF1A3F /* DataDecodable.swift in Sources */,
 				8172A2102505E5A700FF1A3F /* HomeViewController.swift in Sources */,
 				8172A2272505EEAF00FF1A3F /* SQLiteDatabase.swift in Sources */,
 				8172A21B2505EA7000FF1A3F /* Address.swift in Sources */,
