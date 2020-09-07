@@ -79,10 +79,9 @@
 			children = (
 				8172A1E62505E3F600FF1A3F /* AppDelegate.swift */,
 				8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */,
-				8172A1EC2505E3F600FF1A3F /* Landing.storyboard */,
 				8172A1EF2505E3F700FF1A3F /* Assets.xcassets */,
-				8172A1F12505E3F700FF1A3F /* LaunchScreen.storyboard */,
 				8172A1F42505E3F700FF1A3F /* Info.plist */,
+				8172A2082505E4E600FF1A3F /* Views */,
 			);
 			path = CartrackContacts;
 			sourceTree = "<group>";
@@ -94,6 +93,15 @@
 				8172A1FF2505E3F700FF1A3F /* Info.plist */,
 			);
 			path = CartrackContactsTests;
+			sourceTree = "<group>";
+		};
+		8172A2082505E4E600FF1A3F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8172A1EC2505E3F600FF1A3F /* Landing.storyboard */,
+				8172A1F12505E3F700FF1A3F /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
