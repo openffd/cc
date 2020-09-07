@@ -40,8 +40,8 @@ extension SQLite {
             guard sqlite3_open(path, &pointer) == SQLITE_OK else {
                 defer { sqlite3_close(pointer) }
                 
-                if let _ = pointer {
-                    throw SQLite.Error.opening(message: "")
+                if let databasePointer = pointer {
+                    throw SQLite.Error.opening(message: databasePointer.recentErrorMessage)
                 } else {
                     throw SQLite.Error.opening(message: SQLite.Error.genericMessage)
                 }
