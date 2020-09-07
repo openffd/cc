@@ -18,7 +18,8 @@ class Contact: Codable {
     let website: String
     let company: Company
     
-    init(id: Int,
+    init(
+        id: Int,
         name: String,
         username: String,
         email: String,

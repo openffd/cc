@@ -22,6 +22,7 @@
 		8172A21B2505EA7000FF1A3F /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A21A2505EA7000FF1A3F /* Address.swift */; };
 		8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A21C2505EA9D00FF1A3F /* Company.swift */; };
 		8172A21F2505ECA200FF1A3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A21E2505ECA200FF1A3F /* User.swift */; };
+		8172A2252505EE1D00FF1A3F /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2242505EE1D00FF1A3F /* SQLite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8172A21A2505EA7000FF1A3F /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		8172A21C2505EA9D00FF1A3F /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		8172A21E2505ECA200FF1A3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8172A2242505EE1D00FF1A3F /* SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				8172A1F42505E3F700FF1A3F /* Info.plist */,
 				8172A2082505E4E600FF1A3F /* Views */,
 				8172A2172505E99B00FF1A3F /* Models */,
+				8172A2212505EDAC00FF1A3F /* Services */,
 				8172A2142505E6FA00FF1A3F /* Extensions */,
 			);
 			path = CartrackContacts;
@@ -168,6 +171,30 @@
 				8172A21C2505EA9D00FF1A3F /* Company.swift */,
 			);
 			path = Contacts;
+			sourceTree = "<group>";
+		};
+		8172A2212505EDAC00FF1A3F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8172A2222505EDF100FF1A3F /* Database */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8172A2222505EDF100FF1A3F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8172A2232505EE0300FF1A3F /* SQLite */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		8172A2232505EE0300FF1A3F /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				8172A2242505EE1D00FF1A3F /* SQLite.swift */,
+			);
+			path = SQLite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8172A2162505E71900FF1A3F /* UIStoryboard+.swift in Sources */,
+				8172A2252505EE1D00FF1A3F /* SQLite.swift in Sources */,
 				8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */,
 				8172A2192505E9B800FF1A3F /* Contact.swift in Sources */,
 				8172A20B2505E53E00FF1A3F /* LandingViewController.swift in Sources */,
