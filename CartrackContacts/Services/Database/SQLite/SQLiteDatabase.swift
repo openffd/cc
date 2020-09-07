@@ -55,12 +55,12 @@ extension SQLite {
             }
         }
         
-        private var recentErrorMessage: String {
+        var recentErrorMessage: String {
             guard let databasePointer = self.databasePointer else { return Error.genericMessage }
             return databasePointer.recentErrorMessage
         }
         
-        fileprivate func prepareStatement(query: String) throws -> SQLite.StatementPointer? {
+        func prepareStatement(query: String) throws -> SQLite.StatementPointer? {
             var pointer: SQLite.StatementPointer?
             guard sqlite3_prepare_v2(databasePointer, query, -1, &pointer, nil) == SQLITE_OK else {
                 throw SQLite.Error.prepare(message: recentErrorMessage)
