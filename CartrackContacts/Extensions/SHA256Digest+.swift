@@ -9,6 +9,12 @@
 import Foundation
 import CryptoKit
 
+extension String {
+    var sha256Digest: String {
+        SHA256.hash(data: data(using: .utf8)!).string
+    }
+}
+
 extension SHA256.Digest {
     var string: String {
         map { String(format: "%02hhx", $0) }.joined()
