@@ -9,7 +9,9 @@
 import Foundation
 import SQLite3
 
-enum SQLite {}
+enum SQLite {
+    static let sharedDatabaseURL = URL.documentDirectory.appendingPathComponent("Shared.sqlite")
+}
 
 extension SQLite {
     typealias GenericPointer = OpaquePointer

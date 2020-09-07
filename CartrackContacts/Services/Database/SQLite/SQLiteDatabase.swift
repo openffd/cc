@@ -10,8 +10,6 @@ import Foundation
 import SQLite3
 
 extension SQLite {
-    static let sharedDatabaseURL = URL.documentDirectory.appendingPathComponent("Shared.sqlite")
-    
     class Database {
         static let shared: Database = {
             let database: Database
