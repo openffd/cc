@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Contact: Codable {
+final class Contact: Codable {
     let id: Int
     let name: String
     let username: String
@@ -38,3 +38,5 @@ class Contact: Codable {
         self.company = company
     }
 }
+
+extension Contact: DataInstantiatable {}
