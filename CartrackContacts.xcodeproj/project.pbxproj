@@ -21,6 +21,7 @@
 		8172A2192505E9B800FF1A3F /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2182505E9B800FF1A3F /* Contact.swift */; };
 		8172A21B2505EA7000FF1A3F /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A21A2505EA7000FF1A3F /* Address.swift */; };
 		8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A21C2505EA9D00FF1A3F /* Company.swift */; };
+		8172A21F2505ECA200FF1A3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A21E2505ECA200FF1A3F /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8172A2182505E9B800FF1A3F /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		8172A21A2505EA7000FF1A3F /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		8172A21C2505EA9D00FF1A3F /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		8172A21E2505ECA200FF1A3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,11 +154,20 @@
 		8172A2172505E99B00FF1A3F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8172A21E2505ECA200FF1A3F /* User.swift */,
+				8172A2202505ECA900FF1A3F /* Contacts */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8172A2202505ECA900FF1A3F /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
 				8172A2182505E9B800FF1A3F /* Contact.swift */,
 				8172A21A2505EA7000FF1A3F /* Address.swift */,
 				8172A21C2505EA9D00FF1A3F /* Company.swift */,
 			);
-			path = Models;
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 				8172A2192505E9B800FF1A3F /* Contact.swift in Sources */,
 				8172A20B2505E53E00FF1A3F /* LandingViewController.swift in Sources */,
 				8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */,
+				8172A21F2505ECA200FF1A3F /* User.swift in Sources */,
 				8172A2102505E5A700FF1A3F /* HomeViewController.swift in Sources */,
 				8172A21B2505EA7000FF1A3F /* Address.swift in Sources */,
 				8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */,
