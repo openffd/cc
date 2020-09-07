@@ -23,7 +23,7 @@ extension URLSession: DataFetcher {
                 return
             }
             
-            guard response.statusCode == 200 else {
+            guard response.isStatusOK else {
                 return
             }
             
@@ -46,4 +46,8 @@ extension URLSession: DataFetcher {
 fileprivate extension URLSessionDataTask { typealias Priority = Float }
 fileprivate extension URLSessionDataTask.Priority {
     static let highest: URLSessionDataTask.Priority = 1.0
+}
+
+fileprivate extension HTTPURLResponse {
+    var isStatusOK: Bool { statusCode == 200 }
 }
