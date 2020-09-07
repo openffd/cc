@@ -31,7 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 private extension AppDelegate {
     func initializeSharedDatabase() {
-        let _ = SQLite.Database.shared
+        let sharedDatabase = SQLite.Database.shared
         print("[SQLite3] Successfully opened connection to shared database.")
+        do {
+            try sharedDatabase.createUserTable()
+            print("[SQLite3] The `user` table has been created.")
+        } catch {
+            print("[SQLite3] " + error.localizedDescription)
+        }
     }
 }
