@@ -27,6 +27,7 @@
 		8172A2292505F32700FF1A3F /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2282505F32700FF1A3F /* URL+.swift */; };
 		8172A22B2506044900FF1A3F /* SQLiteDatabase+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A22A2506044900FF1A3F /* SQLiteDatabase+User.swift */; };
 		8172A22D2506151700FF1A3F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A22C2506151700FF1A3F /* String+.swift */; };
+		8172A22F2506192600FF1A3F /* SHA256Digest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A22E2506192600FF1A3F /* SHA256Digest+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		8172A2282505F32700FF1A3F /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		8172A22A2506044900FF1A3F /* SQLiteDatabase+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SQLiteDatabase+User.swift"; sourceTree = "<group>"; };
 		8172A22C2506151700FF1A3F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		8172A22E2506192600FF1A3F /* SHA256Digest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SHA256Digest+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				8172A2152505E71900FF1A3F /* UIStoryboard+.swift */,
 				8172A2282505F32700FF1A3F /* URL+.swift */,
 				8172A22C2506151700FF1A3F /* String+.swift */,
+				8172A22E2506192600FF1A3F /* SHA256Digest+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8172A2162505E71900FF1A3F /* UIStoryboard+.swift in Sources */,
+				8172A22F2506192600FF1A3F /* SHA256Digest+.swift in Sources */,
 				8172A2252505EE1D00FF1A3F /* SQLite.swift in Sources */,
 				8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */,
 				8172A2192505E9B800FF1A3F /* Contact.swift in Sources */,

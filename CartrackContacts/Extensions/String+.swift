@@ -13,3 +13,9 @@ extension String {
         (self as NSString).utf8String
     }
 }
+
+extension String {
+    var sha256Digest: String {
+        SHA256.hash(data: data(using: .utf8)!).string
+    }
+}
