@@ -39,12 +39,25 @@ extension SQLite {
                 defer { sqlite3_close(pointer) }
                 
                 if let databasePointer = pointer {
-                    throw SQLite.Error.opening(message: databasePointer.recentErrorMessage)
+                    throw SQLite.Error.open(message: databasePointer.recentErrorMessage)
                 } else {
-                    throw SQLite.Error.opening(message: SQLite.Error.genericMessage)
+                    throw SQLite.Error.open(message: SQLite.Error.genericMessage)
                 }
             }
             return SQLite.Database(databasePointer: pointer)
+        }
+        
+        private var recentErrorMessage: String {
+            guard let databasePointer = self.databasePointer else { return Error.genericMessage }
+            return databasePointer.recentErrorMessage
+        }
+        
+        fileprivate func prepareStatement(query: String) throws -> SQLite.StatementPointer? {
+            var pointer: SQLite.StatementPointer?
+            guard sqlite3_prepare_v2(databasePointer, query, -1, &pointer, nil) == SQLITE_OK else {
+                throw SQLite.Error.prepare(message: recentErrorMessage)
+            }
+            return pointer
         }
     }
 }

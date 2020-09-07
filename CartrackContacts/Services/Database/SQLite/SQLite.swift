@@ -16,11 +16,13 @@ enum SQLite {
 extension SQLite {
     typealias GenericPointer = OpaquePointer
     typealias DatabasePointer = OpaquePointer
+    typealias StatementPointer = OpaquePointer
 }
 
 extension SQLite {
     enum Error: Swift.Error {
-        case opening(message: String)
+        case open(message: String)
+        case prepare(message: String)
         
         static let genericMessage = "An unknown error occurred."
     }
