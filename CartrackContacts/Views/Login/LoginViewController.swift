@@ -14,18 +14,11 @@ class LoginViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     
-    @IBOutlet private var label: UILabel! {
-        didSet {
-            label.text = "Enter your username:"
-            label.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 26)
-            label.textColor = .black
-        }
-    }
     @IBOutlet private var textField: UITextField! {
         didSet {
-            textField.placeholder = "Username"
+            textField.placeholder = "username"
             textField.borderStyle = .none
-            textField.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
+            textField.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
             textField.tintColor = .black
         }
     }
@@ -35,11 +28,19 @@ class LoginViewController: UIViewController {
             borderView.alpha = 0.2
         }
     }
-    @IBOutlet private var instructionLabel: UILabel! {
+    @IBOutlet private var passwordTextField: UITextField! {
         didSet {
-            instructionLabel.text = "Username should be at least 4 characters."
-            instructionLabel.font = UIFont(name: "HelveticaNeue", size: 12)
-            instructionLabel.textColor = .systemBlue
+            passwordTextField.isSecureTextEntry = true
+            passwordTextField.placeholder = "password"
+            passwordTextField.borderStyle = .none
+            passwordTextField.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+            passwordTextField.tintColor = .black
+        }
+    }
+    @IBOutlet private var passwordBorderView: UIView! {
+        didSet {
+            passwordBorderView.backgroundColor = .black
+            passwordBorderView.alpha = 0.2
         }
     }
     
@@ -50,24 +51,10 @@ class LoginViewController: UIViewController {
         
         navigationController?.hideNavigationBar()
         
-        setupNextButton()
-        
-        let _ = textField
-            .rx.text
-            .orEmpty
-            .throttle(DispatchTimeInterval.microseconds(100), scheduler: MainScheduler.instance)
-            .map { $0.count >= 4 }
-            .share(replay: 1)
-            .bind(to: nextButton.rx.isEnabled)
-            .disposed(by: disposeBag)
-        
-        let _ = textField
-            .rx.text.orEmpty
-            .throttle(DispatchTimeInterval.microseconds(100), scheduler: MainScheduler.instance)
-            .map { $0.count == 0 || $0.count >= 4 }
-            .share(replay: 1)
-            .bind(to: instructionLabel.rx.isHidden)
-            .disposed(by: disposeBag)
+        let _ = textField.rx.controlEvent(.editingDidBegin).share(replay: 1).map { 1.0 }.bind(to: borderView.rx.alpha).disposed(by: disposeBag)
+        let _ = passwordTextField.rx.controlEvent(.editingDidBegin).share(replay: 1).map { 1.0 }.bind(to: passwordBorderView.rx.alpha).disposed(by: disposeBag)
+        let _ = textField.rx.controlEvent(.editingDidEnd).share(replay: 1).map { 0.2 }.bind(to: borderView.rx.alpha).disposed(by: disposeBag)
+        let _ = passwordTextField.rx.controlEvent(.editingDidEnd).share(replay: 1).map { 0.2 }.bind(to: passwordBorderView.rx.alpha).disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,32 +62,7 @@ class LoginViewController: UIViewController {
         
         UIView.animate(withDuration: 0.6) {
             self.textField.becomeFirstResponder()
-            self.borderView.alpha = 1
         }
-        
-        self.label.frame = self.label.frame.offsetBy(dx: 0, dy: 16)
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.3, options: .curveEaseInOut, animations: {
-            self.label.frame = self.label.frame.offsetBy(dx: 0, dy: -16)
-        }, completion: nil)
-    }
-    
-    private func setupNextButton() {
-        nextButton = {
-            let button = UIButton(type: .system)
-            let buttonHeight: CGFloat = 60.0, buttonWidth: CGFloat = 60.0
-            button.frame = CGRect(x: UIScreen.main.bounds.width - buttonWidth - 16.0, y: .zero, width: buttonWidth, height: buttonHeight)
-            button.setImage(UIImage(named: "ArrowRight"), for: .normal)
-            button.backgroundColor = .black
-            button.tintColor = .white
-            button.layer.cornerRadius = buttonHeight / 2
-            button.addTarget(self, action: #selector(showPassword(_:)), for: .touchUpInside)
-            button.isEnabled = false
-            return button
-        }()
-        
-        let accessoryView = UIView(frame: CGRect(x: .zero, y: .zero, width: nextButton.frame.width + 10, height: nextButton.frame.height + 10))
-        accessoryView.addSubview(nextButton)
-        textField.inputAccessoryView = accessoryView
     }
     
     @objc private func showPassword(_ sender: Any) {

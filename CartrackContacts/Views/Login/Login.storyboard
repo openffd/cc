@@ -16,19 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="feg-Fr-zeq">
-                                <rect key="frame" x="24" y="92" width="366" height="130"/>
+                                <rect key="frame" x="24" y="128" width="366" height="54"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6Y-2b-nTH">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="52"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="131-QZ-Hsc"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Svk-Jx-0E0">
-                                        <rect key="frame" x="0.0" y="52" width="366" height="52"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="Ya9-ie-U3c"/>
                                         </constraints>
@@ -36,38 +27,52 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQK-5s-9ZR">
-                                        <rect key="frame" x="0.0" y="104" width="366" height="2"/>
+                                        <rect key="frame" x="0.0" y="52" width="366" height="2"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="tkm-qe-ble"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD7-Pg-FFB">
-                                        <rect key="frame" x="0.0" y="106" width="366" height="24"/>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ocv-xD-x9M">
+                                <rect key="frame" x="24" y="198" width="366" height="54"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXR-1F-llK">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="52"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="tpb-XK-IHH"/>
+                                            <constraint firstAttribute="height" constant="52" id="EAO-Zp-ip3"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPB-vf-LPi">
+                                        <rect key="frame" x="0.0" y="52" width="366" height="2"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="1qd-gl-Jqi"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Ocv-xD-x9M" firstAttribute="top" secondItem="feg-Fr-zeq" secondAttribute="bottom" constant="16" id="3d2-m1-bKd"/>
                             <constraint firstItem="feg-Fr-zeq" firstAttribute="centerX" secondItem="OaH-ls-ahh" secondAttribute="centerX" id="G01-yl-kyY"/>
-                            <constraint firstItem="feg-Fr-zeq" firstAttribute="top" secondItem="OaH-ls-ahh" secondAttribute="top" constant="4" id="IOo-EV-x0a"/>
+                            <constraint firstItem="feg-Fr-zeq" firstAttribute="top" secondItem="OaH-ls-ahh" secondAttribute="top" constant="40" id="IOo-EV-x0a"/>
                             <constraint firstItem="OaH-ls-ahh" firstAttribute="trailing" secondItem="feg-Fr-zeq" secondAttribute="trailing" constant="24" id="i9R-BI-00S"/>
                             <constraint firstItem="feg-Fr-zeq" firstAttribute="leading" secondItem="OaH-ls-ahh" secondAttribute="leading" constant="24" id="tP5-uO-mY9"/>
+                            <constraint firstItem="Ocv-xD-x9M" firstAttribute="centerX" secondItem="feg-Fr-zeq" secondAttribute="centerX" id="xsl-Qt-3ni"/>
+                            <constraint firstItem="Ocv-xD-x9M" firstAttribute="width" secondItem="feg-Fr-zeq" secondAttribute="width" id="yqz-qV-7TL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OaH-ls-ahh"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bdt-pv-cpe"/>
                     <connections>
                         <outlet property="borderView" destination="tQK-5s-9ZR" id="oNN-jO-FT0"/>
-                        <outlet property="instructionLabel" destination="MD7-Pg-FFB" id="V6Z-DO-W5R"/>
-                        <outlet property="label" destination="h6Y-2b-nTH" id="bb7-8D-mCJ"/>
+                        <outlet property="passwordBorderView" destination="xPB-vf-LPi" id="0G1-l7-FKS"/>
+                        <outlet property="passwordTextField" destination="IXR-1F-llK" id="fy9-37-jux"/>
                         <outlet property="textField" destination="Svk-Jx-0E0" id="PMp-Tw-fSL"/>
                     </connections>
                 </viewController>
