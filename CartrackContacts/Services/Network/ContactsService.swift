@@ -13,6 +13,13 @@ enum ContactsRequest {
 }
 
 extension ContactsRequest: NetworkRequest {
+    var method: NetworkRequestMethod {
+        switch self {
+        case .contacts:
+            return .GET
+        }
+    }
+    
     var scheme: String {
         "https"
     }
@@ -32,13 +39,6 @@ extension ContactsRequest: NetworkRequest {
         switch self {
         case .contacts:
             return [:]
-        }
-    }
-    
-    var method: NetworkRequestMethod {
-        switch self {
-        case .contacts:
-            return .GET
         }
     }
 }
