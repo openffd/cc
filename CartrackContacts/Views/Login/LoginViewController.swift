@@ -10,21 +10,30 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet private var label: UILabel! {
+        didSet {
+            label.text = "Enter your username:"
+            label.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 26)
+            label.textColor = .black
+        }
+    }
+    @IBOutlet private var textField: UITextField! {
+        didSet {
+            textField.placeholder = "Username"
+            textField.borderStyle = .none
+            textField.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
+        }
+    }
+    @IBOutlet private var borderView: UIView! {
+        didSet {
+            borderView.backgroundColor = .black
+            borderView.alpha = 0.2
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private var nextButton: UIButton?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
-
 }
