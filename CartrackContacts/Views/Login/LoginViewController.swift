@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
         didSet {
             instructionLabel.text = "Username should be at least 4 characters."
             instructionLabel.font = UIFont(name: "HelveticaNeue", size: 12)
-            instructionLabel.textColor = .systemRed
+            instructionLabel.textColor = .systemBlue
         }
     }
     
@@ -68,6 +68,20 @@ class LoginViewController: UIViewController {
             .share(replay: 1)
             .bind(to: instructionLabel.rx.isHidden)
             .disposed(by: disposeBag)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.6) {
+            self.textField.becomeFirstResponder()
+            self.borderView.alpha = 1
+        }
+        
+        self.label.frame = self.label.frame.offsetBy(dx: 0, dy: 16)
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.3, options: .curveEaseInOut, animations: {
+            self.label.frame = self.label.frame.offsetBy(dx: 0, dy: -16)
+        }, completion: nil)
     }
     
     private func setupNextButton() {
