@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     
+    private var passwordVisibilityButton: UIButton!
+    
     @IBOutlet private var logoLabel: UILabel! {
         didSet {
             logoLabel.text = "🄲🄲"
@@ -71,6 +73,13 @@ class LoginViewController: UIViewController {
         let _ = passwordTextField.rx.controlEvent(.editingDidBegin).share(replay: 1).map { 1.0 }.bind(to: passwordBorderView.rx.alpha).disposed(by: disposeBag)
         let _ = textField.rx.controlEvent(.editingDidEnd).share(replay: 1).map { 0.2 }.bind(to: borderView.rx.alpha).disposed(by: disposeBag)
         let _ = passwordTextField.rx.controlEvent(.editingDidEnd).share(replay: 1).map { 0.2 }.bind(to: passwordBorderView.rx.alpha).disposed(by: disposeBag)
+        
+        passwordVisibilityButton = UIButton(type: .custom)
+        passwordVisibilityButton.setImage(UIImage(named: "PasswordHidden"), for: .normal)
+        passwordVisibilityButton.frame = CGRect(x: passwordTextField.frame.size.width + 30, y: 0, width: 25, height: 25)
+        passwordVisibilityButton.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
+        passwordTextField.rightView = passwordVisibilityButton
+        passwordTextField.rightViewMode = .always
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,5 +92,11 @@ class LoginViewController: UIViewController {
     
     @objc private func showPassword(_ sender: Any) {
         
+    }
+    
+    @objc private func togglePasswordVisibility(_ sender: Any) {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        let imageName = passwordTextField.isSecureTextEntry ? "PasswordHidden" : "PasswordVisible"
+        passwordVisibilityButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }
