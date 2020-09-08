@@ -10,13 +10,31 @@
         <!--Landing View Controller-->
         <scene sceneID="Okp-OQ-wPQ">
             <objects>
-                <viewController id="iJK-aW-SwY" customClass="LandingViewController" customModule="CartrackContacts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iJK-aW-SwY" customClass="LandingViewController" customModule="CC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fw0-ec-qzM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="xd7-Q6-aqQ">
+                                <rect key="frame" x="44" y="309" width="326" height="208"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xd7-Q6-aqQ" secondAttribute="height" multiplier="400:255" id="ZCb-KT-XID"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2Am-fx-b3f" firstAttribute="trailing" secondItem="xd7-Q6-aqQ" secondAttribute="trailing" constant="44" id="2dW-zm-6d1"/>
+                            <constraint firstItem="xd7-Q6-aqQ" firstAttribute="centerY" secondItem="2Am-fx-b3f" secondAttribute="centerY" constant="-40" id="KVZ-cQ-IdJ"/>
+                            <constraint firstItem="xd7-Q6-aqQ" firstAttribute="leading" secondItem="2Am-fx-b3f" secondAttribute="leading" constant="44" id="fby-tw-OTb"/>
+                            <constraint firstItem="xd7-Q6-aqQ" firstAttribute="centerX" secondItem="2Am-fx-b3f" secondAttribute="centerX" id="sHq-qY-EF4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Am-fx-b3f"/>
                     </view>
+                    <connections>
+                        <outlet property="animationContainerView" destination="xd7-Q6-aqQ" id="B2x-U7-ey6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1R-Py-4xO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

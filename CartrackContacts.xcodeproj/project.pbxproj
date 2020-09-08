@@ -34,6 +34,11 @@
 		8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23F250739C400FF1A3F /* NetworkRequest.swift */; };
 		8172A2422507427300FF1A3F /* RemoteResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2412507427300FF1A3F /* RemoteResourceLoader.swift */; };
 		8172A24825079F2200FF1A3F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24725079F2200FF1A3F /* Lottie */; };
+		8172A24B2507A16A00FF1A3F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24A2507A16A00FF1A3F /* RxSwift */; };
+		8172A24F2507A16A00FF1A3F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24E2507A16A00FF1A3F /* RxRelay */; };
+		8172A2512507A16A00FF1A3F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2502507A16A00FF1A3F /* RxCocoa */; };
+		8172A2532507A16A00FF1A3F /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2522507A16A00FF1A3F /* RxBlocking */; };
+		8172A2552507A48300FF1A3F /* Sedan.json in Resources */ = {isa = PBXBuildFile; fileRef = 8172A2542507A48300FF1A3F /* Sedan.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +81,7 @@
 		8172A23B25066B8D00FF1A3F /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 		8172A23F250739C400FF1A3F /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		8172A2412507427300FF1A3F /* RemoteResourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteResourceLoader.swift; sourceTree = "<group>"; };
+		8172A2542507A48300FF1A3F /* Sedan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sedan.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +89,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8172A2512507A16A00FF1A3F /* RxCocoa in Frameworks */,
+				8172A24F2507A16A00FF1A3F /* RxRelay in Frameworks */,
+				8172A24B2507A16A00FF1A3F /* RxSwift in Frameworks */,
 				8172A2132505E61900FF1A3F /* Reachability in Frameworks */,
 				8172A24825079F2200FF1A3F /* Lottie in Frameworks */,
+				8172A2532507A16A00FF1A3F /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,11 +131,11 @@
 			children = (
 				8172A1E62505E3F600FF1A3F /* AppDelegate.swift */,
 				8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */,
-				8172A1EF2505E3F700FF1A3F /* Assets.xcassets */,
 				8172A1F42505E3F700FF1A3F /* Info.plist */,
 				8172A2082505E4E600FF1A3F /* Views */,
 				8172A2172505E99B00FF1A3F /* Models */,
 				8172A2212505EDAC00FF1A3F /* Services */,
+				8172A2562507AA8800FF1A3F /* Resources */,
 				8172A2142505E6FA00FF1A3F /* Extensions */,
 			);
 			path = CartrackContacts;
@@ -237,6 +247,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		8172A2562507AA8800FF1A3F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8172A1EF2505E3F700FF1A3F /* Assets.xcassets */,
+				8172A2542507A48300FF1A3F /* Sedan.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +275,10 @@
 			packageProductDependencies = (
 				8172A2122505E61900FF1A3F /* Reachability */,
 				8172A24725079F2200FF1A3F /* Lottie */,
+				8172A24A2507A16A00FF1A3F /* RxSwift */,
+				8172A24E2507A16A00FF1A3F /* RxRelay */,
+				8172A2502507A16A00FF1A3F /* RxCocoa */,
+				8172A2522507A16A00FF1A3F /* RxBlocking */,
 			);
 			productName = CartrackContacts;
 			productReference = 8172A1E32505E3F600FF1A3F /* CC.app */;
@@ -310,6 +333,7 @@
 			packageReferences = (
 				8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */,
 				8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 8172A1E42505E3F600FF1A3F /* Products */;
 			projectDirPath = "";
@@ -329,6 +353,7 @@
 				8172A1F32505E3F700FF1A3F /* LaunchScreen.storyboard in Resources */,
 				8172A1F02505E3F700FF1A3F /* Assets.xcassets in Resources */,
 				8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */,
+				8172A2552507A48300FF1A3F /* Sedan.json in Resources */,
 				8172A20D2505E59300FF1A3F /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,6 +676,14 @@
 				minimumVersion = 3.1.8;
 			};
 		};
+		8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -663,6 +696,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		8172A24A2507A16A00FF1A3F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		8172A24E2507A16A00FF1A3F /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		8172A2502507A16A00FF1A3F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		8172A2522507A16A00FF1A3F /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
