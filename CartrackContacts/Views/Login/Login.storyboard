@@ -15,8 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLu-Jy-JdK">
+                                <rect key="frame" x="24" y="128.5" width="42" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dfE-8P-kjb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="feg-Fr-zeq">
-                                <rect key="frame" x="24" y="128" width="366" height="54"/>
+                                <rect key="frame" x="24" y="192.5" width="366" height="54"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Svk-Jx-0E0">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="52"/>
@@ -36,7 +45,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ocv-xD-x9M">
-                                <rect key="frame" x="24" y="198" width="366" height="54"/>
+                                <rect key="frame" x="24" y="262.5" width="366" height="54"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXR-1F-llK">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="52"/>
@@ -55,13 +64,23 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cz-nZ-bfW">
+                                <rect key="frame" x="24" y="88" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Ocv-xD-x9M" firstAttribute="top" secondItem="feg-Fr-zeq" secondAttribute="bottom" constant="16" id="3d2-m1-bKd"/>
                             <constraint firstItem="feg-Fr-zeq" firstAttribute="centerX" secondItem="OaH-ls-ahh" secondAttribute="centerX" id="G01-yl-kyY"/>
-                            <constraint firstItem="feg-Fr-zeq" firstAttribute="top" secondItem="OaH-ls-ahh" secondAttribute="top" constant="40" id="IOo-EV-x0a"/>
+                            <constraint firstItem="feg-Fr-zeq" firstAttribute="top" secondItem="cLu-Jy-JdK" secondAttribute="bottom" constant="20" id="Gag-lV-9sf"/>
+                            <constraint firstItem="cLu-Jy-JdK" firstAttribute="leading" secondItem="OaH-ls-ahh" secondAttribute="leading" constant="24" id="KId-Dl-8Yw"/>
+                            <constraint firstItem="8cz-nZ-bfW" firstAttribute="top" secondItem="OaH-ls-ahh" secondAttribute="top" id="Nu3-UW-lEJ"/>
                             <constraint firstItem="OaH-ls-ahh" firstAttribute="trailing" secondItem="feg-Fr-zeq" secondAttribute="trailing" constant="24" id="i9R-BI-00S"/>
+                            <constraint firstItem="cLu-Jy-JdK" firstAttribute="top" secondItem="8cz-nZ-bfW" secondAttribute="bottom" constant="20" id="mRJ-za-RfC"/>
+                            <constraint firstItem="8cz-nZ-bfW" firstAttribute="leading" secondItem="OaH-ls-ahh" secondAttribute="leading" constant="24" id="rSu-as-Jrp"/>
                             <constraint firstItem="feg-Fr-zeq" firstAttribute="leading" secondItem="OaH-ls-ahh" secondAttribute="leading" constant="24" id="tP5-uO-mY9"/>
                             <constraint firstItem="Ocv-xD-x9M" firstAttribute="centerX" secondItem="feg-Fr-zeq" secondAttribute="centerX" id="xsl-Qt-3ni"/>
                             <constraint firstItem="Ocv-xD-x9M" firstAttribute="width" secondItem="feg-Fr-zeq" secondAttribute="width" id="yqz-qV-7TL"/>
@@ -71,6 +90,8 @@
                     <navigationItem key="navigationItem" id="Bdt-pv-cpe"/>
                     <connections>
                         <outlet property="borderView" destination="tQK-5s-9ZR" id="oNN-jO-FT0"/>
+                        <outlet property="loginLabel" destination="cLu-Jy-JdK" id="XfK-SN-pAa"/>
+                        <outlet property="logoLabel" destination="8cz-nZ-bfW" id="LcB-Yy-DWn"/>
                         <outlet property="passwordBorderView" destination="xPB-vf-LPi" id="0G1-l7-FKS"/>
                         <outlet property="passwordTextField" destination="IXR-1F-llK" id="fy9-37-jux"/>
                         <outlet property="textField" destination="Svk-Jx-0E0" id="PMp-Tw-fSL"/>

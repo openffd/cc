@@ -14,6 +14,22 @@ class LoginViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     
+    @IBOutlet private var logoLabel: UILabel! {
+        didSet {
+            logoLabel.text = "🄲🄲"
+            logoLabel.backgroundColor = .systemOrange
+            logoLabel.textColor = .black
+            logoLabel.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 60)
+        }
+    }
+    @IBOutlet private var loginLabel: UILabel! {
+        didSet {
+            loginLabel.text = "Login"
+            loginLabel.backgroundColor = .clear
+            loginLabel.textColor = .black
+            loginLabel.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 36)
+        }
+    }
     @IBOutlet private var textField: UITextField! {
         didSet {
             textField.placeholder = "username"
