@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="feg-Fr-zeq">
-                                <rect key="frame" x="24" y="112" width="366" height="106"/>
+                                <rect key="frame" x="24" y="92" width="366" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6Y-2b-nTH">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="52"/>
@@ -48,7 +48,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="feg-Fr-zeq" firstAttribute="centerX" secondItem="OaH-ls-ahh" secondAttribute="centerX" id="G01-yl-kyY"/>
-                            <constraint firstItem="feg-Fr-zeq" firstAttribute="top" secondItem="OaH-ls-ahh" secondAttribute="top" constant="24" id="IOo-EV-x0a"/>
+                            <constraint firstItem="feg-Fr-zeq" firstAttribute="top" secondItem="OaH-ls-ahh" secondAttribute="top" constant="4" id="IOo-EV-x0a"/>
                             <constraint firstItem="OaH-ls-ahh" firstAttribute="trailing" secondItem="feg-Fr-zeq" secondAttribute="trailing" constant="24" id="i9R-BI-00S"/>
                             <constraint firstItem="feg-Fr-zeq" firstAttribute="leading" secondItem="OaH-ls-ahh" secondAttribute="leading" constant="24" id="tP5-uO-mY9"/>
                         </constraints>
