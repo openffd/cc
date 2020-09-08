@@ -62,6 +62,14 @@ class LandingViewController: UIViewController {
         animationContainerView.addSubview(animationView!)
         animationView?.play()
     }
+    
+    @IBAction private func login(_ sender: UIButton) {
+        performSegue(withIdentifier: .showLogin, sender: nil)
+    }
+    
+    @IBAction private func signup(_ sender: UIButton) {
+        performSegue(withIdentifier: .showSignup, sender: nil)
+    }
 }
 
 typealias SegueIdentifier = String
