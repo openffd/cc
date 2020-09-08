@@ -31,7 +31,8 @@
 		8172A2312506271300FF1A3F /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2302506271300FF1A3F /* DynamicValue.swift */; };
 		8172A2382506616400FF1A3F /* DataInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2372506616400FF1A3F /* DataInstantiatable.swift */; };
 		8172A23A2506654F00FF1A3F /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2392506654F00FF1A3F /* DataFetcher.swift */; };
-		8172A23C25066B8D00FF1A3F /* ContactsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23B25066B8D00FF1A3F /* ContactsAPI.swift */; };
+		8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23B25066B8D00FF1A3F /* ContactsService.swift */; };
+		8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23F250739C400FF1A3F /* NetworkRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,8 @@
 		8172A2302506271300FF1A3F /* DynamicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
 		8172A2372506616400FF1A3F /* DataInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInstantiatable.swift; sourceTree = "<group>"; };
 		8172A2392506654F00FF1A3F /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
-		8172A23B25066B8D00FF1A3F /* ContactsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsAPI.swift; sourceTree = "<group>"; };
+		8172A23B25066B8D00FF1A3F /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
+		8172A23F250739C400FF1A3F /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +229,8 @@
 			children = (
 				8172A2372506616400FF1A3F /* DataInstantiatable.swift */,
 				8172A2392506654F00FF1A3F /* DataFetcher.swift */,
-				8172A23B25066B8D00FF1A3F /* ContactsAPI.swift */,
+				8172A23B25066B8D00FF1A3F /* ContactsService.swift */,
+				8172A23F250739C400FF1A3F /* NetworkRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -353,12 +356,13 @@
 				8172A2382506616400FF1A3F /* DataInstantiatable.swift in Sources */,
 				8172A2102505E5A700FF1A3F /* HomeViewController.swift in Sources */,
 				8172A2272505EEAF00FF1A3F /* SQLiteDatabase.swift in Sources */,
+				8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */,
 				8172A21B2505EA7000FF1A3F /* Address.swift in Sources */,
 				8172A22D2506151700FF1A3F /* String+.swift in Sources */,
 				8172A23A2506654F00FF1A3F /* DataFetcher.swift in Sources */,
 				8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */,
 				8172A2312506271300FF1A3F /* DynamicValue.swift in Sources */,
-				8172A23C25066B8D00FF1A3F /* ContactsAPI.swift in Sources */,
+				8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
