@@ -32,6 +32,7 @@
 		8172A23A2506654F00FF1A3F /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2392506654F00FF1A3F /* DataFetcher.swift */; };
 		8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23B25066B8D00FF1A3F /* ContactsService.swift */; };
 		8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23F250739C400FF1A3F /* NetworkRequest.swift */; };
+		8172A2422507427300FF1A3F /* RemoteResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2412507427300FF1A3F /* RemoteResourceLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		8172A2392506654F00FF1A3F /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		8172A23B25066B8D00FF1A3F /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 		8172A23F250739C400FF1A3F /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		8172A2412507427300FF1A3F /* RemoteResourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteResourceLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				8172A2392506654F00FF1A3F /* DataFetcher.swift */,
 				8172A23B25066B8D00FF1A3F /* ContactsService.swift */,
 				8172A23F250739C400FF1A3F /* NetworkRequest.swift */,
+				8172A2412507427300FF1A3F /* RemoteResourceLoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				8172A2252505EE1D00FF1A3F /* SQLite.swift in Sources */,
 				8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */,
 				8172A2192505E9B800FF1A3F /* Contact.swift in Sources */,
+				8172A2422507427300FF1A3F /* RemoteResourceLoader.swift in Sources */,
 				8172A22B2506044900FF1A3F /* SQLiteDatabase+User.swift in Sources */,
 				8172A20B2505E53E00FF1A3F /* LandingViewController.swift in Sources */,
 				8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */,
@@ -519,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9F5577859V;
 				INFOPLIST_FILE = CartrackContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,6 +541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9F5577859V;
 				INFOPLIST_FILE = CartrackContacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
