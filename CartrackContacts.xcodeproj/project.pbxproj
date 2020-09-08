@@ -33,7 +33,7 @@
 		8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23B25066B8D00FF1A3F /* ContactsService.swift */; };
 		8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23F250739C400FF1A3F /* NetworkRequest.swift */; };
 		8172A2422507427300FF1A3F /* RemoteResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2412507427300FF1A3F /* RemoteResourceLoader.swift */; };
-		8172A24525078C9800FF1A3F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24425078C9800FF1A3F /* Lottie */; };
+		8172A24825079F2200FF1A3F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24725079F2200FF1A3F /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8172A2132505E61900FF1A3F /* Reachability in Frameworks */,
-				8172A24525078C9800FF1A3F /* Lottie in Frameworks */,
+				8172A24825079F2200FF1A3F /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +255,7 @@
 			name = CartrackContacts;
 			packageProductDependencies = (
 				8172A2122505E61900FF1A3F /* Reachability */,
-				8172A24425078C9800FF1A3F /* Lottie */,
+				8172A24725079F2200FF1A3F /* Lottie */,
 			);
 			productName = CartrackContacts;
 			productReference = 8172A1E32505E3F600FF1A3F /* CC.app */;
@@ -309,7 +309,7 @@
 			mainGroup = 8172A1DA2505E3F600FF1A3F;
 			packageReferences = (
 				8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */,
-				8172A24325078C9800FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 8172A1E42505E3F600FF1A3F /* Products */;
 			projectDirPath = "";
@@ -643,12 +643,12 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		8172A24325078C9800FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
-				branch = "lottie/macos-spm";
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -659,9 +659,9 @@
 			package = 8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */;
 			productName = Reachability;
 		};
-		8172A24425078C9800FF1A3F /* Lottie */ = {
+		8172A24725079F2200FF1A3F /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8172A24325078C9800FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
