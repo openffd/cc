@@ -9,37 +9,30 @@
 import Foundation
 
 protocol DataFetcher: AnyObject {
-    func fetch<T>(from request: URLRequest, completion: @escaping (T?, NSError?) -> Void) where T: DataInstantiatable
+    func fetch(from request: URLRequest, deliverQueue: DispatchQueue, completion: @escaping (Result<Data, Error>) -> Void)
 }
 
+typealias DataRequestCompletion = (Result<Data, Error>) -> Void
+
 extension URLSession: DataFetcher {
-    func fetch<T>(from request: URLRequest, completion: @escaping (T?, NSError?) -> Void) where T: DataInstantiatable {
-        let dataTask = self.dataTask(with: request) { data, response, error in
-            guard error == nil else {
-                return
+    private func dataTask(with request: URLRequest, completion: @escaping DataRequestCompletion) -> URLSessionDataTask {
+        dataTask(with: request) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
             }
-            
-            guard let response = response as? HTTPURLResponse else {
-                return
-            }
-            
-            guard response.isStatusOK else {
-                return
-            }
-            
-            guard data != nil else {
-                return
-            }
-            
-            do {
-                guard let object: T = try data.flatMap(T.decoder) else { return }
-                completion(object, nil)
-            } catch {
-                print(error.localizedDescription)
-            }
+            completion(.success(data ?? Data()))
         }
-        dataTask.priority = .highest
-        dataTask.resume()
+    }
+    
+    func fetch(from request: URLRequest, deliverQueue: DispatchQueue = .main, completion: @escaping DataRequestCompletion) {
+        dataTask(with: request) { result in
+            switch result {
+            case .success(let data):
+                deliverQueue.async { completion(.success(data)) }
+            case .failure(let error):
+                deliverQueue.async { completion(.failure(error)) }
+            }
+        }.resume()
     }
 }
 
