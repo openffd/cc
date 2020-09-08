@@ -38,5 +38,3 @@ final class Contact: Codable {
         self.company = company
     }
 }
-
-extension Contact: DataInstantiatable {}
