@@ -63,3 +63,9 @@ class LandingViewController: UIViewController {
         animationView?.play()
     }
 }
+
+typealias SegueIdentifier = String
+private extension SegueIdentifier {
+    static let showSignup = "ShowSignup"
+    static let showLogin = "ShowLogin"
+}
