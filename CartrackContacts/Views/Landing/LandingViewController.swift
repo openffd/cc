@@ -11,9 +11,31 @@ import Lottie
 
 class LandingViewController: UIViewController {
 
+    @IBOutlet private var appNameLabel: UILabel! {
+        didSet {
+            appNameLabel.text = "🄲🄲"
+            appNameLabel.textColor = .black
+            appNameLabel.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 80)
+        }
+    }
     @IBOutlet private var animationContainerView: UIView! {
         didSet {
             animationContainerView.backgroundColor = .clear
+        }
+    }
+    @IBOutlet private var loginButton: UIButton! {
+        didSet {
+            loginButton.tintColor = .white
+            loginButton.setTitle("LOGIN", for: .normal)
+            loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
+        }
+    }
+    @IBOutlet private var signupButton: UIButton! {
+        didSet {
+            signupButton.backgroundColor = .black
+            signupButton.tintColor = .white
+            signupButton.setTitle("SIGN UP", for: .normal)
+            signupButton.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
         }
     }
     
@@ -28,6 +50,10 @@ class LandingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        setupAnimationView()
+    }
+    
+    private func setupAnimationView() {
         animationView = .init(name: "Sedan")
         animationView?.frame = animationContainerView.bounds
         animationView?.backgroundColor = .clear

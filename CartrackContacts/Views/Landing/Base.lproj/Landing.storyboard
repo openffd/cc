@@ -15,6 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfp-sn-vyS">
+                                <rect key="frame" x="186" y="104" width="42" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="xd7-Q6-aqQ">
                                 <rect key="frame" x="44" y="309" width="326" height="208"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -22,18 +28,46 @@
                                     <constraint firstAttribute="width" secondItem="xd7-Q6-aqQ" secondAttribute="height" multiplier="400:255" id="ZCb-KT-XID"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9eJ-qB-69O">
+                                <rect key="frame" x="28" y="718" width="358" height="124"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-Bt-DOr">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="gG8-t8-gcv"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGs-lS-Tfn">
+                                        <rect key="frame" x="0.0" y="64" width="358" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="6XO-6d-XSe"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="2Am-fx-b3f" firstAttribute="trailing" secondItem="xd7-Q6-aqQ" secondAttribute="trailing" constant="44" id="2dW-zm-6d1"/>
+                            <constraint firstItem="Vfp-sn-vyS" firstAttribute="top" secondItem="2Am-fx-b3f" secondAttribute="top" constant="60" id="5ma-kp-JX1"/>
+                            <constraint firstItem="Vfp-sn-vyS" firstAttribute="centerX" secondItem="2Am-fx-b3f" secondAttribute="centerX" id="BCf-eH-itA"/>
                             <constraint firstItem="xd7-Q6-aqQ" firstAttribute="centerY" secondItem="2Am-fx-b3f" secondAttribute="centerY" constant="-40" id="KVZ-cQ-IdJ"/>
+                            <constraint firstItem="2Am-fx-b3f" firstAttribute="bottom" secondItem="9eJ-qB-69O" secondAttribute="bottom" constant="20" id="WfO-fz-1Ou"/>
+                            <constraint firstItem="2Am-fx-b3f" firstAttribute="trailing" secondItem="9eJ-qB-69O" secondAttribute="trailing" constant="28" id="ZIa-gZ-D76"/>
                             <constraint firstItem="xd7-Q6-aqQ" firstAttribute="leading" secondItem="2Am-fx-b3f" secondAttribute="leading" constant="44" id="fby-tw-OTb"/>
+                            <constraint firstItem="9eJ-qB-69O" firstAttribute="centerX" secondItem="2Am-fx-b3f" secondAttribute="centerX" id="sDb-OZ-d4F"/>
                             <constraint firstItem="xd7-Q6-aqQ" firstAttribute="centerX" secondItem="2Am-fx-b3f" secondAttribute="centerX" id="sHq-qY-EF4"/>
+                            <constraint firstItem="9eJ-qB-69O" firstAttribute="leading" secondItem="2Am-fx-b3f" secondAttribute="leading" constant="28" id="t6c-ds-pR4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Am-fx-b3f"/>
                     </view>
                     <connections>
                         <outlet property="animationContainerView" destination="xd7-Q6-aqQ" id="B2x-U7-ey6"/>
+                        <outlet property="appNameLabel" destination="Vfp-sn-vyS" id="PeI-EM-yOh"/>
+                        <outlet property="loginButton" destination="KfV-Bt-DOr" id="TCG-re-Hr6"/>
+                        <outlet property="signupButton" destination="KGs-lS-Tfn" id="n0Q-5M-5Ko"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1R-Py-4xO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
