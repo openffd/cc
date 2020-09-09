@@ -45,6 +45,7 @@
 		8172A2602507B4E800FF1A3F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A25F2507B4E800FF1A3F /* SignupViewController.swift */; };
 		8172A2622507BAD900FF1A3F /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2612507BAD900FF1A3F /* UINavigationController+.swift */; };
 		8172A264250874C600FF1A3F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A263250874C600FF1A3F /* UIViewController+.swift */; };
+		8172A266250876B500FF1A3F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A265250876B500FF1A3F /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		8172A25F2507B4E800FF1A3F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		8172A2612507BAD900FF1A3F /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		8172A263250874C600FF1A3F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		8172A265250876B500FF1A3F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				8172A2212505EDAC00FF1A3F /* Services */,
 				8172A2562507AA8800FF1A3F /* Resources */,
 				8172A2142505E6FA00FF1A3F /* Extensions */,
+				8172A267250877C400FF1A3F /* Protocols */,
 			);
 			path = CartrackContacts;
 			sourceTree = "<group>";
@@ -290,6 +293,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		8172A267250877C400FF1A3F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8172A265250876B500FF1A3F /* ViewModel.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -429,6 +440,7 @@
 				8172A21B2505EA7000FF1A3F /* Address.swift in Sources */,
 				8172A22D2506151700FF1A3F /* String+.swift in Sources */,
 				8172A23A2506654F00FF1A3F /* DataFetcher.swift in Sources */,
+				8172A266250876B500FF1A3F /* ViewModel.swift in Sources */,
 				8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */,
 				8172A2312506271300FF1A3F /* DynamicValue.swift in Sources */,
 				8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */,
