@@ -44,6 +44,7 @@
 		8172A25E2507B4DB00FF1A3F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A25D2507B4DB00FF1A3F /* Login.storyboard */; };
 		8172A2602507B4E800FF1A3F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A25F2507B4E800FF1A3F /* SignupViewController.swift */; };
 		8172A2622507BAD900FF1A3F /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2612507BAD900FF1A3F /* UINavigationController+.swift */; };
+		8172A264250874C600FF1A3F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A263250874C600FF1A3F /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		8172A25D2507B4DB00FF1A3F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8172A25F2507B4E800FF1A3F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		8172A2612507BAD900FF1A3F /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		8172A263250874C600FF1A3F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				8172A22C2506151700FF1A3F /* String+.swift */,
 				8172A22E2506192600FF1A3F /* SHA256Digest+.swift */,
 				8172A2612507BAD900FF1A3F /* UINavigationController+.swift */,
+				8172A263250874C600FF1A3F /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			files = (
 				8172A25A2507B4C500FF1A3F /* LoginViewController.swift in Sources */,
 				8172A2162505E71900FF1A3F /* UIStoryboard+.swift in Sources */,
+				8172A264250874C600FF1A3F /* UIViewController+.swift in Sources */,
 				8172A2622507BAD900FF1A3F /* UINavigationController+.swift in Sources */,
 				8172A2602507B4E800FF1A3F /* SignupViewController.swift in Sources */,
 				8172A22F2506192600FF1A3F /* SHA256Digest+.swift in Sources */,
