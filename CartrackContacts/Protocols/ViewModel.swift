@@ -13,10 +13,11 @@ protocol ViewModel: AnyObject {
     associatedtype Output
 }
 
-protocol ViewModeled: AnyObject {
+protocol ViewModelConfigured: AnyObject {
+    associatedtype This = Self
     associatedtype AssociatedViewModel: ViewModel
     
-    static func instantiate(with viewModel: AssociatedViewModel) -> Self
+    static func instantiate(with viewModel: AssociatedViewModel) -> This
     
     func configure(with viewModel: AssociatedViewModel)
 }
