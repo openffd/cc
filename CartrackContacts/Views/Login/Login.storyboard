@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hrN-fj-6um">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +11,11 @@
             <objects>
                 <viewController id="2Qb-iG-WM2" customClass="LoginViewController" customModule="CC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="adb-hk-xIk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLu-Jy-JdK">
-                                <rect key="frame" x="24" y="112.5" width="42" height="44"/>
+                                <rect key="frame" x="24" y="68.5" width="42" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="dfE-8P-kjb"/>
                                 </constraints>
@@ -25,10 +24,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="feg-Fr-zeq">
-                                <rect key="frame" x="24" y="168.5" width="366" height="48"/>
+                                <rect key="frame" x="24" y="124.5" width="552" height="48"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Svk-Jx-0E0">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="552" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="Ya9-ie-U3c"/>
                                         </constraints>
@@ -36,7 +35,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQK-5s-9ZR">
-                                        <rect key="frame" x="0.0" y="46" width="366" height="2"/>
+                                        <rect key="frame" x="0.0" y="46" width="552" height="2"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="tkm-qe-ble"/>
@@ -45,10 +44,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="Ocv-xD-x9M">
-                                <rect key="frame" x="24" y="232.5" width="366" height="48"/>
+                                <rect key="frame" x="24" y="188.5" width="552" height="48"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXR-1F-llK">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="552" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="EAO-Zp-ip3"/>
                                         </constraints>
@@ -56,7 +55,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPB-vf-LPi">
-                                        <rect key="frame" x="0.0" y="46" width="366" height="2"/>
+                                        <rect key="frame" x="0.0" y="46" width="552" height="2"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="1qd-gl-Jqi"/>
@@ -65,14 +64,14 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hs2-1x-UnB">
-                                <rect key="frame" x="83" y="308.5" width="248" height="60"/>
+                                <rect key="frame" x="120" y="264.5" width="360" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Ln0-jI-FJq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cz-nZ-bfW">
-                                <rect key="frame" x="24" y="88" width="42" height="20.5"/>
+                                <rect key="frame" x="24" y="44" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -105,7 +104,7 @@
                         <outlet property="logoLabel" destination="8cz-nZ-bfW" id="LcB-Yy-DWn"/>
                         <outlet property="passwordBorderView" destination="xPB-vf-LPi" id="0G1-l7-FKS"/>
                         <outlet property="passwordTextField" destination="IXR-1F-llK" id="fy9-37-jux"/>
-                        <outlet property="textField" destination="Svk-Jx-0E0" id="PMp-Tw-fSL"/>
+                        <outlet property="usernameTextField" destination="Svk-Jx-0E0" id="PMp-Tw-fSL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pv0-vw-du6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -32,12 +32,12 @@ class LoginViewController: UIViewController {
             loginLabel.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 36)
         }
     }
-    @IBOutlet private var textField: UITextField! {
+    @IBOutlet private var usernameTextField: UITextField! {
         didSet {
-            textField.placeholder = "username"
-            textField.borderStyle = .none
-            textField.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
-            textField.tintColor = .black
+            usernameTextField.placeholder = "username"
+            usernameTextField.borderStyle = .none
+            usernameTextField.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+            usernameTextField.tintColor = .black
         }
     }
     @IBOutlet private var borderView: UIView! {
@@ -79,30 +79,26 @@ class LoginViewController: UIViewController {
         
         setupPasswordVisibilityButton()
         
-        textField
+        usernameTextField
             .rx.controlEvent(.editingDidBegin)
-            .share(replay: 1)
             .map { 1.0 }
             .bind(to: borderView.rx.alpha)
             .disposed(by: disposeBag)
         
         passwordTextField
             .rx.controlEvent(.editingDidBegin)
-            .share(replay: 1)
             .map { 1.0 }
             .bind(to: passwordBorderView.rx.alpha)
             .disposed(by: disposeBag)
         
-        textField
+        usernameTextField
             .rx.controlEvent(.editingDidEnd)
-            .share(replay: 1)
             .map { 0.2 }
             .bind(to: borderView.rx.alpha)
             .disposed(by: disposeBag)
         
         passwordTextField
             .rx.controlEvent(.editingDidEnd)
-            .share(replay: 1)
             .map { 0.2 }
             .bind(to: passwordBorderView.rx.alpha)
             .disposed(by: disposeBag)
@@ -117,7 +113,7 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(animated)
         
         UIView.animate(withDuration: 0.6) {
-            self.textField.becomeFirstResponder()
+            self.usernameTextField.becomeFirstResponder()
         }
     }
     
