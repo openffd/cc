@@ -61,6 +61,14 @@ class LoginViewController: UIViewController {
             passwordBorderView.alpha = 0.2
         }
     }
+    @IBOutlet private var loginButton: UIButton! {
+        didSet {
+            loginButton.backgroundColor = .systemOrange
+            loginButton.setTitle("LOGIN", for: .normal)
+            loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
+            loginButton.tintColor = .black
+        }
+    }
     
     private var nextButton: UIButton!
     
@@ -69,17 +77,40 @@ class LoginViewController: UIViewController {
         
         navigationController?.hideNavigationBar()
         
-        let _ = textField.rx.controlEvent(.editingDidBegin).share(replay: 1).map { 1.0 }.bind(to: borderView.rx.alpha).disposed(by: disposeBag)
-        let _ = passwordTextField.rx.controlEvent(.editingDidBegin).share(replay: 1).map { 1.0 }.bind(to: passwordBorderView.rx.alpha).disposed(by: disposeBag)
-        let _ = textField.rx.controlEvent(.editingDidEnd).share(replay: 1).map { 0.2 }.bind(to: borderView.rx.alpha).disposed(by: disposeBag)
-        let _ = passwordTextField.rx.controlEvent(.editingDidEnd).share(replay: 1).map { 0.2 }.bind(to: passwordBorderView.rx.alpha).disposed(by: disposeBag)
+        setupPasswordVisibilityButton()
         
-        passwordVisibilityButton = UIButton(type: .custom)
-        passwordVisibilityButton.setImage(UIImage(named: "PasswordHidden"), for: .normal)
-        passwordVisibilityButton.frame = CGRect(x: passwordTextField.frame.size.width + 30, y: 0, width: 25, height: 25)
-        passwordVisibilityButton.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
-        passwordTextField.rightView = passwordVisibilityButton
-        passwordTextField.rightViewMode = .always
+        textField
+            .rx.controlEvent(.editingDidBegin)
+            .share(replay: 1)
+            .map { 1.0 }
+            .bind(to: borderView.rx.alpha)
+            .disposed(by: disposeBag)
+        
+        passwordTextField
+            .rx.controlEvent(.editingDidBegin)
+            .share(replay: 1)
+            .map { 1.0 }
+            .bind(to: passwordBorderView.rx.alpha)
+            .disposed(by: disposeBag)
+        
+        textField
+            .rx.controlEvent(.editingDidEnd)
+            .share(replay: 1)
+            .map { 0.2 }
+            .bind(to: borderView.rx.alpha)
+            .disposed(by: disposeBag)
+        
+        passwordTextField
+            .rx.controlEvent(.editingDidEnd)
+            .share(replay: 1)
+            .map { 0.2 }
+            .bind(to: passwordBorderView.rx.alpha)
+            .disposed(by: disposeBag)
+        
+        passwordVisibilityButton
+            .rx.tap
+            .subscribe(onNext: { self.togglePasswordVisibility() })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,11 +121,15 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc private func showPassword(_ sender: Any) {
-        
+    private func setupPasswordVisibilityButton() {
+        passwordVisibilityButton = UIButton(type: .custom)
+        passwordVisibilityButton.setImage(UIImage(named: "PasswordHidden"), for: .normal)
+        passwordVisibilityButton.frame = CGRect(x: .zero, y: .zero, width: 25, height: 25)
+        passwordTextField.rightView = passwordVisibilityButton
+        passwordTextField.rightViewMode = .always
     }
     
-    @objc private func togglePasswordVisibility(_ sender: Any) {
+    private func togglePasswordVisibility() {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
         let imageName = passwordTextField.isSecureTextEntry ? "PasswordHidden" : "PasswordVisible"
         passwordVisibilityButton.setImage(UIImage(named: imageName), for: .normal)
