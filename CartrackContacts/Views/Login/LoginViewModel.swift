@@ -30,12 +30,12 @@ final class LoginViewModel: ViewModel {
     private let loginErrorSubject = PublishSubject<Error>()
     private let disposeBag = DisposeBag()
     
-    private var credentialsObservable: Observable<LoginCredentials> {
+    private var credentialsObservable: Observable<LoginCredential> {
         Observable.combineLatest(
             usernameSubject.asObservable(),
             passwordSubject.asObservable()
         ) { username, password in
-            Credentials(username: username, password: password)
+            Credential(username: username, password: password)
         }
     }
     
