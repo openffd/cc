@@ -10,8 +10,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController, ViewModelDependent {
+    typealias AssociatedViewModel = LoginViewModel
+    
+    var viewModel: LoginViewModel!
+    
+    static func instantiate(with viewModel: LoginViewModel) -> LoginViewController {
+        let storyboard = UIStoryboard.login
+        guard let viewController = storyboard.instantiateInitialViewController() as? LoginViewController else {
+            fatalError()
+        }
+        viewController.viewModel = viewModel
+        return viewController
+    }
+    
     private let disposeBag = DisposeBag()
     
     private var passwordVisibilityButton: UIButton!
@@ -67,6 +79,7 @@ class LoginViewController: UIViewController {
             loginButton.setTitle("LOGIN", for: .normal)
             loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
             loginButton.tintColor = .black
+            loginButton.isEnabled = false
         }
     }
     
@@ -79,33 +92,45 @@ class LoginViewController: UIViewController {
         
         setupPasswordVisibilityButton()
         
-        usernameTextField
-            .rx.controlEvent(.editingDidBegin)
+        usernameTextField.rx.controlEvent(.editingDidBegin)
             .map { 1.0 }
             .bind(to: borderView.rx.alpha)
             .disposed(by: disposeBag)
         
-        passwordTextField
-            .rx.controlEvent(.editingDidBegin)
+        passwordTextField.rx.controlEvent(.editingDidBegin)
             .map { 1.0 }
             .bind(to: passwordBorderView.rx.alpha)
             .disposed(by: disposeBag)
         
-        usernameTextField
-            .rx.controlEvent(.editingDidEnd)
+        usernameTextField.rx.controlEvent(.editingDidEnd)
             .map { 0.2 }
             .bind(to: borderView.rx.alpha)
             .disposed(by: disposeBag)
         
-        passwordTextField
-            .rx.controlEvent(.editingDidEnd)
+        passwordTextField.rx.controlEvent(.editingDidEnd)
             .map { 0.2 }
             .bind(to: passwordBorderView.rx.alpha)
             .disposed(by: disposeBag)
         
-        passwordVisibilityButton
-            .rx.tap
+        passwordVisibilityButton.rx.tap
             .subscribe(onNext: { self.togglePasswordVisibility() })
+            .disposed(by: disposeBag)
+        
+        usernameTextField.rx.text
+            .orEmpty
+            .throttle(.milliseconds(200), scheduler: MainScheduler.instance)
+            .subscribe(viewModel.input.username)
+            .disposed(by: disposeBag)
+        
+        passwordTextField.rx.text
+            .orEmpty
+            .throttle(.milliseconds(200), scheduler: MainScheduler.instance)
+            .subscribe(viewModel.input.password)
+            .disposed(by: disposeBag)
+        
+        loginButton.rx.tap
+            .asObservable()
+            .subscribe(viewModel.input.loginAction)
             .disposed(by: disposeBag)
     }
     
@@ -119,7 +144,7 @@ class LoginViewController: UIViewController {
     
     private func setupPasswordVisibilityButton() {
         passwordVisibilityButton = UIButton(type: .custom)
-        passwordVisibilityButton.setImage(UIImage(named: "PasswordHidden"), for: .normal)
+        passwordVisibilityButton.setImage(.passwordHidden, for: .normal)
         passwordVisibilityButton.frame = CGRect(x: .zero, y: .zero, width: 25, height: 25)
         passwordTextField.rightView = passwordVisibilityButton
         passwordTextField.rightViewMode = .always
@@ -127,7 +152,9 @@ class LoginViewController: UIViewController {
     
     private func togglePasswordVisibility() {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
-        let imageName = passwordTextField.isSecureTextEntry ? "PasswordHidden" : "PasswordVisible"
-        passwordVisibilityButton.setImage(UIImage(named: imageName), for: .normal)
+        passwordVisibilityButton.setImage(
+            passwordTextField.isSecureTextEntry ? .passwordHidden : .passwordVisible,
+            for: .normal
+        )
     }
 }
