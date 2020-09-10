@@ -74,33 +74,11 @@
                         <outlet property="appNameLabel" destination="Vfp-sn-vyS" id="PeI-EM-yOh"/>
                         <outlet property="loginButton" destination="KfV-Bt-DOr" id="TCG-re-Hr6"/>
                         <outlet property="signupButton" destination="KGs-lS-Tfn" id="n0Q-5M-5Ko"/>
-                        <segue destination="Qxl-ko-W4K" kind="show" identifier="ShowLogin" id="zY5-q4-AHj"/>
-                        <segue destination="CF9-1g-MG5" kind="show" identifier="ShowSignup" id="894-2T-4AG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1R-Py-4xO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-20" y="-39"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="iAi-J4-XxU">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="Qxl-ko-W4K" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="oG8-df-peO"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YJ4-Yt-26p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="650" y="-151"/>
-        </scene>
-        <!--Signup-->
-        <scene sceneID="43f-V5-e5T">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Signup" id="CF9-1g-MG5" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Rt9-Eu-szi"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jSI-mG-X8b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="656" y="76"/>
         </scene>
     </scenes>
 </document>

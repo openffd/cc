@@ -43,13 +43,11 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemOrange
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         setupAnimationView()
     }
     
@@ -63,12 +61,12 @@ class LandingViewController: UIViewController {
         animationView?.play()
     }
     
-    @IBAction private func login(_ sender: UIButton) {
-        performSegue(withIdentifier: .showLogin, sender: nil)
+    private func showLogin() {
+        
     }
     
-    @IBAction private func signup(_ sender: UIButton) {
-        performSegue(withIdentifier: .showSignup, sender: nil)
+    private func showSignup() {
+        
     }
 }
 
