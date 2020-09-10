@@ -12,31 +12,51 @@ protocol LoginService {
     func login(with credentials: LoginCredential) -> Observable<User>
 }
 
+protocol LoginServiceDependent {
+    var loginService: LoginService { get }
+}
+
 final class LoginManager: LoginService {
     let userDatabase: SQLite.Database = .shared
     
-    func login(with credentials: LoginCredential) -> Observable<User> {
+    func login(with credential: LoginCredential) -> Observable<User> {
         Observable.create { observer in
-            
-            observer.onNext(User(id: 0, username: "", digest: "", country: ""))
+            switch self.retrieveUser(with: credential) {
+            case .failure(let error):
+                observer.onError(error)
+            case .success(let user):
+                observer.onNext(user)
+            }
             return Disposables.create()
         }
     }
     
-    private func retrieveUser(with credentials: LoginCredential) throws -> User {
-        let result: User? = userDatabase.getUser(username: credentials.username)
-        guard let user = result else { throw LoginError.notFound }
-        return user
+    private func retrieveUser(with credential: LoginCredential) -> LoginResult {
+        guard let user = userDatabase.getUser(username: credential.username) else {
+            return .failure(error: .userNotFound)
+        }
+        
+        switch user.validateCredential(credential) {
+        case .notMatched:
+            return .failure(error: .wrongPassword)
+        case .matched:
+            return .success(user: user)
+        }
     }
 }
 
+enum LoginResult {
+    case success(user: User)
+    case failure(error: LoginError)
+}
+
 enum LoginError: Error {
-    case notFound
+    case userNotFound
     case wrongPassword
     
     var description: String {
         switch self {
-        case .notFound:
+        case .userNotFound:
             return "The username entered does not match any account. Please try again."
         case .wrongPassword:
             return "Please make sure your username or password is correct. Please try again."
