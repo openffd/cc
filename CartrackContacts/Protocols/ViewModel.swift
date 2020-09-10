@@ -13,7 +13,7 @@ protocol ViewModel: AnyObject {
     associatedtype Output
 }
 
-protocol ViewModelDependent: AnyObject {
+protocol ViewModelDependent: UIViewController {
     associatedtype This = Self
     associatedtype AssociatedViewModel: ViewModel
     
