@@ -14,7 +14,7 @@ extension SQLite.Database: UserDatabase {
         try createTable(model: User.self)
     }
     
-    func insertUser(user: User) throws {
+    func insert(user: User) throws {
         let queryString = "INSERT INTO user (id, username, digest, country) VALUES (NULL, ?, ?, ?);"
         let statementPointer = try prepareStatement(query: queryString)
         defer { sqlite3_finalize(statementPointer) }

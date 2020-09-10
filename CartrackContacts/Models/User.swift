@@ -17,7 +17,7 @@ struct User {
 
 protocol UserDatabase {
     func createUserTable() throws
-    func insertUser(user: User) throws
+    func insert(user: User) throws
     func getUser(username: String) -> User?
 }
 
