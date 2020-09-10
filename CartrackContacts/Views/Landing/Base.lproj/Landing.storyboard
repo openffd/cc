@@ -37,9 +37,6 @@
                                             <constraint firstAttribute="height" constant="60" id="gG8-t8-gcv"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="login:" destination="iJK-aW-SwY" eventType="touchUpInside" id="6Sw-3P-R7t"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGs-lS-Tfn">
                                         <rect key="frame" x="0.0" y="64" width="358" height="60"/>
@@ -47,9 +44,6 @@
                                             <constraint firstAttribute="height" constant="60" id="6XO-6d-XSe"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="signup:" destination="iJK-aW-SwY" eventType="touchUpInside" id="t8d-XI-r0O"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
