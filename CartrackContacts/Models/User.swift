@@ -33,3 +33,13 @@ extension User: SQLiteTableModel {
         """
     }
 }
+
+extension User: LoginCredentialValidator {
+    func validateCredential(_ credential: LoginCredential) -> LoginCredentialValidation {
+        if digest == credential.password.sha256Digest {
+            return .matched
+        } else {
+            return .notMatched
+        }
+    }
+}
