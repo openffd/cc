@@ -8,9 +8,12 @@
 
 import UIKit
 import Lottie
+import RxSwift
+import RxCocoa
 
 class LandingViewController: UIViewController {
-
+    private let disposeBag = DisposeBag()
+    
     @IBOutlet private var appNameLabel: UILabel! {
         didSet {
             appNameLabel.text = "🄲🄲"
@@ -44,6 +47,17 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
+        
+        loginButton
+            .rx.tap
+            .subscribe(onNext: { self.showLogin() })
+            .disposed(by: disposeBag)
+        
+        signupButton
+            .rx.tap
+            .asObservable()
+            .subscribe { self.showSignup() }
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,7 +76,8 @@ class LandingViewController: UIViewController {
     }
     
     private func showLogin() {
-        
+        let viewController = LoginViewController.instantiate(with: LoginViewModel())
+        show(viewController, sender: nil)
     }
     
     private func showSignup() {
