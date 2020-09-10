@@ -69,9 +69,3 @@ class LandingViewController: UIViewController {
         
     }
 }
-
-typealias SegueIdentifier = String
-private extension SegueIdentifier {
-    static let showSignup = "ShowSignup"
-    static let showLogin = "ShowLogin"
-}
