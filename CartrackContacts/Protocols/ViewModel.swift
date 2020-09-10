@@ -18,6 +18,4 @@ protocol ViewModelDependent: UIViewController {
     associatedtype AssociatedViewModel: ViewModel
     
     static func instantiate(with viewModel: AssociatedViewModel) -> This
-    
-    func configure(with viewModel: AssociatedViewModel)
 }
