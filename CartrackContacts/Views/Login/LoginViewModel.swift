@@ -30,16 +30,17 @@ final class LoginViewModel: ViewModel {
     private let loginErrorSubject = PublishSubject<Error>()
     private let disposeBag = DisposeBag()
     
-    private var credentialsObservable: Observable<LoginCredential> {
+    private var credentialObservable: Observable<Credential> {
         Observable.combineLatest(
             usernameSubject.asObservable(),
             passwordSubject.asObservable()
         ) { username, password in
-            Credential(username: username, password: password)
+            print("username \(username) password \(password)")
+            return Credential(username: username, password: password)
         }
     }
     
-    init(_ loginService: LoginService) {
+    init() {
         input = Input(
             username: usernameSubject.asObserver(),
             password: passwordSubject.asObserver(),
@@ -49,20 +50,24 @@ final class LoginViewModel: ViewModel {
             loginResult: loginResultSubject.asObserver(),
             loginError: loginErrorSubject.asObserver()
         )
-        
         loginActionSubject
-            .withLatestFrom(credentialsObservable)
-            .flatMapLatest { loginService.login(with: $0).materialize() }
+            .withLatestFrom(credentialObservable)
+            .flatMapLatest { self.loginService.login(with: $0).materialize() }
+            .debug()
             .subscribe(onNext: { [weak self] event in
                 switch event {
                 case .next(let user):
                     self?.loginResultSubject.onNext(user)
                 case .error(let error):
-                    self?.loginErrorSubject.onNext(error)
+                    self?.loginErrorSubject.onError(error)
                 default:
                     break
                 }
             })
             .disposed(by: disposeBag)
     }
+}
+
+extension LoginViewModel: LoginServiceDependent {
+    var loginService: LoginService { LoginManager() }
 }
