@@ -65,6 +65,10 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Create a 🄲🄲 account"
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
+        
         setupPasswordVisibilityButton()
         
         setupNextButton()
@@ -93,6 +97,9 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
             .subscribe(onNext: { self.togglePasswordVisibility() })
             .disposed(by: disposeBag)
         
+        nextButton.rx.tap
+            .subscribe(onNext: { self.showSelectCountry() })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -136,5 +143,11 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
         let accessoryView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: height + 10, height: width + 10)))
         accessoryView.addSubview(nextButton)
         passwordTextField.inputAccessoryView = accessoryView
+    }
+    
+    private func showSelectCountry() {
+        let storyboard = UIStoryboard.init(name: "Signup", bundle: .main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SignupSelectCountryViewController")
+        show(viewController, sender: nil)
     }
 }

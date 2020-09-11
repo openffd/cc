@@ -10,7 +10,7 @@
         <!--Signup View Controller-->
         <scene sceneID="8WI-Wk-wBV">
             <objects>
-                <viewController id="epQ-WU-qug" customClass="SignupViewController" customModule="CC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupViewController" id="epQ-WU-qug" customClass="SignupViewController" customModule="CC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FX5-Ug-e3S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,7 +137,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WjI-Kc-4Op" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="743" y="-22"/>
+            <point key="canvasLocation" x="697" y="-21"/>
+        </scene>
+        <!--Signup Select Country View Controller-->
+        <scene sceneID="76T-7h-gsA">
+            <objects>
+                <viewController storyboardIdentifier="SignupSelectCountryViewController" id="PVd-9V-Baf" customClass="SignupSelectCountryViewController" customModule="CC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rbr-vQ-Hia">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nfP-cb-jhc">
+                                <rect key="frame" x="24" y="68" width="366" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LQ-6n-0b4">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3NN-52-y3X"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Gb-6a-GNx">
+                                        <rect key="frame" x="0.0" y="58" width="366" height="72"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7B-eu-9Bc" customClass="CountryPickerView" customModule="CountryPickerView">
+                                                <rect key="frame" x="20" y="16" width="346" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="CM0-m4-Rau"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="L7B-eu-9Bc" firstAttribute="leading" secondItem="4Gb-6a-GNx" secondAttribute="leading" constant="20" id="XDk-jy-3EK"/>
+                                            <constraint firstAttribute="trailing" secondItem="L7B-eu-9Bc" secondAttribute="trailing" id="dun-CC-BQU"/>
+                                            <constraint firstAttribute="bottom" secondItem="L7B-eu-9Bc" secondAttribute="bottom" constant="16" id="ehi-Qr-eNb"/>
+                                            <constraint firstItem="L7B-eu-9Bc" firstAttribute="top" secondItem="4Gb-6a-GNx" secondAttribute="top" constant="16" id="zWY-2X-zlM"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksN-mV-TDl">
+                                <rect key="frame" x="87" y="218" width="240" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Egu-Oe-vK4"/>
+                                    <constraint firstAttribute="width" constant="240" id="XQ1-Bv-Nda"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nfP-cb-jhc" firstAttribute="top" secondItem="LnM-Vm-S04" secondAttribute="top" constant="24" id="4cm-fS-ieB"/>
+                            <constraint firstItem="LnM-Vm-S04" firstAttribute="trailing" secondItem="nfP-cb-jhc" secondAttribute="trailing" constant="24" id="G3R-pU-ncz"/>
+                            <constraint firstItem="ksN-mV-TDl" firstAttribute="top" secondItem="nfP-cb-jhc" secondAttribute="bottom" constant="20" id="QCU-Mg-SpS"/>
+                            <constraint firstItem="nfP-cb-jhc" firstAttribute="leading" secondItem="LnM-Vm-S04" secondAttribute="leading" constant="24" id="z9S-6A-fiW"/>
+                            <constraint firstItem="ksN-mV-TDl" firstAttribute="centerX" secondItem="nfP-cb-jhc" secondAttribute="centerX" id="zJo-D5-Kle"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LnM-Vm-S04"/>
+                    </view>
+                    <connections>
+                        <outlet property="countryPickerContainerView" destination="4Gb-6a-GNx" id="bTg-HA-H2k"/>
+                        <outlet property="countryPickerView" destination="L7B-eu-9Bc" id="lg2-69-s8g"/>
+                        <outlet property="nextButton" destination="ksN-mV-TDl" id="nyg-Tl-jOz"/>
+                        <outlet property="selectCountryLabel" destination="1LQ-6n-0b4" id="5du-5X-KbI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PE2-DQ-shz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="-20"/>
         </scene>
     </scenes>
 </document>
