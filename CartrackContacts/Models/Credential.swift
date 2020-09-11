@@ -17,12 +17,3 @@ struct Credential: LoginCredential {
     let username: String
     let password: String
 }
-
-enum LoginCredentialValidation {
-    case matched
-    case notMatched
-}
-
-protocol LoginCredentialValidator {
-    func validateCredential(_ credential: LoginCredential) -> LoginCredentialValidation
-}

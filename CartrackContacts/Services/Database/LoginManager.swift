@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import Foundation
 
 protocol LoginService {
     func login(with credentials: LoginCredential) -> Observable<User>
@@ -32,16 +33,11 @@ final class LoginManager: LoginService {
     }
     
     private func retrieveUser(with credential: LoginCredential) -> LoginResult {
-        guard let user = userDatabase.getUser(username: credential.username) else {
+        let digest = credential.password.sha256Digest
+        guard let user = userDatabase.getUser(username: credential.username, digest: digest) else {
             return .failure(error: .userNotFound)
         }
-        
-        switch user.validateCredential(credential) {
-        case .notMatched:
-            return .failure(error: .wrongPassword)
-        case .matched:
-            return .success(user: user)
-        }
+        return .success(user: user)
     }
 }
 
@@ -50,16 +46,13 @@ enum LoginResult {
     case failure(error: LoginError)
 }
 
-enum LoginError: Error {
+enum LoginError: LocalizedError {
     case userNotFound
-    case wrongPassword
     
-    var description: String {
+    var errorDescription: String? {
         switch self {
         case .userNotFound:
-            return "The username entered does not match any account. Please try again."
-        case .wrongPassword:
-            return "Please make sure your username or password is correct. Please try again."
+            return "The username/password entered does not match any account. Please try again."
         }
     }
 }

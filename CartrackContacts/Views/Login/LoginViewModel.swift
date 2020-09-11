@@ -23,19 +23,20 @@ final class LoginViewModel: ViewModel {
     let input: Input
     let output: Output
     
-    private let usernameSubject = PublishSubject<String>()
-    private let passwordSubject = PublishSubject<String>()
-    private let loginActionSubject = PublishSubject<Void>()
-    private let loginResultSubject = PublishSubject<User>()
-    private let loginErrorSubject = PublishSubject<Error>()
+    private let usernameSubject     = PublishSubject<String>()
+    private let passwordSubject     = PublishSubject<String>()
+    private let loginActionSubject  = PublishSubject<Void>()
+    private let loginResultSubject  = PublishSubject<User>()
+    private let loginErrorSubject   = PublishSubject<Error>()
     private let disposeBag = DisposeBag()
     
-    private var credentialObservable: Observable<Credential> {
+    func validate(credentialField: String) -> Bool { !credentialField.isEmpty }
+    
+    private var validCredentialObservable: Observable<Credential> {
         Observable.combineLatest(
             usernameSubject.asObservable(),
             passwordSubject.asObservable()
         ) { username, password in
-            print("username \(username) password \(password)")
             return Credential(username: username, password: password)
         }
     }
@@ -51,9 +52,8 @@ final class LoginViewModel: ViewModel {
             loginError: loginErrorSubject.asObserver()
         )
         loginActionSubject
-            .withLatestFrom(credentialObservable)
+            .withLatestFrom(validCredentialObservable)
             .flatMapLatest { self.loginService.login(with: $0).materialize() }
-            .debug()
             .subscribe(onNext: { [weak self] event in
                 switch event {
                 case .next(let user):
@@ -63,8 +63,7 @@ final class LoginViewModel: ViewModel {
                 default:
                     break
                 }
-            })
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     }
 }
 

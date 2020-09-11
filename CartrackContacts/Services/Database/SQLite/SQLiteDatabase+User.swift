@@ -21,7 +21,8 @@ extension SQLite.Database: UserDatabase {
         guard
             sqlite3_bind_text(statementPointer, 1, user.username.utf8, -1, nil) == SQLITE_OK &&
             sqlite3_bind_text(statementPointer, 2, user.digest.utf8, -1, nil)   == SQLITE_OK &&
-            sqlite3_bind_text(statementPointer, 3, user.country.utf8, -1, nil)  == SQLITE_OK else {
+            sqlite3_bind_text(statementPointer, 3, user.country.utf8, -1, nil)  == SQLITE_OK
+            else {
             throw SQLite.Error.bind(message: recentErrorMessage)
         }
         guard sqlite3_step(statementPointer) == SQLITE_DONE else {
@@ -29,20 +30,26 @@ extension SQLite.Database: UserDatabase {
         }
     }
     
-    func getUser(username: String) -> User? {
-        let queryString = "SELECT * FROM user WHERE username = ?;"
+    func getUser(username: String, digest: String) -> User? {
+        let queryString = "SELECT * FROM user WHERE username = ? AND digest = ?;"
         guard let statementPointer = try? prepareStatement(query: queryString) else { return nil }
         
         defer { sqlite3_finalize(statementPointer) }
         
-        guard sqlite3_bind_text(statementPointer, 1, username.utf8, -1, nil) == SQLITE_OK else { return nil }
+        guard
+            sqlite3_bind_text(statementPointer, 1, username.utf8, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(statementPointer, 2, digest.utf8, -1, nil) == SQLITE_OK
+            else {
+            return nil
+        }
         guard sqlite3_step(statementPointer) == SQLITE_ROW else { return nil }
         
         let id = sqlite3_column_int(statementPointer, 0)
         guard
             let queryResultUsername = sqlite3_column_text(statementPointer, 1),
             let queryResultDigest   = sqlite3_column_text(statementPointer, 2),
-            let queryResultCountry  = sqlite3_column_text(statementPointer, 3) else {
+            let queryResultCountry  = sqlite3_column_text(statementPointer, 3)
+            else {
             return nil
         }
         return User(

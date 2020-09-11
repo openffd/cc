@@ -18,7 +18,7 @@ struct User {
 protocol UserDatabase {
     func createUserTable() throws
     func insert(user: User) throws
-    func getUser(username: String) -> User?
+    func getUser(username: String, digest: String) -> User?
 }
 
 extension User: SQLiteTableModel {
@@ -31,15 +31,5 @@ extension User: SQLiteTableModel {
             country     TEXT    NOT NULL
         );
         """
-    }
-}
-
-extension User: LoginCredentialValidator {
-    func validateCredential(_ credential: LoginCredential) -> LoginCredentialValidation {
-        if digest == credential.password.sha256Digest {
-            return .matched
-        } else {
-            return .notMatched
-        }
     }
 }
