@@ -59,7 +59,7 @@ final class LoginViewModel: ViewModel {
                 case .next(let user):
                     self?.loginResultSubject.onNext(user)
                 case .error(let error):
-                    self?.loginErrorSubject.onError(error)
+                    self?.loginErrorSubject.onNext(error)
                 default:
                     break
                 }
