@@ -99,6 +99,13 @@ class LoginViewController: UIViewController, ViewModelDependent {
             .subscribe(onNext: { self.borderView.alpha = 0.2 })
             .disposed(by: disposeBag)
         
+        usernameTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: {
+                self.usernameTextField.resignFirstResponder()
+                self.passwordTextField.becomeFirstResponder()
+            })
+            .disposed(by: disposeBag)
+        
         passwordTextField.rx.controlEvent(.editingDidBegin)
             .subscribe(onNext: { self.passwordBorderView.alpha = 1.0 })
             .disposed(by: disposeBag)
@@ -177,4 +184,10 @@ class LoginViewController: UIViewController, ViewModelDependent {
         let image: UIImage = passwordTextField.isSecureTextEntry ? .passwordHidden : .passwordVisible
         passwordVisibilityButton.setImage(image, for: .normal)
     }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        
+//    }
 }
