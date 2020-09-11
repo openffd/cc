@@ -52,7 +52,7 @@ final class SignupViewController: UIViewController, ViewModelDependent {
     @IBOutlet private var usernameErrorLabel: UILabel! {
         didSet {
             usernameErrorLabel.isHidden = true
-            usernameErrorLabel.textColor = .systemBlue
+            usernameErrorLabel.textColor = .systemGreen
             usernameErrorLabel.font = .helveticaNeue(size: 12)
             usernameErrorLabel.text = "Your username should be at least 4 characters."
         }
@@ -64,6 +64,8 @@ final class SignupViewController: UIViewController, ViewModelDependent {
         super.viewDidLoad()
         
         title = "Create a 🄲🄲 account"
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
         
         setupNextButton()
         

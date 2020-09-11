@@ -56,7 +56,7 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
     @IBOutlet private var passwordErrorLabel: UILabel! {
         didSet {
             passwordErrorLabel.isHidden = true
-            passwordErrorLabel.textColor = .systemBlue
+            passwordErrorLabel.textColor = .systemGreen
             passwordErrorLabel.font = .helveticaNeue(size: 12)
             passwordErrorLabel.text = "Your password should be at least 4 characters."
         }
@@ -69,9 +69,30 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
         
         setupNextButton()
         
+        let passwordTextFieldObservable = passwordTextField.rx.text.orEmpty.share(replay: 1)
+        
+        passwordTextFieldObservable
+            .map { $0.count > 0 && $0.count < 4 }
+            .distinctUntilChanged()
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { isValid in
+                self.passwordErrorLabel.isHidden = !isValid
+            })
+            .disposed(by: disposeBag)
+        
+        passwordTextFieldObservable
+            .map { $0.count >= 4 }
+            .distinctUntilChanged()
+            .subscribe(onNext: { isValid in
+                self.nextButton.isEnabled = isValid
+                self.nextButton.alpha = isValid ? 1.0 : 0.6
+            })
+            .disposed(by: disposeBag)
+        
         passwordVisibilityButton.rx.tap
             .subscribe(onNext: { self.togglePasswordVisibility() })
             .disposed(by: disposeBag)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
