@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
     func presentAlert(for error: Error) {
         let alertController = UIAlertController(
-            title: "Error",
+            title: "",
             message: error.localizedDescription,
             preferredStyle: .alert
         )
@@ -21,7 +21,7 @@ extension UIViewController {
     
     func presentAlert(for message: String) {
         let alertController = UIAlertController(
-            title: "Message",
+            title: "",
             message: message,
             preferredStyle: .alert
         )
