@@ -29,7 +29,7 @@ final class SignupViewController: UIViewController, ViewModelDependent {
     @IBOutlet private var usernameQuestionLabel: UILabel! {
         didSet {
             usernameQuestionLabel.text = "Your username:"
-            usernameQuestionLabel.font = .helveticaNeueBold(size: 26)
+            usernameQuestionLabel.font = .helveticaNeueCondensedBold(size: 32)
             usernameQuestionLabel.adjustsFontSizeToFitWidth = true
             usernameQuestionLabel.minimumScaleFactor = 0.5
         }
@@ -86,14 +86,26 @@ final class SignupViewController: UIViewController, ViewModelDependent {
                 self.nextButton.alpha = isValid ? 1.0 : 0.6
             })
             .disposed(by: disposeBag)
+        
+        nextButton.rx.tap
+            .subscribe(onNext: {
+                self.usernameTextField.resignFirstResponder()
+                self.showCreatePassword()
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        UIView.animate(withDuration: 0.6) {
+                
+        UIView.animate(withDuration: 0.6, animations: {
             self.usernameTextField.becomeFirstResponder()
-        }
+        })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.usernameTextField.resignFirstResponder()
     }
     
     private func setupNextButton() {
@@ -114,5 +126,10 @@ final class SignupViewController: UIViewController, ViewModelDependent {
         let accessoryView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: height + 10, height: width + 10)))
         accessoryView.addSubview(nextButton)
         usernameTextField.inputAccessoryView = accessoryView
+    }
+    
+    private func showCreatePassword() {
+        let viewController = SignupCreatePasswordViewController.instantiate(with: viewModel)
+        show(viewController, sender: nil)
     }
 }

@@ -48,7 +48,7 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
         
-        let attributes = [NSAttributedString.Key.font: UIFont.helveticaNeueCondensedBlack(size: 24)]
+        let attributes = [NSAttributedString.Key.font: UIFont.helveticaNeueCondensedBlack(size: 20)]
         UINavigationBar.appearance().titleTextAttributes = attributes
         
         loginButton.rx.tap
@@ -85,6 +85,7 @@ class LandingViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.hideNavigationBar()
         navigationController.navigationBar.barTintColor = .systemOrange
+        navigationController.navigationBar.tintColor = .black
         show(navigationController, sender: nil)
     }
 }

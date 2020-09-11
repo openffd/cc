@@ -73,5 +73,71 @@
             </objects>
             <point key="canvasLocation" x="-48" y="-21"/>
         </scene>
+        <!--Signup Create Password View Controller-->
+        <scene sceneID="mRe-cf-r6B">
+            <objects>
+                <viewController storyboardIdentifier="SignupCreatePasswordViewController" id="e2n-dU-pse" customClass="SignupCreatePasswordViewController" customModule="CC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mFD-e8-jCy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DkB-he-mOR">
+                                <rect key="frame" x="24" y="68" width="366" height="126"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmC-Fd-DwP">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="gm9-s7-bMs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFm-9x-not">
+                                        <rect key="frame" x="0.0" y="50" width="366" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="au3-0h-Aqe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxq-RE-pvz">
+                                        <rect key="frame" x="0.0" y="100" width="366" height="2"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="HFU-IC-sfB"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IH-Rs-cdB">
+                                        <rect key="frame" x="0.0" y="102" width="366" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="CZj-5o-xcA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DkB-he-mOR" firstAttribute="leading" secondItem="f3D-sN-xRu" secondAttribute="leading" constant="24" id="AnN-vn-64C"/>
+                            <constraint firstItem="f3D-sN-xRu" firstAttribute="trailing" secondItem="DkB-he-mOR" secondAttribute="trailing" constant="24" id="RqR-ym-JAQ"/>
+                            <constraint firstItem="DkB-he-mOR" firstAttribute="top" secondItem="f3D-sN-xRu" secondAttribute="top" constant="24" id="vYe-ic-aBu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f3D-sN-xRu"/>
+                    </view>
+                    <connections>
+                        <outlet property="passwordBorderView" destination="Gxq-RE-pvz" id="5cY-zr-JT6"/>
+                        <outlet property="passwordErrorLabel" destination="2IH-Rs-cdB" id="anF-cG-7Ra"/>
+                        <outlet property="passwordQuestionLabel" destination="wmC-Fd-DwP" id="LBA-3Y-8DM"/>
+                        <outlet property="passwordTextField" destination="vFm-9x-not" id="xHS-2F-Q21"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WjI-Kc-4Op" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="743" y="-22"/>
+        </scene>
     </scenes>
 </document>
