@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		812BBAFD250B8A25005023AB /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBAFC250B8A25005023AB /* SignupViewModel.swift */; };
+		812BBAFF250BC265005023AB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBAFE250BC265005023AB /* UIFont+.swift */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		812BBAFC250B8A25005023AB /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		812BBAFE250BC265005023AB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		8172A1E32505E3F600FF1A3F /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1E62505E3F600FF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				8172A2612507BAD900FF1A3F /* UINavigationController+.swift */,
 				8172A263250874C600FF1A3F /* UIViewController+.swift */,
 				8172A26F250A0F9300FF1A3F /* UIImage+.swift */,
+				812BBAFE250BC265005023AB /* UIFont+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				8172A26925087E7700FF1A3F /* LoginViewModel.swift in Sources */,
 				8172A2192505E9B800FF1A3F /* Contact.swift in Sources */,
 				8172A2422507427300FF1A3F /* RemoteResourceLoader.swift in Sources */,
+				812BBAFF250BC265005023AB /* UIFont+.swift in Sources */,
 				8172A22B2506044900FF1A3F /* SQLiteDatabase+User.swift in Sources */,
 				8172A20B2505E53E00FF1A3F /* LandingViewController.swift in Sources */,
 				8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */,
