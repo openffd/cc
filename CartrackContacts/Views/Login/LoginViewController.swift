@@ -185,9 +185,3 @@ class LoginViewController: UIViewController, ViewModelDependent {
         passwordVisibilityButton.setImage(image, for: .normal)
     }
 }
-
-extension LoginViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        
-//    }
-}
