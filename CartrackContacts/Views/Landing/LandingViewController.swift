@@ -48,15 +48,12 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
         
-        loginButton
-            .rx.tap
+        loginButton.rx.tap
             .subscribe(onNext: { self.showLogin() })
             .disposed(by: disposeBag)
         
-        signupButton
-            .rx.tap
-            .asObservable()
-            .subscribe { self.showSignup() }
+        signupButton.rx.tap
+            .subscribe(onNext: { self.showSignup() })
             .disposed(by: disposeBag)
     }
     
@@ -81,6 +78,13 @@ class LandingViewController: UIViewController {
     }
     
     private func showSignup() {
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 32)!]
+        UINavigationBar.appearance().titleTextAttributes = attributes
         
+        let viewController = SignupViewController.instantiate(with: SignupViewModel())
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.hideNavigationBar()
+        navigationController.navigationBar.barTintColor = .systemOrange
+        show(navigationController, sender: nil)
     }
 }

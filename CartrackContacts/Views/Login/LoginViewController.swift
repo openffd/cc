@@ -83,8 +83,6 @@ class LoginViewController: UIViewController, ViewModelDependent {
         }
     }
     
-    private var nextButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

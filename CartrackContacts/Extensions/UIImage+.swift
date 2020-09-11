@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIImage {
+    static let arrowRight       = UIImage(named: "ArrowRight")!
     static let passwordHidden   = UIImage(named: "PasswordHidden")!
     static let passwordVisible  = UIImage(named: "PasswordVisible")!
 }
