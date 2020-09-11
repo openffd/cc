@@ -10,6 +10,7 @@
 		812BBAFD250B8A25005023AB /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBAFC250B8A25005023AB /* SignupViewModel.swift */; };
 		812BBAFF250BC265005023AB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBAFE250BC265005023AB /* UIFont+.swift */; };
 		812BBB01250BC7D1005023AB /* SignupCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB00250BC7D1005023AB /* SignupCreatePasswordViewController.swift */; };
+		812BBB04250BD4A8005023AB /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 812BBB03250BD4A8005023AB /* CountryPickerView */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -117,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812BBB04250BD4A8005023AB /* CountryPickerView in Frameworks */,
 				8172A2512507A16A00FF1A3F /* RxCocoa in Frameworks */,
 				8172A24F2507A16A00FF1A3F /* RxRelay in Frameworks */,
 				8172A24B2507A16A00FF1A3F /* RxSwift in Frameworks */,
@@ -345,6 +347,7 @@
 				8172A24E2507A16A00FF1A3F /* RxRelay */,
 				8172A2502507A16A00FF1A3F /* RxCocoa */,
 				8172A2522507A16A00FF1A3F /* RxBlocking */,
+				812BBB03250BD4A8005023AB /* CountryPickerView */,
 			);
 			productName = CartrackContacts;
 			productReference = 8172A1E32505E3F600FF1A3F /* CC.app */;
@@ -400,6 +403,7 @@
 				8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */,
 				8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */,
+				812BBB02250BD4A8005023AB /* XCRemoteSwiftPackageReference "CountryPickerView" */,
 			);
 			productRefGroup = 8172A1E42505E3F600FF1A3F /* Products */;
 			projectDirPath = "";
@@ -740,6 +744,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		812BBB02250BD4A8005023AB /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kizitonwose/CountryPickerView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
 		8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
@@ -767,6 +779,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		812BBB03250BD4A8005023AB /* CountryPickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 812BBB02250BD4A8005023AB /* XCRemoteSwiftPackageReference "CountryPickerView" */;
+			productName = CountryPickerView;
+		};
 		8172A2122505E61900FF1A3F /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */;
