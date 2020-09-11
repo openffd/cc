@@ -38,8 +38,12 @@ private extension AppDelegate {
             try sharedDatabase.createUserTable()
             print("[SQLite3] The `user` table has been created.")
             
-            let sampleUser = User(id: 0, username: "ct", digest: "123".sha256Digest, country: "SG")
-            try sharedDatabase.insert(user: sampleUser)
+            let key = "SampleUserInserted"
+            if !UserDefaults.standard.bool(forKey: key) {
+                let sampleUser = User(id: 0, username: "ct", digest: "123".sha256Digest, country: "SG")
+                try sharedDatabase.insert(user: sampleUser)
+                UserDefaults.standard.set(true, forKey: key)
+            }
         } catch {
             print("[SQLite3] " + error.localizedDescription)
         }
