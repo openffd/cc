@@ -7,24 +7,26 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class SignupViewController: UIViewController {
+final class SignupViewController: UIViewController, ViewModelDependent {
+    typealias AssociatedViewModel = SignupViewModel
+    
+    var viewModel: SignupViewModel!
+    
+    static func instantiate(with viewModel: SignupViewModel) -> SignupViewController {
+        let storyboard = UIStoryboard.signup
+        guard let viewController = storyboard.instantiateInitialViewController() as? SignupViewController else {
+            fatalError()
+        }
+        viewController.viewModel = viewModel
+        return viewController
+    }
+    
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
