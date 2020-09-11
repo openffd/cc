@@ -75,11 +75,11 @@ class LoginViewController: UIViewController, ViewModelDependent {
     }
     @IBOutlet private var loginButton: UIButton! {
         didSet {
-            loginButton.backgroundColor = .systemOrange
+            loginButton.backgroundColor = .black
             loginButton.setTitle("LOGIN", for: .normal)
             loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
-            loginButton.tintColor = .black
-            loginButton.isEnabled = false
+            loginButton.tintColor = .white
+            loginButton.setTitleColor(.white, for: .disabled)
         }
     }
     
@@ -93,44 +93,65 @@ class LoginViewController: UIViewController, ViewModelDependent {
         setupPasswordVisibilityButton()
         
         usernameTextField.rx.controlEvent(.editingDidBegin)
-            .map { 1.0 }
-            .bind(to: borderView.rx.alpha)
+            .subscribe(onNext: { self.borderView.alpha = 1.0 })
+            .disposed(by: disposeBag)
+        usernameTextField.rx.controlEvent(.editingDidEnd)
+            .subscribe(onNext: { self.borderView.alpha = 0.2 })
             .disposed(by: disposeBag)
         
         passwordTextField.rx.controlEvent(.editingDidBegin)
-            .map { 1.0 }
-            .bind(to: passwordBorderView.rx.alpha)
+            .subscribe(onNext: { self.passwordBorderView.alpha = 1.0 })
             .disposed(by: disposeBag)
-        
-        usernameTextField.rx.controlEvent(.editingDidEnd)
-            .map { 0.2 }
-            .bind(to: borderView.rx.alpha)
-            .disposed(by: disposeBag)
-        
         passwordTextField.rx.controlEvent(.editingDidEnd)
-            .map { 0.2 }
-            .bind(to: passwordBorderView.rx.alpha)
+            .subscribe(onNext: { self.passwordBorderView.alpha = 0.2 })
             .disposed(by: disposeBag)
         
         passwordVisibilityButton.rx.tap
-            .subscribe(onNext: { self.togglePasswordVisibility() })
+            .subscribe(onNext: self.togglePasswordVisibility)
             .disposed(by: disposeBag)
         
-        usernameTextField.rx.text
+        let usernameText = usernameTextField.rx.text
             .orEmpty
             .throttle(.milliseconds(200), scheduler: MainScheduler.instance)
-            .subscribe(viewModel.input.username)
-            .disposed(by: disposeBag)
+            .share(replay: 1)
         
-        passwordTextField.rx.text
+        let passwordText = passwordTextField.rx.text
             .orEmpty
             .throttle(.milliseconds(200), scheduler: MainScheduler.instance)
-            .subscribe(viewModel.input.password)
+            .share(replay: 1)
+            
+        usernameText.subscribe(viewModel.input.username).disposed(by: disposeBag)
+        passwordText.subscribe(viewModel.input.password).disposed(by: disposeBag)
+        
+        let usernameValidity = usernameText.map(viewModel.validate).share(replay: 1)
+        let passwordValidity = passwordText.map(viewModel.validate).share(replay: 1)
+        let credentialValidity = Observable
+            .combineLatest(usernameValidity, passwordValidity) { $0 && $1 }
+            .share(replay: 1)
+            
+        credentialValidity
+            .bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
+        credentialValidity
+            .map { $0 ? 1.0 : 0.6 }
+            .bind(to: loginButton.rx.alpha)
+            .disposed(by: disposeBag)
+
         loginButton.rx.tap
-            .asObservable()
             .subscribe(viewModel.input.loginAction)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.loginResult
+            .subscribe(onNext: { user in
+                self.presentAlert(for: "Login Successful!")
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.output.loginError
+            .subscribe(onNext: { [unowned self] error in
+                self.presentAlert(for: error)
+            })
             .disposed(by: disposeBag)
     }
     
@@ -152,9 +173,8 @@ class LoginViewController: UIViewController, ViewModelDependent {
     
     private func togglePasswordVisibility() {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
-        passwordVisibilityButton.setImage(
-            passwordTextField.isSecureTextEntry ? .passwordHidden : .passwordVisible,
-            for: .normal
-        )
+        
+        let image: UIImage = passwordTextField.isSecureTextEntry ? .passwordHidden : .passwordVisible
+        passwordVisibilityButton.setImage(image, for: .normal)
     }
 }
