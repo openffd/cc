@@ -33,7 +33,7 @@ class LoginViewController: UIViewController, ViewModelDependent {
             logoLabel.text = "🄲🄲"
             logoLabel.backgroundColor = .systemOrange
             logoLabel.textColor = .black
-            logoLabel.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 60)
+            logoLabel.font = .helveticaNeueCondensedBlack(size: 60)
         }
     }
     @IBOutlet private var loginLabel: UILabel! {
@@ -41,14 +41,14 @@ class LoginViewController: UIViewController, ViewModelDependent {
             loginLabel.text = "Login"
             loginLabel.backgroundColor = .clear
             loginLabel.textColor = .black
-            loginLabel.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 36)
+            loginLabel.font = .helveticaNeueCondensedBlack(size: 36)
         }
     }
     @IBOutlet private var usernameTextField: UITextField! {
         didSet {
             usernameTextField.placeholder = "username"
             usernameTextField.borderStyle = .none
-            usernameTextField.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+            usernameTextField.font = .helveticaNeueBold(size: 20)
             usernameTextField.tintColor = .black
         }
     }
@@ -63,7 +63,7 @@ class LoginViewController: UIViewController, ViewModelDependent {
             passwordTextField.isSecureTextEntry = true
             passwordTextField.placeholder = "password"
             passwordTextField.borderStyle = .none
-            passwordTextField.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+            passwordTextField.font = .helveticaNeueBold(size: 20)
             passwordTextField.tintColor = .black
         }
     }
@@ -77,7 +77,7 @@ class LoginViewController: UIViewController, ViewModelDependent {
         didSet {
             loginButton.backgroundColor = .black
             loginButton.setTitle("LOGIN", for: .normal)
-            loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
+            loginButton.titleLabel?.font = .helveticaNeueCondensedBold(size: 20)
             loginButton.tintColor = .white
             loginButton.setTitleColor(.white, for: .disabled)
         }

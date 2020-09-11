@@ -18,7 +18,7 @@ class LandingViewController: UIViewController {
         didSet {
             appNameLabel.text = "🄲🄲"
             appNameLabel.textColor = .black
-            appNameLabel.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 80)
+            appNameLabel.font = .helveticaNeueCondensedBlack(size: 80)
         }
     }
     @IBOutlet private var animationContainerView: UIView! {
@@ -30,7 +30,7 @@ class LandingViewController: UIViewController {
         didSet {
             loginButton.tintColor = .white
             loginButton.setTitle("LOGIN", for: .normal)
-            loginButton.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
+            loginButton.titleLabel?.font = .helveticaNeueCondensedBold(size: 20)
         }
     }
     @IBOutlet private var signupButton: UIButton! {
@@ -38,7 +38,7 @@ class LandingViewController: UIViewController {
             signupButton.backgroundColor = .black
             signupButton.tintColor = .white
             signupButton.setTitle("SIGN UP", for: .normal)
-            signupButton.titleLabel?.font = UIFont(name: "HelveticaNeue-CondensedBold", size: 20)
+            signupButton.titleLabel?.font = .helveticaNeueCondensedBold(size: 20)
         }
     }
     
@@ -78,7 +78,7 @@ class LandingViewController: UIViewController {
     }
     
     private func showSignup() {
-        let attributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 32)!]
+        let attributes = [NSAttributedString.Key.font: UIFont.helveticaNeueCondensedBlack(size: 32)]
         UINavigationBar.appearance().titleTextAttributes = attributes
         
         let viewController = SignupViewController.instantiate(with: SignupViewModel())
