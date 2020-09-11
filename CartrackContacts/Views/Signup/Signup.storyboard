@@ -14,13 +14,64 @@
                     <view key="view" contentMode="scaleToFill" id="FX5-Ug-e3S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="muV-16-OJc">
+                                <rect key="frame" x="24" y="68" width="366" height="126"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6k-eI-trG">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rC3-m7-1uO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qGP-ie-05y">
+                                        <rect key="frame" x="0.0" y="50" width="366" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="zSC-BF-9s5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg7-Fx-9V6">
+                                        <rect key="frame" x="0.0" y="100" width="366" height="2"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="jkX-Ev-q6p"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMM-ic-che">
+                                        <rect key="frame" x="0.0" y="102" width="366" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="oI6-OP-ejf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="muV-16-OJc" firstAttribute="top" secondItem="oUk-Wd-xaL" secondAttribute="top" constant="24" id="MF9-A5-pBQ"/>
+                            <constraint firstItem="muV-16-OJc" firstAttribute="leading" secondItem="oUk-Wd-xaL" secondAttribute="leading" constant="24" id="QxO-ID-kdU"/>
+                            <constraint firstItem="oUk-Wd-xaL" firstAttribute="trailing" secondItem="muV-16-OJc" secondAttribute="trailing" constant="24" id="lsA-Ff-VP9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oUk-Wd-xaL"/>
                     </view>
+                    <connections>
+                        <outlet property="usernameBorderView" destination="wg7-Fx-9V6" id="MtE-tN-VWH"/>
+                        <outlet property="usernameErrorLabel" destination="CMM-ic-che" id="6M0-fF-Uae"/>
+                        <outlet property="usernameQuestionLabel" destination="L6k-eI-trG" id="WDn-Xn-f4R"/>
+                        <outlet property="usernameTextField" destination="qGP-ie-05y" id="URH-mg-378"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxG-T7-Rdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="-7"/>
+            <point key="canvasLocation" x="-48" y="-21"/>
         </scene>
     </scenes>
 </document>

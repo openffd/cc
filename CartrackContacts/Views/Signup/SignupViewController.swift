@@ -26,7 +26,93 @@ final class SignupViewController: UIViewController, ViewModelDependent {
     
     private let disposeBag = DisposeBag()
 
+    @IBOutlet private var usernameQuestionLabel: UILabel! {
+        didSet {
+            usernameQuestionLabel.text = "Your username:"
+            usernameQuestionLabel.font = .helveticaNeueBold(size: 26)
+            usernameQuestionLabel.adjustsFontSizeToFitWidth = true
+            usernameQuestionLabel.minimumScaleFactor = 0.5
+        }
+    }
+    
+    @IBOutlet private var usernameTextField: UITextField! {
+        didSet {
+            usernameTextField.borderStyle = .none
+            usernameTextField.font = .helveticaNeueBold(size: 20)
+            usernameTextField.placeholder = "username"
+        }
+    }
+    
+    @IBOutlet private var usernameBorderView: UIView! {
+        didSet {
+            usernameBorderView.backgroundColor = .black
+        }
+    }
+    
+    @IBOutlet private var usernameErrorLabel: UILabel! {
+        didSet {
+            usernameErrorLabel.isHidden = true
+            usernameErrorLabel.textColor = .systemBlue
+            usernameErrorLabel.font = .helveticaNeue(size: 12)
+            usernameErrorLabel.text = "Your username should be at least 4 characters."
+        }
+    }
+    
+    private var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Create a 🄲🄲 account"
+        
+        setupNextButton()
+        
+        let usernameTextFieldObservable = usernameTextField.rx.text.orEmpty.share(replay: 1)
+        
+        usernameTextFieldObservable
+            .map(viewModel.shouldShowError)
+            .distinctUntilChanged()
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { isValid in
+                self.usernameErrorLabel.isHidden = !isValid
+            })
+            .disposed(by: disposeBag)
+        
+        usernameTextFieldObservable
+            .map(viewModel.validateUsername)
+            .distinctUntilChanged()
+            .subscribe(onNext: { isValid in
+                self.nextButton.isEnabled = isValid
+                self.nextButton.alpha = isValid ? 1.0 : 0.6
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.6) {
+            self.usernameTextField.becomeFirstResponder()
+        }
+    }
+    
+    private func setupNextButton() {
+        let height: CGFloat = 64, width: CGFloat = 64
+        nextButton = {
+            let button = UIButton(type: .custom)
+            button.frame = CGRect(
+                origin: CGPoint(x: UIScreen.main.bounds.width - width - 20, y: .zero),
+                size: CGSize(width: height, height: width)
+            )
+            button.backgroundColor = .black
+            button.tintColor = .white
+            button.layer.cornerRadius = height / 2
+            button.setImage(UIImage.arrowRight, for: .normal)
+            button.isEnabled = false
+            return button
+        }()
+        let accessoryView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: height + 10, height: width + 10)))
+        accessoryView.addSubview(nextButton)
+        usernameTextField.inputAccessoryView = accessoryView
     }
 }

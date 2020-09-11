@@ -21,4 +21,16 @@ final class SignupViewModel: ViewModel {
         let signupResult: Observable<User>
         let signupError: Observable<Error>
     }
+    
+    init() {
+        
+    }
+    
+    func shouldShowError(for username: String) -> Bool {
+        username.count > 0 && username.count < 4
+    }
+    
+    func validateUsername(_ username: String) -> Bool {
+        username.count >= 4
+    }
 }

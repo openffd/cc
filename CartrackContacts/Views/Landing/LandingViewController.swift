@@ -48,6 +48,9 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemOrange
         
+        let attributes = [NSAttributedString.Key.font: UIFont.helveticaNeueCondensedBlack(size: 24)]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
         loginButton.rx.tap
             .subscribe(onNext: { self.showLogin() })
             .disposed(by: disposeBag)
@@ -78,9 +81,6 @@ class LandingViewController: UIViewController {
     }
     
     private func showSignup() {
-        let attributes = [NSAttributedString.Key.font: UIFont.helveticaNeueCondensedBlack(size: 32)]
-        UINavigationBar.appearance().titleTextAttributes = attributes
-        
         let viewController = SignupViewController.instantiate(with: SignupViewModel())
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.hideNavigationBar()
