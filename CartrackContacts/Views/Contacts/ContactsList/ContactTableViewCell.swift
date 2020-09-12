@@ -17,9 +17,10 @@ final class ContactTableViewCell: UITableViewCell {
     @IBOutlet private var emailLabel: UILabel!
     
     func configure(with contact: Contact) {
-        nameInitialsLabel.text = "AB"
+        nameInitialsContainerView.backgroundColor = contact.color
+        nameInitialsLabel.text = contact.initials
         nameLabel.text = contact.name
-        emailLabel.text = contact.email
+        emailLabel.text = contact.displayEmail
     }
     
     override func awakeFromNib() {
