@@ -11,11 +11,11 @@ import RxSwift
 import RxCocoa
 
 final class SignupCreatePasswordViewController: UIViewController, ViewModelDependent {
-    typealias AssociatedViewModel = SignupViewModel
+    typealias AssociatedViewModel = SignupEnterUsernameViewModel
     
-    var viewModel: SignupViewModel!
+    var viewModel: SignupEnterUsernameViewModel!
     
-    static func instantiate(with viewModel: SignupViewModel) -> SignupCreatePasswordViewController {
+    static func instantiate(with viewModel: SignupEnterUsernameViewModel) -> SignupCreatePasswordViewController {
         let storyboard = UIStoryboard.signup
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "SignupCreatePasswordViewController") as? SignupCreatePasswordViewController else {
             fatalError()

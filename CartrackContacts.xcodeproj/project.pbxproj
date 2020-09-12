@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5BB0FB3BD2A893A67E316415 /* Pods_CartrackContacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CFDFE8BAB08282BDBA94D3 /* Pods_CartrackContacts.framework */; };
 		6077F7B34CCA20E31BEAE71B /* Pods_CartrackContactsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28BA63BA4103E8A435FE76B /* Pods_CartrackContactsTests.framework */; };
-		812BBAFD250B8A25005023AB /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBAFC250B8A25005023AB /* SignupViewModel.swift */; };
+		812BBAFD250B8A25005023AB /* SignupEnterUsernameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBAFC250B8A25005023AB /* SignupEnterUsernameViewModel.swift */; };
 		812BBAFF250BC265005023AB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBAFE250BC265005023AB /* UIFont+.swift */; };
 		812BBB01250BC7D1005023AB /* SignupCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB00250BC7D1005023AB /* SignupCreatePasswordViewController.swift */; };
 		812BBB06250BDD17005023AB /* SignupSelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB05250BDD17005023AB /* SignupSelectCountryViewController.swift */; };
@@ -22,7 +22,7 @@
 		8172A20B2505E53E00FF1A3F /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A20A2505E53E00FF1A3F /* LandingViewController.swift */; };
 		8172A20D2505E59300FF1A3F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A20C2505E59300FF1A3F /* Home.storyboard */; };
 		8172A2102505E5A700FF1A3F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A20F2505E5A700FF1A3F /* HomeViewController.swift */; };
-		8172A2132505E61900FF1A3F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2122505E61900FF1A3F /* SwiftPackageProductDependency */; };
+		8172A2132505E61900FF1A3F /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2122505E61900FF1A3F /* Reachability */; };
 		8172A2162505E71900FF1A3F /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2152505E71900FF1A3F /* UIStoryboard+.swift */; };
 		8172A2192505E9B800FF1A3F /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2182505E9B800FF1A3F /* Contact.swift */; };
 		8172A21B2505EA7000FF1A3F /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A21A2505EA7000FF1A3F /* Address.swift */; };
@@ -39,16 +39,16 @@
 		8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23B25066B8D00FF1A3F /* ContactsService.swift */; };
 		8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A23F250739C400FF1A3F /* NetworkRequest.swift */; };
 		8172A2422507427300FF1A3F /* RemoteResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2412507427300FF1A3F /* RemoteResourceLoader.swift */; };
-		8172A24825079F2200FF1A3F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24725079F2200FF1A3F /* SwiftPackageProductDependency */; };
-		8172A24B2507A16A00FF1A3F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24A2507A16A00FF1A3F /* SwiftPackageProductDependency */; };
-		8172A24F2507A16A00FF1A3F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24E2507A16A00FF1A3F /* SwiftPackageProductDependency */; };
-		8172A2512507A16A00FF1A3F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2502507A16A00FF1A3F /* SwiftPackageProductDependency */; };
-		8172A2532507A16A00FF1A3F /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2522507A16A00FF1A3F /* SwiftPackageProductDependency */; };
+		8172A24825079F2200FF1A3F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24725079F2200FF1A3F /* Lottie */; };
+		8172A24B2507A16A00FF1A3F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24A2507A16A00FF1A3F /* RxSwift */; };
+		8172A24F2507A16A00FF1A3F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A24E2507A16A00FF1A3F /* RxRelay */; };
+		8172A2512507A16A00FF1A3F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2502507A16A00FF1A3F /* RxCocoa */; };
+		8172A2532507A16A00FF1A3F /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2522507A16A00FF1A3F /* RxBlocking */; };
 		8172A2552507A48300FF1A3F /* Sedan.json in Resources */ = {isa = PBXBuildFile; fileRef = 8172A2542507A48300FF1A3F /* Sedan.json */; };
 		8172A2582507B4B700FF1A3F /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A2572507B4B700FF1A3F /* Signup.storyboard */; };
 		8172A25A2507B4C500FF1A3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2592507B4C500FF1A3F /* LoginViewController.swift */; };
 		8172A25E2507B4DB00FF1A3F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A25D2507B4DB00FF1A3F /* Login.storyboard */; };
-		8172A2602507B4E800FF1A3F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A25F2507B4E800FF1A3F /* SignupViewController.swift */; };
+		8172A2602507B4E800FF1A3F /* SignupEnterUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A25F2507B4E800FF1A3F /* SignupEnterUsernameViewController.swift */; };
 		8172A2622507BAD900FF1A3F /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2612507BAD900FF1A3F /* UINavigationController+.swift */; };
 		8172A264250874C600FF1A3F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A263250874C600FF1A3F /* UIViewController+.swift */; };
 		8172A266250876B500FF1A3F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A265250876B500FF1A3F /* ViewModel.swift */; };
@@ -70,7 +70,7 @@
 
 /* Begin PBXFileReference section */
 		2166CE02743EB66B0E93A421 /* Pods-CartrackContacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CartrackContacts.debug.xcconfig"; path = "Target Support Files/Pods-CartrackContacts/Pods-CartrackContacts.debug.xcconfig"; sourceTree = "<group>"; };
-		812BBAFC250B8A25005023AB /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		812BBAFC250B8A25005023AB /* SignupEnterUsernameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEnterUsernameViewModel.swift; sourceTree = "<group>"; };
 		812BBAFE250BC265005023AB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		812BBB00250BC7D1005023AB /* SignupCreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCreatePasswordViewController.swift; sourceTree = "<group>"; };
 		812BBB05250BDD17005023AB /* SignupSelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSelectCountryViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		8172A2572507B4B700FF1A3F /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		8172A2592507B4C500FF1A3F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8172A25D2507B4DB00FF1A3F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		8172A25F2507B4E800FF1A3F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		8172A25F2507B4E800FF1A3F /* SignupEnterUsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupEnterUsernameViewController.swift; sourceTree = "<group>"; };
 		8172A2612507BAD900FF1A3F /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		8172A263250874C600FF1A3F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		8172A265250876B500FF1A3F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -127,12 +127,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8172A2512507A16A00FF1A3F /* BuildFile in Frameworks */,
-				8172A24F2507A16A00FF1A3F /* BuildFile in Frameworks */,
-				8172A24B2507A16A00FF1A3F /* BuildFile in Frameworks */,
-				8172A2132505E61900FF1A3F /* BuildFile in Frameworks */,
-				8172A24825079F2200FF1A3F /* BuildFile in Frameworks */,
-				8172A2532507A16A00FF1A3F /* BuildFile in Frameworks */,
+				8172A2512507A16A00FF1A3F /* RxCocoa in Frameworks */,
+				8172A24F2507A16A00FF1A3F /* RxRelay in Frameworks */,
+				8172A24B2507A16A00FF1A3F /* RxSwift in Frameworks */,
+				8172A2132505E61900FF1A3F /* Reachability in Frameworks */,
+				8172A24825079F2200FF1A3F /* Lottie in Frameworks */,
+				8172A2532507A16A00FF1A3F /* RxBlocking in Frameworks */,
 				5BB0FB3BD2A893A67E316415 /* Pods_CartrackContacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				8172A2572507B4B700FF1A3F /* Signup.storyboard */,
-				8172A25F2507B4E800FF1A3F /* SignupViewController.swift */,
-				812BBAFC250B8A25005023AB /* SignupViewModel.swift */,
+				8172A25F2507B4E800FF1A3F /* SignupEnterUsernameViewController.swift */,
+				812BBAFC250B8A25005023AB /* SignupEnterUsernameViewModel.swift */,
 				812BBB00250BC7D1005023AB /* SignupCreatePasswordViewController.swift */,
 				812BBB05250BDD17005023AB /* SignupSelectCountryViewController.swift */,
 			);
@@ -354,7 +354,6 @@
 				9391D939B24BCF366364727E /* Pods-CartrackContactsTests.debug.xcconfig */,
 				B8603DE5BBF0DC32AD388726 /* Pods-CartrackContactsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -377,12 +376,12 @@
 			);
 			name = CartrackContacts;
 			packageProductDependencies = (
-				8172A2122505E61900FF1A3F /* SwiftPackageProductDependency */,
-				8172A24725079F2200FF1A3F /* SwiftPackageProductDependency */,
-				8172A24A2507A16A00FF1A3F /* SwiftPackageProductDependency */,
-				8172A24E2507A16A00FF1A3F /* SwiftPackageProductDependency */,
-				8172A2502507A16A00FF1A3F /* SwiftPackageProductDependency */,
-				8172A2522507A16A00FF1A3F /* SwiftPackageProductDependency */,
+				8172A2122505E61900FF1A3F /* Reachability */,
+				8172A24725079F2200FF1A3F /* Lottie */,
+				8172A24A2507A16A00FF1A3F /* RxSwift */,
+				8172A24E2507A16A00FF1A3F /* RxRelay */,
+				8172A2502507A16A00FF1A3F /* RxCocoa */,
+				8172A2522507A16A00FF1A3F /* RxBlocking */,
 			);
 			productName = CartrackContacts;
 			productReference = 8172A1E32505E3F600FF1A3F /* CC.app */;
@@ -436,9 +435,9 @@
 			);
 			mainGroup = 8172A1DA2505E3F600FF1A3F;
 			packageReferences = (
-				8172A2112505E61900FF1A3F /* RemoteSwiftPackageReference */,
-				8172A24625079F2200FF1A3F /* RemoteSwiftPackageReference */,
-				8172A2492507A16A00FF1A3F /* RemoteSwiftPackageReference */,
+				8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */,
+				8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 8172A1E42505E3F600FF1A3F /* Products */;
 			projectDirPath = "";
@@ -548,9 +547,9 @@
 				812BBB06250BDD17005023AB /* SignupSelectCountryViewController.swift in Sources */,
 				8172A264250874C600FF1A3F /* UIViewController+.swift in Sources */,
 				8172A2622507BAD900FF1A3F /* UINavigationController+.swift in Sources */,
-				8172A2602507B4E800FF1A3F /* SignupViewController.swift in Sources */,
+				8172A2602507B4E800FF1A3F /* SignupEnterUsernameViewController.swift in Sources */,
 				8172A270250A0F9300FF1A3F /* UIImage+.swift in Sources */,
-				812BBAFD250B8A25005023AB /* SignupViewModel.swift in Sources */,
+				812BBAFD250B8A25005023AB /* SignupEnterUsernameViewModel.swift in Sources */,
 				8172A26C2509CE3F00FF1A3F /* LoginManager.swift in Sources */,
 				8172A22F2506192600FF1A3F /* SHA256Digest+.swift in Sources */,
 				8172A2252505EE1D00FF1A3F /* SQLite.swift in Sources */,
@@ -848,7 +847,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8172A2112505E61900FF1A3F /* RemoteSwiftPackageReference */ = {
+		8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
 			requirement = {
@@ -856,7 +855,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		8172A24625079F2200FF1A3F /* RemoteSwiftPackageReference */ = {
+		8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
@@ -864,7 +863,7 @@
 				minimumVersion = 3.1.8;
 			};
 		};
-		8172A2492507A16A00FF1A3F /* RemoteSwiftPackageReference */ = {
+		8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -875,34 +874,34 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8172A2122505E61900FF1A3F /* SwiftPackageProductDependency */ = {
+		8172A2122505E61900FF1A3F /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8172A2112505E61900FF1A3F /* RemoteSwiftPackageReference */;
+			package = 8172A2112505E61900FF1A3F /* XCRemoteSwiftPackageReference "Reachability" */;
 			productName = Reachability;
 		};
-		8172A24725079F2200FF1A3F /* SwiftPackageProductDependency */ = {
+		8172A24725079F2200FF1A3F /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8172A24625079F2200FF1A3F /* RemoteSwiftPackageReference */;
+			package = 8172A24625079F2200FF1A3F /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
-		8172A24A2507A16A00FF1A3F /* SwiftPackageProductDependency */ = {
+		8172A24A2507A16A00FF1A3F /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8172A2492507A16A00FF1A3F /* RemoteSwiftPackageReference */;
+			package = 8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
-		8172A24E2507A16A00FF1A3F /* SwiftPackageProductDependency */ = {
+		8172A24E2507A16A00FF1A3F /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8172A2492507A16A00FF1A3F /* RemoteSwiftPackageReference */;
+			package = 8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
 		};
-		8172A2502507A16A00FF1A3F /* SwiftPackageProductDependency */ = {
+		8172A2502507A16A00FF1A3F /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8172A2492507A16A00FF1A3F /* RemoteSwiftPackageReference */;
+			package = 8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		8172A2522507A16A00FF1A3F /* SwiftPackageProductDependency */ = {
+		8172A2522507A16A00FF1A3F /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8172A2492507A16A00FF1A3F /* RemoteSwiftPackageReference */;
+			package = 8172A2492507A16A00FF1A3F /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxBlocking;
 		};
 /* End XCSwiftPackageProductDependency section */

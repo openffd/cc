@@ -9,7 +9,9 @@
 import Foundation
 import RxSwift
 
-final class SignupViewModel: ViewModel {
+final class SignupEnterUsernameViewModel: ViewModel {
+    let usernameMinimumCharacterCount = 3
+    
     struct Input {
         let username: AnyObserver<String>
         let password: AnyObserver<String>
@@ -27,10 +29,10 @@ final class SignupViewModel: ViewModel {
     }
     
     func shouldShowError(for username: String) -> Bool {
-        username.count > 0 && username.count < 4
+        username.count > 0 && username.count < usernameMinimumCharacterCount
     }
     
     func validateUsername(_ username: String) -> Bool {
-        username.count >= 4
+        username.count >= usernameMinimumCharacterCount
     }
 }

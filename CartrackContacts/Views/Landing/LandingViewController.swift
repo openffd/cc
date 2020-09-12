@@ -81,7 +81,7 @@ class LandingViewController: UIViewController {
     }
     
     private func showSignup() {
-        let viewController = SignupViewController.instantiate(with: SignupViewModel())
+        let viewController = SignupEnterUsernameViewController.instantiate(with: SignupEnterUsernameViewModel())
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.hideNavigationBar()
         navigationController.navigationBar.barTintColor = .systemOrange

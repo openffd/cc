@@ -10,14 +10,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class SignupViewController: UIViewController, ViewModelDependent {
-    typealias AssociatedViewModel = SignupViewModel
+final class SignupEnterUsernameViewController: UIViewController, ViewModelDependent {
+    typealias AssociatedViewModel = SignupEnterUsernameViewModel
     
-    var viewModel: SignupViewModel!
+    var viewModel: SignupEnterUsernameViewModel!
     
-    static func instantiate(with viewModel: SignupViewModel) -> SignupViewController {
+    static func instantiate(with viewModel: SignupEnterUsernameViewModel) -> SignupEnterUsernameViewController {
         let storyboard = UIStoryboard.signup
-        guard let viewController = storyboard.instantiateInitialViewController() as? SignupViewController else {
+        guard let viewController = storyboard.instantiateInitialViewController() as? SignupEnterUsernameViewController else {
             fatalError()
         }
         viewController.viewModel = viewModel
@@ -54,7 +54,7 @@ final class SignupViewController: UIViewController, ViewModelDependent {
             usernameErrorLabel.isHidden = true
             usernameErrorLabel.textColor = .systemGreen
             usernameErrorLabel.font = .helveticaNeue(size: 12)
-            usernameErrorLabel.text = "Your username should be at least 4 characters."
+            usernameErrorLabel.text = "Your username should be at least \(viewModel.usernameMinimumCharacterCount) characters."
         }
     }
     
