@@ -15,6 +15,7 @@
 		812BBB06250BDD17005023AB /* SignupSelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB05250BDD17005023AB /* SignupSelectCountryViewController.swift */; };
 		812BBB08250CA188005023AB /* SignupCreatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB07250CA188005023AB /* SignupCreatePasswordViewModel.swift */; };
 		812BBB0C250CA691005023AB /* SignupSelectCountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB0B250CA691005023AB /* SignupSelectCountryViewModel.swift */; };
+		812BBB0F250CAB8A005023AB /* ContactsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB0E250CAB8A005023AB /* ContactsSplitViewController.swift */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -22,8 +23,7 @@
 		8172A1F32505E3F700FF1A3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1F12505E3F700FF1A3F /* LaunchScreen.storyboard */; };
 		8172A1FE2505E3F700FF1A3F /* CartrackContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1FD2505E3F700FF1A3F /* CartrackContactsTests.swift */; };
 		8172A20B2505E53E00FF1A3F /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A20A2505E53E00FF1A3F /* LandingViewController.swift */; };
-		8172A20D2505E59300FF1A3F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A20C2505E59300FF1A3F /* Home.storyboard */; };
-		8172A2102505E5A700FF1A3F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A20F2505E5A700FF1A3F /* HomeViewController.swift */; };
+		8172A20D2505E59300FF1A3F /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A20C2505E59300FF1A3F /* Contacts.storyboard */; };
 		8172A2132505E61900FF1A3F /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 8172A2122505E61900FF1A3F /* Reachability */; };
 		8172A2162505E71900FF1A3F /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2152505E71900FF1A3F /* UIStoryboard+.swift */; };
 		8172A2192505E9B800FF1A3F /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A2182505E9B800FF1A3F /* Contact.swift */; };
@@ -78,6 +78,7 @@
 		812BBB05250BDD17005023AB /* SignupSelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSelectCountryViewController.swift; sourceTree = "<group>"; };
 		812BBB07250CA188005023AB /* SignupCreatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCreatePasswordViewModel.swift; sourceTree = "<group>"; };
 		812BBB0B250CA691005023AB /* SignupSelectCountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSelectCountryViewModel.swift; sourceTree = "<group>"; };
+		812BBB0E250CAB8A005023AB /* ContactsSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSplitViewController.swift; sourceTree = "<group>"; };
 		8172A1E32505E3F600FF1A3F /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1E62505E3F600FF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,8 +90,7 @@
 		8172A1FD2505E3F700FF1A3F /* CartrackContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartrackContactsTests.swift; sourceTree = "<group>"; };
 		8172A1FF2505E3F700FF1A3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8172A20A2505E53E00FF1A3F /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
-		8172A20C2505E59300FF1A3F /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		8172A20F2505E5A700FF1A3F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8172A20C2505E59300FF1A3F /* Contacts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
 		8172A2152505E71900FF1A3F /* UIStoryboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+.swift"; sourceTree = "<group>"; };
 		8172A2182505E9B800FF1A3F /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		8172A21A2505EA7000FF1A3F /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 				8172A2092505E52E00FF1A3F /* Landing */,
 				8172A25B2507B4C900FF1A3F /* Signup */,
 				8172A25C2507B4CE00FF1A3F /* Login */,
-				8172A20E2505E59900FF1A3F /* Home */,
+				8172A20E2505E59900FF1A3F /* Contacts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,13 +254,13 @@
 			path = Landing;
 			sourceTree = "<group>";
 		};
-		8172A20E2505E59900FF1A3F /* Home */ = {
+		8172A20E2505E59900FF1A3F /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
-				8172A20C2505E59300FF1A3F /* Home.storyboard */,
-				8172A20F2505E5A700FF1A3F /* HomeViewController.swift */,
+				8172A20C2505E59300FF1A3F /* Contacts.storyboard */,
+				812BBB0E250CAB8A005023AB /* ContactsSplitViewController.swift */,
 			);
-			path = Home;
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 		8172A2142505E6FA00FF1A3F /* Extensions */ = {
@@ -490,7 +490,7 @@
 				8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */,
 				8172A2552507A48300FF1A3F /* Sedan.json in Resources */,
 				8172A2582507B4B700FF1A3F /* Signup.storyboard in Resources */,
-				8172A20D2505E59300FF1A3F /* Home.storyboard in Resources */,
+				8172A20D2505E59300FF1A3F /* Contacts.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,12 +594,12 @@
 				8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */,
 				8172A21F2505ECA200FF1A3F /* User.swift in Sources */,
 				8172A2292505F32700FF1A3F /* URL+.swift in Sources */,
-				8172A2102505E5A700FF1A3F /* HomeViewController.swift in Sources */,
 				8172A2272505EEAF00FF1A3F /* SQLiteDatabase.swift in Sources */,
 				8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */,
 				8172A21B2505EA7000FF1A3F /* Address.swift in Sources */,
 				8172A22D2506151700FF1A3F /* String+.swift in Sources */,
 				8172A26E2509D51A00FF1A3F /* Credential.swift in Sources */,
+				812BBB0F250CAB8A005023AB /* ContactsSplitViewController.swift in Sources */,
 				8172A23A2506654F00FF1A3F /* DataFetcher.swift in Sources */,
 				8172A266250876B500FF1A3F /* ViewModel.swift in Sources */,
 				8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */,
