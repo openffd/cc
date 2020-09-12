@@ -59,4 +59,22 @@ extension SQLite.Database: UserDatabase {
             country: String(cString: queryResultCountry)
         )
     }
+    
+    func checkUser(username: String) -> UsernameAvailability {
+        let queryString = "SELECT * FROM user WHERE username = ?;"
+        guard let statementPointer = try? prepareStatement(query: queryString) else { return .unavailable }
+        
+        defer { sqlite3_finalize(statementPointer) }
+        
+        guard sqlite3_bind_text(statementPointer, 1, username.utf8, -1, nil) == SQLITE_OK else {
+            return .unavailable
+        }
+        guard sqlite3_step(statementPointer) == SQLITE_ROW else {
+            return .unavailable
+        }
+        guard let _ = sqlite3_column_text(statementPointer, 1) else {
+            return .unavailable
+        }
+        return .available
+    }
 }

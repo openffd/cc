@@ -15,10 +15,15 @@ struct User {
     let country: String
 }
 
+enum UsernameAvailability {
+    case available, unavailable
+}
+
 protocol UserDatabase {
     func createUserTable() throws
     func insert(user: User) throws
     func getUser(username: String, digest: String) -> User?
+    func checkUser(username: String) -> UsernameAvailability
 }
 
 extension User: SQLiteTableModel {
