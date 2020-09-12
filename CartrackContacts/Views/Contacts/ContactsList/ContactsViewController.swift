@@ -29,6 +29,14 @@ final class ContactsViewController: UIViewController, UIScrollViewDelegate {
         
         title = "🄲🄲"
         
+        let attributes = [NSAttributedString.Key.font: UIFont.helveticaNeueCondensedBlack(size: 26)]
+        navigationController?.navigationBar.titleTextAttributes = attributes
+        navigationController?.hideNavigationBar()
+        navigationController?.navigationBar.barTintColor = .systemOrange
+        navigationController?.navigationBar.tintColor = .black
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        
         tableView.rx
             .setDelegate(self)
             .disposed(by: disposeBag)
@@ -68,7 +76,11 @@ final class ContactsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func showContact(contact: Contact) {
+    @objc private func logout() {
+        print("Logout!")
+    }
+    
+    private func showContact(contact: Contact) {
         let viewcontroller = UIStoryboard.contacts.instantiateViewController(withIdentifier: "ContactDetailTableViewController") as! ContactDetailTableViewController
         viewcontroller.contact = contact
         showDetailViewController(viewcontroller, sender: nil)
