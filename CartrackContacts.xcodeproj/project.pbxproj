@@ -13,6 +13,7 @@
 		812BBAFF250BC265005023AB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBAFE250BC265005023AB /* UIFont+.swift */; };
 		812BBB01250BC7D1005023AB /* SignupCreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB00250BC7D1005023AB /* SignupCreatePasswordViewController.swift */; };
 		812BBB06250BDD17005023AB /* SignupSelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB05250BDD17005023AB /* SignupSelectCountryViewController.swift */; };
+		812BBB08250CA188005023AB /* SignupCreatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB07250CA188005023AB /* SignupCreatePasswordViewModel.swift */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -74,6 +75,7 @@
 		812BBAFE250BC265005023AB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		812BBB00250BC7D1005023AB /* SignupCreatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCreatePasswordViewController.swift; sourceTree = "<group>"; };
 		812BBB05250BDD17005023AB /* SignupSelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSelectCountryViewController.swift; sourceTree = "<group>"; };
+		812BBB07250CA188005023AB /* SignupCreatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCreatePasswordViewModel.swift; sourceTree = "<group>"; };
 		8172A1E32505E3F600FF1A3F /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1E62505E3F600FF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				8172A25F2507B4E800FF1A3F /* SignupEnterUsernameViewController.swift */,
 				812BBAFC250B8A25005023AB /* SignupEnterUsernameViewModel.swift */,
 				812BBB00250BC7D1005023AB /* SignupCreatePasswordViewController.swift */,
+				812BBB07250CA188005023AB /* SignupCreatePasswordViewModel.swift */,
 				812BBB05250BDD17005023AB /* SignupSelectCountryViewController.swift */,
 			);
 			path = Signup;
@@ -573,6 +576,7 @@
 				8172A266250876B500FF1A3F /* ViewModel.swift in Sources */,
 				8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */,
 				8172A2312506271300FF1A3F /* DynamicValue.swift in Sources */,
+				812BBB08250CA188005023AB /* SignupCreatePasswordViewModel.swift in Sources */,
 				8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */,
 				812BBB01250BC7D1005023AB /* SignupCreatePasswordViewController.swift in Sources */,
 			);

@@ -11,11 +11,11 @@ import RxSwift
 import RxCocoa
 
 final class SignupCreatePasswordViewController: UIViewController, ViewModelDependent {
-    typealias AssociatedViewModel = SignupEnterUsernameViewModel
+    typealias AssociatedViewModel = SignupCreatePasswordViewModel
     
-    var viewModel: SignupEnterUsernameViewModel!
+    var viewModel: SignupCreatePasswordViewModel!
     
-    static func instantiate(with viewModel: SignupEnterUsernameViewModel) -> SignupCreatePasswordViewController {
+    static func instantiate(with viewModel: SignupCreatePasswordViewModel) -> SignupCreatePasswordViewController {
         let storyboard = UIStoryboard.signup
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "SignupCreatePasswordViewController") as? SignupCreatePasswordViewController else {
             fatalError()
@@ -58,7 +58,7 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
             passwordErrorLabel.isHidden = true
             passwordErrorLabel.textColor = .systemGreen
             passwordErrorLabel.font = .helveticaNeue(size: 12)
-            passwordErrorLabel.text = "Your password should be at least 4 characters."
+            passwordErrorLabel.text = "Your password should be at least \(viewModel.passwordMinimumCharacterCount) characters."
         }
     }
     
@@ -80,6 +80,9 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
             .distinctUntilChanged()
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .subscribe(onNext: { isValid in
+                if isValid {
+                    
+                }
                 self.passwordErrorLabel.isHidden = !isValid
             })
             .disposed(by: disposeBag)

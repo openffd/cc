@@ -75,17 +75,26 @@ final class SignupEnterUsernameViewController: UIViewController, ViewModelDepend
             .map(viewModel.shouldShowError)
             .distinctUntilChanged()
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { isValid in
-                self.usernameErrorLabel.isHidden = !isValid
+            .subscribe(onNext: {
+                switch $0 {
+                case .shouldHide:
+                    self.usernameErrorLabel.isHidden = true
+                case .shouldShow:
+                    self.usernameErrorLabel.isHidden = false
+                }
             })
             .disposed(by: disposeBag)
         
         usernameTextFieldObservable
             .map(viewModel.validateUsername)
             .distinctUntilChanged()
-            .subscribe(onNext: { isValid in
-                self.nextButton.isEnabled = isValid
-                self.nextButton.alpha = isValid ? 1.0 : 0.6
+            .subscribe(onNext: {
+                switch $0 {
+                case .invalid:
+                    self.nextButton.isEnabled = false
+                case .valid:
+                    self.nextButton.isEnabled = true
+                }
             })
             .disposed(by: disposeBag)
         
@@ -131,7 +140,7 @@ final class SignupEnterUsernameViewController: UIViewController, ViewModelDepend
     }
     
     private func showCreatePassword() {
-        let viewController = SignupCreatePasswordViewController.instantiate(with: viewModel)
+        let viewController = SignupCreatePasswordViewController.instantiate(with: SignupCreatePasswordViewModel())
         show(viewController, sender: nil)
     }
 }

@@ -14,8 +14,6 @@ final class SignupEnterUsernameViewModel: ViewModel {
     
     struct Input {
         let username: AnyObserver<String>
-        let password: AnyObserver<String>
-        let country: AnyObserver<String>
         let signupAction: AnyObserver<Void>
     }
     
@@ -24,15 +22,30 @@ final class SignupEnterUsernameViewModel: ViewModel {
         let signupError: Observable<Error>
     }
     
+    enum UsernameValidity {
+        case valid, invalid
+    }
+    
+    enum UsernameErrorVisibility {
+        case shouldShow, shouldHide
+    }
+    
     init() {
         
     }
     
-    func shouldShowError(for username: String) -> Bool {
-        username.count > 0 && username.count < usernameMinimumCharacterCount
+    func shouldShowError(for username: String) -> UsernameErrorVisibility {
+        if username.count > 0 && username.count < usernameMinimumCharacterCount {
+            return .shouldShow
+        } else {
+            return .shouldHide
+        }
     }
     
-    func validateUsername(_ username: String) -> Bool {
-        username.count >= usernameMinimumCharacterCount
+    func validateUsername(_ username: String) -> UsernameValidity {
+        guard username.count >= usernameMinimumCharacterCount else {
+            return .invalid
+        }
+        return .valid
     }
 }
