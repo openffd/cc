@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class LoginViewController: UIViewController, ViewModelDependent {
+final class LoginViewController: UIViewController, ViewModelDependent {
     typealias AssociatedViewModel = LoginViewModel
     
     var viewModel: LoginViewModel!
@@ -149,7 +149,8 @@ class LoginViewController: UIViewController, ViewModelDependent {
         
         viewModel.output.loginResult
             .subscribe(onNext: { user in
-                self.presentAlert(for: "Login Successful!")
+//                self.presentAlert(for: "Login Successful!")
+                self.showContacts()
             })
             .disposed(by: disposeBag)
         
@@ -181,5 +182,11 @@ class LoginViewController: UIViewController, ViewModelDependent {
         
         let image: UIImage = passwordTextField.isSecureTextEntry ? .passwordHidden : .passwordVisible
         passwordVisibilityButton.setImage(image, for: .normal)
+    }
+    
+    private func showContacts() {
+        let viewController = UIStoryboard.contacts.instantiateInitialViewController()!
+        viewController.modalPresentationStyle = .fullScreen
+        show(viewController, sender: nil)
     }
 }

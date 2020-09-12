@@ -73,12 +73,20 @@ final class SignupSelectCountryViewController: UIViewController, ViewModelDepend
         
         nextButton.rx.tap
             .subscribe(onNext: {
-                self.showSignupCreateUsername()
+                self.showContacts()
             }).disposed(by: disposeBag)
     }
     
-    private func showSignupCreateUsername() {
-        
+    private func showContacts() {
+        let containerViewController = UIViewController()
+        let viewController = UIStoryboard.contacts.instantiateInitialViewController()!
+        containerViewController.addChild(viewController)
+        containerViewController.view.addSubview(viewController.view)
+        viewController.view.frame = viewController.view.frame
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.didMove(toParent: containerViewController)
+        containerViewController.modalPresentationStyle = .fullScreen
+        present(containerViewController, animated: true, completion: nil)
     }
 }
 
