@@ -97,8 +97,8 @@ final class ContactDetailTableViewController: UITableViewController {
         companyCatchPhraseLabel.text = contact.company.business
         
         let address = contact.address
-        address1Label.text = "\(address.suite), \(address.street)"
-        address2Label.text = "\(address.city), \(address.zipcode)"
+        address1Label.text = address.line1
+        address2Label.text = address.line2
     }
     
     private func setupFieldTextLabels() {
@@ -117,9 +117,9 @@ final class ContactDetailTableViewController: UITableViewController {
     }
     
     @objc func openMapForPlace() {
-        guard let location = contact?.address.location else { return }
-        let latitude = location.latitude.toDouble
-        let longitude = location.longitude.toDouble
+        guard let contact = self.contact else { return }
+        let latitude = contact.address.location.latitude.toDouble
+        let longitude = contact.address.location.longitude.toDouble
         let regionDistance: CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
         let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
@@ -129,7 +129,8 @@ final class ContactDetailTableViewController: UITableViewController {
         ]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = ""
+        
+        mapItem.name = "\(contact.address.line1)\n\(contact.address.line2)"
         mapItem.openInMaps(launchOptions: options)
     }
 }

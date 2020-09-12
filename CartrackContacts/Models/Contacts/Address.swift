@@ -16,6 +16,14 @@ extension Contact {
         let zipcode: String
         let location: GeographicLocation
         
+        var line1: String {
+            "\(suite), \(street)"
+        }
+        
+        var line2: String {
+            "\(city), \(zipcode)"
+        }
+        
         enum CodingKeys: String, CodingKey {
             case street
             case suite
