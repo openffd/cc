@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class HomeSplitViewController: UISplitViewController {
+final class ContactsSplitViewController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ final class HomeSplitViewController: UISplitViewController {
     }
 }
 
-extension HomeSplitViewController: UISplitViewControllerDelegate {
+extension ContactsSplitViewController: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         true
     }
