@@ -22,17 +22,21 @@ final class ContactsViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    var isTableViewDelegateSet: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "🄲🄲"
         
         tableView.rx
             .setDelegate(self)
             .disposed(by: disposeBag)
-        
+    
         tableView.rx
             .modelSelected(Contact.self)
             .subscribe(onNext: { contact in
-                print(contact.name)
+                self.showContact(contact: contact)
             })
             .disposed(by: disposeBag)
         
@@ -49,15 +53,25 @@ final class ContactsViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        let identifier = "ContactTableViewCell"
+        if !isTableViewDelegateSet {
+            contacts.bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: ContactTableViewCell.self)) { _, item, cell in
+                cell.configure(with: item)
+            }.disposed(by: disposeBag)
+            
+            isTableViewDelegateSet = true
+        }
+
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
-        let identifier = "ContactTableViewCell"
-        contacts.bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: ContactTableViewCell.self)) { _, item, cell in
-            cell.configure(with: item)
-        }.disposed(by: disposeBag)
+    }
+    
+    func showContact(contact: Contact) {
+        let viewcontroller = UIStoryboard.contacts.instantiateViewController(withIdentifier: "ContactDetailTableViewController") as! ContactDetailTableViewController
+        viewcontroller.contact = contact
+        showDetailViewController(viewcontroller, sender: nil)
     }
 }
 
