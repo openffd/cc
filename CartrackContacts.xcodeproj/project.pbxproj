@@ -19,6 +19,7 @@
 		812BBB11250CACED005023AB /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB10250CACED005023AB /* ContactsViewController.swift */; };
 		812BBB13250CAD3F005023AB /* ContactDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB12250CAD3F005023AB /* ContactDetailTableViewController.swift */; };
 		812BBB17250CB4B0005023AB /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB16250CB4B0005023AB /* ContactTableViewCell.swift */; };
+		812BBB1C250CD3E9005023AB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB1B250CD3E9005023AB /* UIView+.swift */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -85,6 +86,7 @@
 		812BBB10250CACED005023AB /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		812BBB12250CAD3F005023AB /* ContactDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailTableViewController.swift; sourceTree = "<group>"; };
 		812BBB16250CB4B0005023AB /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		812BBB1B250CD3E9005023AB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		8172A1E32505E3F600FF1A3F /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1E62505E3F600FF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				8172A263250874C600FF1A3F /* UIViewController+.swift */,
 				8172A26F250A0F9300FF1A3F /* UIImage+.swift */,
 				812BBAFE250BC265005023AB /* UIFont+.swift */,
+				812BBB1B250CD3E9005023AB /* UIView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */,
 				8172A2312506271300FF1A3F /* DynamicValue.swift in Sources */,
 				812BBB08250CA188005023AB /* SignupCreatePasswordViewModel.swift in Sources */,
+				812BBB1C250CD3E9005023AB /* UIView+.swift in Sources */,
 				8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */,
 				812BBB01250BC7D1005023AB /* SignupCreatePasswordViewController.swift in Sources */,
 			);
