@@ -44,7 +44,7 @@ final class SignupSelectCountryViewController: UIViewController {
         didSet {
             nextButton.backgroundColor = .black
             nextButton.tintColor = .white
-            nextButton.setTitle("NEXT", for: .normal)
+            nextButton.setTitle("SUBMIT", for: .normal)
             nextButton.titleLabel?.font = .helveticaNeueCondensedBold(size: 20)
         }
     }
