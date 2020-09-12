@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class Contact: Codable {
     let id: Int
@@ -17,6 +18,10 @@ final class Contact: Codable {
     let phone: String
     let website: String
     let company: Company
+    
+    var displayEmail: String {
+        email.lowercased()
+    }
     
     init(
         id: Int,
@@ -37,4 +42,26 @@ final class Contact: Codable {
         self.website = website
         self.company = company
     }
+}
+
+protocol Colored {
+    var color: UIColor { get }
+}
+
+extension Contact: Colored {
+    var color: UIColor {
+        UIColor.systemColors[id % UIColor.systemColors.count]
+    }
+}
+
+private extension UIColor {
+    static let systemColors: [UIColor] = [
+        .systemRed,
+        .systemGreen,
+        .systemBlue,
+        .systemOrange,
+        .systemYellow,
+        .systemPurple,
+        .systemTeal,
+    ]
 }
