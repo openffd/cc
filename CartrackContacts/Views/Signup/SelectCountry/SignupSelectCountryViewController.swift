@@ -11,8 +11,20 @@ import RxSwift
 import RxCocoa
 import CountryPickerView
 
-final class SignupSelectCountryViewController: UIViewController {
-
+final class SignupSelectCountryViewController: UIViewController, ViewModelDependent {
+    typealias AssociatedViewModel = SignupSelectCountryViewModel
+    
+    var viewModel: SignupSelectCountryViewModel!
+    
+    static func instantiate(with viewModel: SignupSelectCountryViewModel) -> SignupSelectCountryViewController {
+        let storyboard = UIStoryboard.signup
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "SignupSelectCountryViewController") as? SignupSelectCountryViewController else {
+            fatalError()
+        }
+        viewController.viewModel = viewModel
+        return viewController
+    }
+    
     private let disposeBag = DisposeBag()
     
     @IBOutlet private var selectCountryLabel: UILabel! {

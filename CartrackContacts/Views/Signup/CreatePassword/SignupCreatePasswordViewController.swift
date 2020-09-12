@@ -149,8 +149,7 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
     }
     
     private func showSelectCountry() {
-        let storyboard = UIStoryboard.init(name: "Signup", bundle: .main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "SignupSelectCountryViewController")
+        let viewController = SignupSelectCountryViewController.instantiate(with: SignupSelectCountryViewModel())
         show(viewController, sender: nil)
     }
 }

@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import RxSwift
+
+final class SignupSelectCountryViewModel: ViewModel {
+    struct Input {
+        let password: AnyObserver<String>
+        let proceedAction: AnyObserver<Void>
+    }
+    
+    struct Output {
+        let passwordError: Observable<Error>
+    }
+    
+    init() {
+        
+    }
+}
