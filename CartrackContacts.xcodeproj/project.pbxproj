@@ -20,6 +20,7 @@
 		812BBB13250CAD3F005023AB /* ContactDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB12250CAD3F005023AB /* ContactDetailTableViewController.swift */; };
 		812BBB17250CB4B0005023AB /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB16250CB4B0005023AB /* ContactTableViewCell.swift */; };
 		812BBB1C250CD3E9005023AB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB1B250CD3E9005023AB /* UIView+.swift */; };
+		812BBB20250D2B5E005023AB /* SignupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB1F250D2B5E005023AB /* SignupManager.swift */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -87,6 +88,7 @@
 		812BBB12250CAD3F005023AB /* ContactDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailTableViewController.swift; sourceTree = "<group>"; };
 		812BBB16250CB4B0005023AB /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		812BBB1B250CD3E9005023AB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		812BBB1F250D2B5E005023AB /* SignupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManager.swift; sourceTree = "<group>"; };
 		8172A1E32505E3F600FF1A3F /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1E62505E3F600FF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				8172A2232505EE0300FF1A3F /* SQLite */,
 				8172A26B2509CE3F00FF1A3F /* LoginManager.swift */,
+				812BBB1F250D2B5E005023AB /* SignupManager.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				8172A2622507BAD900FF1A3F /* UINavigationController+.swift in Sources */,
 				812BBB13250CAD3F005023AB /* ContactDetailTableViewController.swift in Sources */,
 				812BBB11250CACED005023AB /* ContactsViewController.swift in Sources */,
+				812BBB20250D2B5E005023AB /* SignupManager.swift in Sources */,
 				812BBB0C250CA691005023AB /* SignupSelectCountryViewModel.swift in Sources */,
 				8172A2602507B4E800FF1A3F /* SignupEnterUsernameViewController.swift in Sources */,
 				8172A270250A0F9300FF1A3F /* UIImage+.swift in Sources */,
