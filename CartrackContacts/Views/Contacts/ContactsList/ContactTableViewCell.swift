@@ -16,6 +16,12 @@ final class ContactTableViewCell: UITableViewCell {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var emailLabel: UILabel!
     
+    func configure(with contact: Contact) {
+        nameInitialsLabel.text = "AB"
+        nameLabel.text = contact.name
+        emailLabel.text = contact.email
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
