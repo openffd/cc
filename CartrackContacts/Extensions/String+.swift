@@ -12,4 +12,8 @@ extension String {
     var utf8: UnsafePointer<Int8>? {
         (self as NSString).utf8String
     }
+    
+    var toDouble: Double {
+        NumberFormatter().number(from: self)?.doubleValue ?? 0
+    }
 }

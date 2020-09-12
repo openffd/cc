@@ -7,85 +7,140 @@
 //
 
 import UIKit
+import MapKit
 
 final class ContactDetailTableViewController: UITableViewController {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var nameInitialsContainerView: UIView! {
+    var contact: Contact? = nil
+    
+    @IBOutlet private var headerView: UIView!
+    @IBOutlet private var nameInitialsLabel: UILabel! {
         didSet {
-            nameInitialsContainerView.layer.cornerRadius = nameInitialsContainerView.frame.width/2
+            nameInitialsLabel.font = .helveticaNeueBold(size: 32)
+            nameInitialsLabel.textColor = .white
         }
     }
-    @IBOutlet weak var nameInitialsLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var websiteLabel: UILabel!
-   
-    @IBOutlet weak var addressTextView: UITextView!
-    @IBOutlet weak var mapContainerView: UIView!
-    @IBOutlet weak var companyNameLabel: UILabel!
-    @IBOutlet weak var companyCatchPhraseLabel: UILabel!
-    @IBOutlet weak var companyBusinessLabel: UILabel!
+    @IBOutlet private var nameInitialsContainerView: UIView! {
+        didSet {
+            nameInitialsContainerView.layer.cornerRadius = nameInitialsContainerView.frame.width / 2
+        }
+    }
+    @IBOutlet private var nameLabel: UILabel! {
+        didSet {
+            nameLabel.font = .helveticaNeueBold(size: 24)
+            nameLabel.textColor = .black
+        }
+    }
     
-    @IBOutlet weak var companyCell: UITableViewCell!
-    @IBOutlet weak var addressCell: UITableViewCell!
-
-    var contact: Contact? = nil
-
-    var bigCellTag = 1001
+    @IBOutlet private var usernameTextLabel: UILabel!
+    @IBOutlet private var usernameLabel: UILabel!
+    
+    @IBOutlet private var emailTextLabel: UILabel!
+    @IBOutlet private var emailLabel: UILabel!
+    
+    @IBOutlet private var phoneTextLabel: UILabel!
+    @IBOutlet private var phoneLabel: UILabel!
+    
+    @IBOutlet private var websiteTextLabel: UILabel!
+    @IBOutlet private var websiteLabel: UILabel!
+    
+    @IBOutlet private var addressTextLabel: UILabel!
+    @IBOutlet private var address1Label: UILabel!
+    @IBOutlet private var address2Label: UILabel!
+    @IBOutlet private var mapContainerView: UIView!
+    @IBOutlet private var mapView: MKMapView!
+    
+    @IBOutlet private var companyTextLabel: UILabel!
+    @IBOutlet private var companyNameLabel: UILabel!
+    @IBOutlet private var companyCatchPhraseLabel: UILabel!
+    @IBOutlet private var companyBusinessLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .white
         
+        tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 64.0
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.tableFooterView = UIView()
         
-        addressCell.tag = bigCellTag
-        companyCell.tag = bigCellTag
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        setupFieldTextLabels()
         
-        if let contact = contact {
-            // Populate Data
-            nameInitialsLabel.text = contact.initials
-            nameInitialsContainerView.backgroundColor = contact.color
-            nameLabel.text = contact.name
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(openMapForPlace))
+        mapView.addGestureRecognizer(recognizer)
+        
+        if let location = contact?.address.location {
+            let loc = CLLocation(latitude: location.latitude.toDouble, longitude: location.longitude.toDouble)
+            let region = MKCoordinateRegion( center: loc.coordinate, latitudinalMeters: 10000, longitudinalMeters: 10000)
+            mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
             
-    
-            usernameLabel.text = contact.username
-            emailLabel.text = contact.email.lowercased()
-            phoneLabel.text = contact.phone
-            websiteLabel.text = contact.website
-            
-            let address = contact.address
-            addressTextView.text = "\(address.suite)\n\(address.street)\n\(address.city) \(address.zipcode)"
-            addressTextView.isEditable = false
-            addressTextView.isScrollEnabled = false
-            
-            companyNameLabel.text = "  \(contact.company.name)"
-            companyBusinessLabel.text = "  \(contact.company.business)"
-            companyCatchPhraseLabel.text = "  \"\(contact.company.catchPhrase)\""
+            let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 100000)
+            mapView.setCameraZoomRange(zoomRange, animated: true)
         }
         
+        setupFieldValues()
     }
     
-    //MARK: - Table View
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+    private func setupFieldValues() {
+        guard let contact = self.contact else { return }
+        
+        nameInitialsLabel.text = contact.initials
+        nameInitialsContainerView.backgroundColor = contact.color
+        nameLabel.text = contact.name
+        
+        usernameLabel.text = contact.username
+        emailLabel.text = contact.displayEmail
+        phoneLabel.text = contact.phone
+        websiteLabel.text = contact.website
+        
+        companyNameLabel.text = contact.company.name
+        companyBusinessLabel.text = contact.company.catchPhrase
+        companyCatchPhraseLabel.text = contact.company.business
+        
+        let address = contact.address
+        address1Label.text = "\(address.suite), \(address.street)"
+        address2Label.text = "\(address.city), \(address.zipcode)"
     }
     
+    private func setupFieldTextLabels() {
+        let fieldTextLabels: [UILabel] = [
+            usernameTextLabel,
+            emailTextLabel,
+            phoneTextLabel,
+            websiteTextLabel,
+            addressTextLabel,
+            companyTextLabel,
+        ]
+        fieldTextLabels.forEach { label in
+            label.font = .helveticaNeue(size: 12)
+            label.textColor = .lightGray
+        }
+    }
+    
+    @objc func openMapForPlace() {
+        guard let location = contact?.address.location else { return }
+        let latitude = location.latitude.toDouble
+        let longitude = location.longitude.toDouble
+        let regionDistance: CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span),
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = ""
+        mapItem.openInMaps(launchOptions: options)
+    }
+}
+
+extension ContactDetailTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if contact == nil {
-            headerView.isHidden = true
-            return 0
-        } else {
-            headerView.isHidden = false
+        guard let _ = contact else { return .zero }
+        switch indexPath.row {
+        case 6:
+            return 300
+        default:
             return UITableView.automaticDimension
         }
     }
