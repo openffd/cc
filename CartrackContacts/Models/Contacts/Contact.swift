@@ -19,6 +19,15 @@ final class Contact: Codable {
     let website: String
     let company: Company
     
+    var initials: String {
+        let components = name.split(separator: " ")
+        if components.count > 1 {
+            return "\(components.first!.prefix(1))\(components.last!.prefix(1))"
+        } else {
+            return "\(components.first!.prefix(1))"
+        }
+    }
+    
     var displayEmail: String {
         email.lowercased()
     }
