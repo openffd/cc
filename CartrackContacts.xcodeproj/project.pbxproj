@@ -18,6 +18,7 @@
 		812BBB0F250CAB8A005023AB /* ContactsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB0E250CAB8A005023AB /* ContactsSplitViewController.swift */; };
 		812BBB11250CACED005023AB /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB10250CACED005023AB /* ContactsViewController.swift */; };
 		812BBB13250CAD3F005023AB /* ContactDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB12250CAD3F005023AB /* ContactDetailTableViewController.swift */; };
+		812BBB17250CB4B0005023AB /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB16250CB4B0005023AB /* ContactTableViewCell.swift */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -83,6 +84,7 @@
 		812BBB0E250CAB8A005023AB /* ContactsSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSplitViewController.swift; sourceTree = "<group>"; };
 		812BBB10250CACED005023AB /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		812BBB12250CAD3F005023AB /* ContactDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailTableViewController.swift; sourceTree = "<group>"; };
+		812BBB16250CB4B0005023AB /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		8172A1E32505E3F600FF1A3F /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1E62505E3F600FF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,23 @@
 			path = SelectCountry;
 			sourceTree = "<group>";
 		};
+		812BBB18250CB4C2005023AB /* ContactsList */ = {
+			isa = PBXGroup;
+			children = (
+				812BBB10250CACED005023AB /* ContactsViewController.swift */,
+				812BBB16250CB4B0005023AB /* ContactTableViewCell.swift */,
+			);
+			path = ContactsList;
+			sourceTree = "<group>";
+		};
+		812BBB19250CB56B005023AB /* ContactDetail */ = {
+			isa = PBXGroup;
+			children = (
+				812BBB12250CAD3F005023AB /* ContactDetailTableViewController.swift */,
+			);
+			path = ContactDetail;
+			sourceTree = "<group>";
+		};
 		8172A1DA2505E3F600FF1A3F = {
 			isa = PBXGroup;
 			children = (
@@ -263,8 +282,8 @@
 			children = (
 				8172A20C2505E59300FF1A3F /* Contacts.storyboard */,
 				812BBB0E250CAB8A005023AB /* ContactsSplitViewController.swift */,
-				812BBB10250CACED005023AB /* ContactsViewController.swift */,
-				812BBB12250CAD3F005023AB /* ContactDetailTableViewController.swift */,
+				812BBB18250CB4C2005023AB /* ContactsList */,
+				812BBB19250CB56B005023AB /* ContactDetail */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -602,6 +621,7 @@
 				8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */,
 				8172A21F2505ECA200FF1A3F /* User.swift in Sources */,
 				8172A2292505F32700FF1A3F /* URL+.swift in Sources */,
+				812BBB17250CB4B0005023AB /* ContactTableViewCell.swift in Sources */,
 				8172A2272505EEAF00FF1A3F /* SQLiteDatabase.swift in Sources */,
 				8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */,
 				8172A21B2505EA7000FF1A3F /* Address.swift in Sources */,

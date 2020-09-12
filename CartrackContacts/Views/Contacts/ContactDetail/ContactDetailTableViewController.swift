@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactDetailTableViewController: UITableViewController {
+final class ContactDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

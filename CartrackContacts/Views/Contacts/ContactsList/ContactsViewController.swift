@@ -8,8 +8,14 @@
 
 import UIKit
 
-class ContactsViewController: UIViewController {
+final class ContactsViewController: UIViewController {
 
+    @IBOutlet private var tableView: UITableView! {
+        didSet {
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
