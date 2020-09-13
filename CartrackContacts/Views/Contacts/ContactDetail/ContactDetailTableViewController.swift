@@ -133,7 +133,6 @@ final class ContactDetailTableViewController: UITableViewController {
         ]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        
         mapItem.name = "\(contact.address.line1)\n\(contact.address.line2)"
         mapItem.openInMaps(launchOptions: options)
     }
