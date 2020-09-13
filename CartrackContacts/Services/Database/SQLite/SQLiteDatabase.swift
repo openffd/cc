@@ -55,6 +55,10 @@ extension SQLite {
             }
         }
         
+        var lastInsertRowId: Int {
+            Int(sqlite3_last_insert_rowid(databasePointer))
+        }
+        
         var recentErrorMessage: String {
             guard let databasePointer = self.databasePointer else { return Error.genericMessage }
             return databasePointer.recentErrorMessage
