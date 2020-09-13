@@ -76,23 +76,29 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
         let passwordTextFieldObservable = passwordTextField.rx.text.orEmpty.share(replay: 1)
         
         passwordTextFieldObservable
-            .map { $0.count > 0 && $0.count < 4 }
+            .map(viewModel.shouldShowError)
             .distinctUntilChanged()
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { isValid in
-                if isValid {
-                    
+            .subscribe(onNext: {
+                switch $0 {
+                case .shouldHide:
+                    self.passwordErrorLabel.isHidden = true
+                case .shouldShow:
+                    self.passwordErrorLabel.isHidden = false
                 }
-                self.passwordErrorLabel.isHidden = !isValid
             })
             .disposed(by: disposeBag)
         
         passwordTextFieldObservable
-            .map { $0.count >= 4 }
+            .map(viewModel.validatePassword(_:))
             .distinctUntilChanged()
-            .subscribe(onNext: { isValid in
-                self.nextButton.isEnabled = isValid
-                self.nextButton.alpha = isValid ? 1.0 : 0.6
+            .subscribe(onNext: {
+                switch $0 {
+                case .invalid:
+                    self.nextButton.isEnabled = false
+                case .valid:
+                    self.nextButton.isEnabled = true
+                }
             })
             .disposed(by: disposeBag)
         
@@ -149,7 +155,8 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
     }
     
     private func showSelectCountry() {
-        let viewController = SignupSelectCountryViewController.instantiate(with: SignupSelectCountryViewModel())
+        let selectCountryViewModel = viewModel.instantiateSelectCountryViewModel()
+        let viewController = SignupSelectCountryViewController.instantiate(with: selectCountryViewModel)
         show(viewController, sender: nil)
     }
 }

@@ -10,26 +10,53 @@ import Foundation
 import RxSwift
 
 final class SignupCreatePasswordViewModel: ViewModel {
-    let passwordMinimumCharacterCount = 3
     
     struct Input {
+        let username: AnyObserver<String>
         let password: AnyObserver<String>
-        let proceedAction: AnyObserver<Void>
     }
     
-    struct Output {
-        let passwordError: Observable<Error>
+    struct Output {}
+    
+    enum PasswordValidity {
+        case valid, invalid
     }
     
-    init() {
+    enum PasswordErrorVisibility {
+        case shouldShow, shouldHide
+    }
+    
+    let passwordMinimumCharacterCount = 3
+    
+    let input: Input
+    let output: Output
+    
+    let passwordSubject = PublishSubject<String>()
+    let proceedAction = PublishSubject<Void>()
+    
+    init(username: AnyObserver<String>) {
+        input = Input(username: username, password: passwordSubject.asObserver())
+        output = Output()
+    }
+    
+    func shouldShowError(for password: String) -> PasswordErrorVisibility {
+        if password.count > 0 && password.count < passwordMinimumCharacterCount {
+            return .shouldShow
+        } else {
+            return .shouldHide
+        }
+    }
         
+    func validatePassword(_ password: String) -> PasswordValidity {
+        guard password.count >= passwordMinimumCharacterCount else {
+            return .invalid
+        }
+        return .valid
     }
-    
-    func shouldShowError(for password: String) -> Bool {
-        password.count > 0 && password.count < passwordMinimumCharacterCount
-    }
-    
-    func validatePassword(_ password: String) -> Bool {
-        password.count >= passwordMinimumCharacterCount
+}
+
+extension SignupCreatePasswordViewModel {
+    func instantiateSelectCountryViewModel() -> SignupSelectCountryViewModel {
+        SignupSelectCountryViewModel(username: input.username, password: input.password)
     }
 }
