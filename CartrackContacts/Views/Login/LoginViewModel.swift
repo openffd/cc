@@ -8,7 +8,9 @@
 
 import RxSwift
 
-final class LoginViewModel: ViewModel {
+final class LoginViewModel: ViewModel, LoginServiceDependent {
+    var loginService: LoginService = LoginManager()
+    
     struct Input {
         let username: AnyObserver<String>
         let password: AnyObserver<String>
@@ -65,8 +67,4 @@ final class LoginViewModel: ViewModel {
                 }
             }).disposed(by: disposeBag)
     }
-}
-
-extension LoginViewModel: LoginServiceDependent {
-    var loginService: LoginService { LoginManager() }
 }
