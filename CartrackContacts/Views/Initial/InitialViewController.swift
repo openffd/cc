@@ -14,23 +14,31 @@ final class InitialViewController: UIViewController, SessionServiceDependent {
     private lazy var landingViewController: LandingViewController = {
         UIStoryboard.landing.instantiateInitialViewController() as! LandingViewController
     }()
-    private lazy var contactsSplitViewController: ContactsSplitViewController = {
-        UIStoryboard.contacts.instantiateInitialViewController() as! ContactsSplitViewController
-    }()
+    private var contactsSplitViewController: ContactsSplitViewController {
+        let storyboard: UIStoryboard = .contacts
+        let viewController = storyboard.instantiateInitialViewController() as! ContactsSplitViewController
+        viewController.modalPresentationStyle = .fullScreen
+        return viewController
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemOrange
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        children.forEach { $0.removeFromParent() }
+        children.forEach { $0.remove() }
         
-        if let _ = sessionService.getCurrentSession() {
-            addChildViewController(contactsSplitViewController)
-        } else {
+        if !sessionService.hasExistingSession() {
             addChildViewController(landingViewController)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if sessionService.hasExistingSession() {
+            present(contactsSplitViewController, animated: false, completion: nil)
         }
     }
 }

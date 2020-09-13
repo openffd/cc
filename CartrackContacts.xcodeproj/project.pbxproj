@@ -227,6 +227,15 @@
 			path = ContactDetail;
 			sourceTree = "<group>";
 		};
+		815CCAFF250E6352004618E6 /* Initial */ = {
+			isa = PBXGroup;
+			children = (
+				815CCAFB250E5EE6004618E6 /* InitialViewController.swift */,
+				815CCAFD250E607A004618E6 /* Initial.storyboard */,
+			);
+			path = Initial;
+			sourceTree = "<group>";
+		};
 		8172A1DA2505E3F600FF1A3F = {
 			isa = PBXGroup;
 			children = (
@@ -276,12 +285,11 @@
 			isa = PBXGroup;
 			children = (
 				8172A1F12505E3F700FF1A3F /* LaunchScreen.storyboard */,
+				815CCAFF250E6352004618E6 /* Initial */,
 				8172A2092505E52E00FF1A3F /* Landing */,
 				8172A25B2507B4C900FF1A3F /* Signup */,
 				8172A25C2507B4CE00FF1A3F /* Login */,
 				8172A20E2505E59900FF1A3F /* Contacts */,
-				815CCAFB250E5EE6004618E6 /* InitialViewController.swift */,
-				815CCAFD250E607A004618E6 /* Initial.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
