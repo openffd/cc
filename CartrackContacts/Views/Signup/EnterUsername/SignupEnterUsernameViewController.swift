@@ -70,6 +70,7 @@ final class SignupEnterUsernameViewController: UIViewController, ViewModelDepend
         setupNextButton()
         
         let usernameTextFieldObservable = usernameTextField.rx.text.orEmpty.share(replay: 1)
+        usernameTextFieldObservable.subscribe(viewModel.input.username).disposed(by: disposeBag)
         
         usernameTextFieldObservable
             .map(viewModel.shouldShowError)
@@ -98,10 +99,23 @@ final class SignupEnterUsernameViewController: UIViewController, ViewModelDepend
             })
             .disposed(by: disposeBag)
         
-        nextButton.rx.tap
-            .subscribe(onNext: {
-                self.usernameTextField.resignFirstResponder()
-                self.showCreatePassword()
+        let nextButtonTap = nextButton.rx.tap.share(replay: 1)
+            
+        nextButtonTap
+            .subscribe(onNext: { self.usernameTextField.resignFirstResponder() })
+            .disposed(by: disposeBag)
+        
+        nextButtonTap
+            .subscribe(viewModel.input.checkAvailabilityAction)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.usernameAvailability
+            .subscribe(onNext: { [weak self] usernameAvailability in
+                guard usernameAvailability == .available else {
+                    self?.presentAlert(for: usernameAvailability.message)
+                    return
+                }
+                self?.showCreatePassword()
             })
             .disposed(by: disposeBag)
     }
@@ -140,7 +154,8 @@ final class SignupEnterUsernameViewController: UIViewController, ViewModelDepend
     }
     
     private func showCreatePassword() {
-        let viewController = SignupCreatePasswordViewController.instantiate(with: SignupCreatePasswordViewModel())
+        let createPasswordViewModel = self.viewModel.instantiateCreatePasswordViewModel()
+        let viewController = SignupCreatePasswordViewController.instantiate(with: createPasswordViewModel)
         show(viewController, sender: nil)
     }
 }

@@ -17,6 +17,15 @@ struct User {
 
 enum UsernameAvailability {
     case available, unavailable
+    
+    var message: String {
+        switch self {
+        case .unavailable:
+            return "This username is already taken.\nPlease try another."
+        default:
+            return ""
+        }
+    }
 }
 
 protocol UserDatabase {

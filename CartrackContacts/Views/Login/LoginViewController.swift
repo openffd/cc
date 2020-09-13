@@ -149,7 +149,6 @@ final class LoginViewController: UIViewController, ViewModelDependent {
         
         viewModel.output.loginResult
             .subscribe(onNext: { user in
-//                self.presentAlert(for: "Login Successful!")
                 self.showContacts()
             })
             .disposed(by: disposeBag)
