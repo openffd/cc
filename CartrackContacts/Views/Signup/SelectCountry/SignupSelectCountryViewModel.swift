@@ -9,12 +9,18 @@
 import Foundation
 import RxSwift
 
+struct SignupForm {
+    let username: String
+    let password: String
+    let country: String
+}
+
 final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
     var signupService: SignupService = SignupManager()
     
     struct Input {
-        let username: AnyObserver<String>
-        let password: AnyObserver<String>
+        let username: PublishSubject<String>
+        let password: PublishSubject<String>
         let country: AnyObserver<String>
         let signupAction: AnyObserver<Void>
     }
@@ -27,15 +33,24 @@ final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
     let input: Input
     let output: Output
     
+    private var signupForm: Observable<SignupForm> {
+        Observable.combineLatest(
+            input.username,
+            input.password,
+            countrySubject.asObservable()) { username, password, country in
+            return SignupForm(username: username, password: password, country: country)
+        }
+    }
+    
     private let countrySubject = PublishSubject<String>()
     private let signupActionSubject = PublishSubject<Void>()
     private let signupResultSubject = PublishSubject<User>()
     private let signupErrorSubject = PublishSubject<Error>()
     
-    init(username: AnyObserver<String>, password: AnyObserver<String>) {
+    init(usernameSubject: PublishSubject<String>, passwordSubject: PublishSubject<String>) {
         input = Input(
-            username: username,
-            password: password,
+            username: usernameSubject,
+            password: passwordSubject,
             country: countrySubject.asObserver(),
             signupAction: signupActionSubject.asObserver()
         )
@@ -43,5 +58,7 @@ final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
             signupResult: signupResultSubject.asObserver(),
             signupError: signupErrorSubject.asObserver()
         )
+        
+        signupActionSubject.withLatestFrom(self.signupForm)
     }
 }

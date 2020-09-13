@@ -34,7 +34,7 @@ final class SignupEnterUsernameViewModel: ViewModel, SignupServiceDependent {
     let input: Input
     let output: Output
 
-    private let usernameSubject = PublishSubject<String>()
+    fileprivate let usernameSubject = PublishSubject<String>()
     private let checkAvailabilityActionSubject = PublishSubject<Void>()
     private let usernameAvailabilitySubject = PublishSubject<UsernameAvailability>()
     
@@ -80,6 +80,6 @@ final class SignupEnterUsernameViewModel: ViewModel, SignupServiceDependent {
 
 extension SignupEnterUsernameViewModel {
     func instantiateCreatePasswordViewModel() -> SignupCreatePasswordViewModel {
-        return SignupCreatePasswordViewModel(username: input.username)
+        return SignupCreatePasswordViewModel(usernameSubject: usernameSubject)
     }
 }

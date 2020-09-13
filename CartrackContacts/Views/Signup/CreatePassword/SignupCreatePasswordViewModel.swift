@@ -12,7 +12,7 @@ import RxSwift
 final class SignupCreatePasswordViewModel: ViewModel {
     
     struct Input {
-        let username: AnyObserver<String>
+        let usernameSubject: PublishSubject<String>
         let password: AnyObserver<String>
     }
     
@@ -31,11 +31,11 @@ final class SignupCreatePasswordViewModel: ViewModel {
     let input: Input
     let output: Output
     
-    let passwordSubject = PublishSubject<String>()
+    fileprivate let passwordSubject = PublishSubject<String>()
     let proceedAction = PublishSubject<Void>()
     
-    init(username: AnyObserver<String>) {
-        input = Input(username: username, password: passwordSubject.asObserver())
+    init(usernameSubject: PublishSubject<String>) {
+        input = Input(usernameSubject: usernameSubject, password: passwordSubject.asObserver())
         output = Output()
     }
     
@@ -57,6 +57,6 @@ final class SignupCreatePasswordViewModel: ViewModel {
 
 extension SignupCreatePasswordViewModel {
     func instantiateSelectCountryViewModel() -> SignupSelectCountryViewModel {
-        SignupSelectCountryViewModel(username: input.username, password: input.password)
+        SignupSelectCountryViewModel(usernameSubject: input.usernameSubject, passwordSubject: passwordSubject)
     }
 }
