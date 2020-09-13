@@ -48,8 +48,12 @@ final class ContactsViewController: UIViewController, UIScrollViewDelegate {
             })
             .disposed(by: disposeBag)
         
+        tableView.showActivityIndicator()
+        
         let loader = RemoteResourceLoader<ContactsRequest>()
         loader.load(networkRequest: .contacts, resourceType: [Contact].self) { result in
+            self.tableView.hideActivityIndicator()
+            
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)

@@ -58,6 +58,10 @@ final class ContactDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if contact == nil {
+            headerView.isHidden = true
+        }
+        
         tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 64.0
         tableView.rowHeight = UITableView.automaticDimension
