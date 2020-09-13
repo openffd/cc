@@ -9,17 +9,39 @@
 import Foundation
 import RxSwift
 
-final class SignupSelectCountryViewModel: ViewModel {
+final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
+    var signupService: SignupService = SignupManager()
+    
     struct Input {
+        let username: AnyObserver<String>
         let password: AnyObserver<String>
-        let proceedAction: AnyObserver<Void>
+        let country: AnyObserver<String>
+        let signupAction: AnyObserver<Void>
     }
     
     struct Output {
-        let passwordError: Observable<Error>
+        let signupResult: Observable<User>
+        let signupError: Observable<Error>
     }
     
-    init() {
-        
+    let input: Input
+    let output: Output
+    
+    private let countrySubject = PublishSubject<String>()
+    private let signupActionSubject = PublishSubject<Void>()
+    private let signupResultSubject = PublishSubject<User>()
+    private let signupErrorSubject = PublishSubject<Error>()
+    
+    init(username: AnyObserver<String>, password: AnyObserver<String>) {
+        input = Input(
+            username: username,
+            password: password,
+            country: countrySubject.asObserver(),
+            signupAction: signupActionSubject.asObserver()
+        )
+        output = Output(
+            signupResult: signupResultSubject.asObserver(),
+            signupError: signupErrorSubject.asObserver()
+        )
     }
 }
