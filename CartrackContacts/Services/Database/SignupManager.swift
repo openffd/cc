@@ -12,6 +12,7 @@ import RxSwift
 protocol SignupService {
     func checkAvailability(username: String) -> Observable<UsernameAvailability>
     func signup(username: String, digest: String, country: String) -> Observable<User>
+    func signup(with form: SignupForm) -> Observable<User>
 }
 
 protocol SignupServiceDependent {
@@ -28,13 +29,48 @@ final class SignupManager: SignupService {
         }
     }
     
+    func signup(with form: SignupForm) -> Observable<User> {
+        signup(username: form.username, digest: form.password.sha256Digest, country: form.country)
+    }
+    
     func signup(username: String, digest: String, country: String) -> Observable<User> {
         Observable.create { observer in
+            switch self.register(username: username, digest: digest, country: country) {
+            case .failure(let error):
+                observer.onError(error)
+            case .success(let user):
+                observer.onNext(user)
+            }
             return Disposables.create()
+        }
+    }
+    
+    private func register(username: String, digest: String, country: String) -> SignupResult {
+        do {
+            let user = try userDatabase.insert(username: username, digest: digest, country: country)
+            return .success(user: user)
+        } catch {
+            return .failure(error: .insertFailure)
         }
     }
     
     private func checkUser(with username: String) -> UsernameAvailability {
         userDatabase.checkUser(username: username)
+    }
+}
+
+enum SignupResult {
+    case success(user: User)
+    case failure(error: SignupError)
+}
+
+enum SignupError: LocalizedError {
+    case insertFailure
+    
+    var errorDescription: String? {
+        switch self {
+        case .insertFailure:
+            return "Unable to signup at this time. Please try again later."
+        }
     }
 }

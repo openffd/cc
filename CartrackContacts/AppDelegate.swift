@@ -40,8 +40,7 @@ private extension AppDelegate {
             
             let key = "SampleUserInserted"
             if !UserDefaults.standard.bool(forKey: key) {
-                let sampleUser = User(id: 0, username: "ct", digest: "123".sha256Digest, country: "SG")
-                try sharedDatabase.insert(user: sampleUser)
+                try sharedDatabase.insert(username: "cartrack", digest: "123", country: "Philippines")
                 UserDefaults.standard.set(true, forKey: key)
             }
         } catch {
