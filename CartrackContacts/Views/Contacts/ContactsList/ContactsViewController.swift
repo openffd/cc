@@ -77,7 +77,8 @@ final class ContactsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc private func logout() {
-        print("Logout!")
+        // Session reset logic here
+        view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     private func showContact(contact: Contact) {
