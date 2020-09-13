@@ -425,7 +425,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JS-ep-a1w">
                                                     <rect key="frame" x="16" y="4" width="382" height="280"/>
                                                     <subviews>
-                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h34-IS-Ih9">
+                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h34-IS-Ih9">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="280"/>
                                                         </mapView>
                                                     </subviews>
