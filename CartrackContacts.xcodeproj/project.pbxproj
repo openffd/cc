@@ -23,6 +23,8 @@
 		812BBB20250D2B5E005023AB /* SignupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB1F250D2B5E005023AB /* SignupManager.swift */; };
 		812BBB22250DC47E005023AB /* SignupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB21250DC47E005023AB /* SignupForm.swift */; };
 		812BBB24250E0A73005023AB /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB23250E0A73005023AB /* UITableView+.swift */; };
+		815CCAF8250E5861004618E6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CCAF7250E5861004618E6 /* SessionManager.swift */; };
+		815CCAFA250E5CAB004618E6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CCAF9250E5CAB004618E6 /* Session.swift */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -93,6 +95,8 @@
 		812BBB1F250D2B5E005023AB /* SignupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManager.swift; sourceTree = "<group>"; };
 		812BBB21250DC47E005023AB /* SignupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupForm.swift; sourceTree = "<group>"; };
 		812BBB23250E0A73005023AB /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		815CCAF7250E5861004618E6 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		815CCAF9250E5CAB004618E6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		8172A1E32505E3F600FF1A3F /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1E62505E3F600FF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 				8172A26D2509D51A00FF1A3F /* Credential.swift */,
 				812BBB21250DC47E005023AB /* SignupForm.swift */,
 				8172A21E2505ECA200FF1A3F /* User.swift */,
+				815CCAF9250E5CAB004618E6 /* Session.swift */,
 				8172A2202505ECA900FF1A3F /* Contacts */,
 			);
 			path = Models;
@@ -340,6 +345,7 @@
 			children = (
 				8172A2322506594900FF1A3F /* Network */,
 				8172A2222505EDF100FF1A3F /* Database */,
+				815CCAF7250E5861004618E6 /* SessionManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -637,6 +643,7 @@
 				8172A2292505F32700FF1A3F /* URL+.swift in Sources */,
 				812BBB17250CB4B0005023AB /* ContactTableViewCell.swift in Sources */,
 				8172A2272505EEAF00FF1A3F /* SQLiteDatabase.swift in Sources */,
+				815CCAF8250E5861004618E6 /* SessionManager.swift in Sources */,
 				8172A240250739C400FF1A3F /* NetworkRequest.swift in Sources */,
 				8172A21B2505EA7000FF1A3F /* Address.swift in Sources */,
 				8172A22D2506151700FF1A3F /* String+.swift in Sources */,
@@ -648,6 +655,7 @@
 				8172A21D2505EA9D00FF1A3F /* Company.swift in Sources */,
 				8172A2312506271300FF1A3F /* DynamicValue.swift in Sources */,
 				812BBB08250CA188005023AB /* SignupCreatePasswordViewModel.swift in Sources */,
+				815CCAFA250E5CAB004618E6 /* Session.swift in Sources */,
 				812BBB1C250CD3E9005023AB /* UIView+.swift in Sources */,
 				8172A23C25066B8D00FF1A3F /* ContactsService.swift in Sources */,
 				812BBB01250BC7D1005023AB /* SignupCreatePasswordViewController.swift in Sources */,
