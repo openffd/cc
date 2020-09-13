@@ -22,6 +22,7 @@
 		812BBB1C250CD3E9005023AB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB1B250CD3E9005023AB /* UIView+.swift */; };
 		812BBB20250D2B5E005023AB /* SignupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB1F250D2B5E005023AB /* SignupManager.swift */; };
 		812BBB22250DC47E005023AB /* SignupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB21250DC47E005023AB /* SignupForm.swift */; };
+		812BBB24250E0A73005023AB /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BBB23250E0A73005023AB /* UITableView+.swift */; };
 		8172A1E72505E3F600FF1A3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E62505E3F600FF1A3F /* AppDelegate.swift */; };
 		8172A1E92505E3F600FF1A3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */; };
 		8172A1EE2505E3F600FF1A3F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A1EC2505E3F600FF1A3F /* Landing.storyboard */; };
@@ -91,6 +92,7 @@
 		812BBB1B250CD3E9005023AB /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		812BBB1F250D2B5E005023AB /* SignupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManager.swift; sourceTree = "<group>"; };
 		812BBB21250DC47E005023AB /* SignupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupForm.swift; sourceTree = "<group>"; };
+		812BBB23250E0A73005023AB /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		8172A1E32505E3F600FF1A3F /* CC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A1E62505E3F600FF1A3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A1E82505E3F600FF1A3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				8172A26F250A0F9300FF1A3F /* UIImage+.swift */,
 				812BBAFE250BC265005023AB /* UIFont+.swift */,
 				812BBB1B250CD3E9005023AB /* UIView+.swift */,
+				812BBB23250E0A73005023AB /* UITableView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				8172A25A2507B4C500FF1A3F /* LoginViewController.swift in Sources */,
 				8172A2162505E71900FF1A3F /* UIStoryboard+.swift in Sources */,
 				812BBB06250BDD17005023AB /* SignupSelectCountryViewController.swift in Sources */,
+				812BBB24250E0A73005023AB /* UITableView+.swift in Sources */,
 				8172A264250874C600FF1A3F /* UIViewController+.swift in Sources */,
 				8172A2622507BAD900FF1A3F /* UINavigationController+.swift in Sources */,
 				812BBB13250CAD3F005023AB /* ContactDetailTableViewController.swift in Sources */,
