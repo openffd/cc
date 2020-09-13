@@ -34,7 +34,7 @@ final class SignupEnterUsernameViewModel: ViewModel, SignupServiceDependent {
     let input: Input
     let output: Output
 
-    fileprivate let usernameSubject = PublishSubject<String>()
+    fileprivate let usernameSubject = BehaviorSubject<String>(value: "")
     private let checkAvailabilityActionSubject = PublishSubject<Void>()
     private let usernameAvailabilitySubject = PublishSubject<UsernameAvailability>()
     

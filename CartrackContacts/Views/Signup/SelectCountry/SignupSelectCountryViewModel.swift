@@ -9,18 +9,12 @@
 import Foundation
 import RxSwift
 
-struct SignupForm {
-    let username: String
-    let password: String
-    let country: String
-}
-
 final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
     var signupService: SignupService = SignupManager()
     
     struct Input {
-        let username: PublishSubject<String>
-        let password: PublishSubject<String>
+        let username: BehaviorSubject<String>
+        let password: BehaviorSubject<String>
         let country: AnyObserver<String>
         let signupAction: AnyObserver<Void>
     }
@@ -33,10 +27,10 @@ final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
     let input: Input
     let output: Output
     
-    private var signupForm: Observable<SignupForm> {
+    private var signupFormObservable: Observable<SignupForm> {
         Observable.combineLatest(
-            input.username,
-            input.password,
+            input.username.asObservable(),
+            input.password.asObservable(),
             countrySubject.asObservable()) { username, password, country in
             return SignupForm(username: username, password: password, country: country)
         }
@@ -47,7 +41,9 @@ final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
     private let signupResultSubject = PublishSubject<User>()
     private let signupErrorSubject = PublishSubject<Error>()
     
-    init(usernameSubject: PublishSubject<String>, passwordSubject: PublishSubject<String>) {
+    private let disposeBag = DisposeBag()
+    
+    init(usernameSubject: BehaviorSubject<String>, passwordSubject: BehaviorSubject<String>) {
         input = Input(
             username: usernameSubject,
             password: passwordSubject,
@@ -59,6 +55,21 @@ final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
             signupError: signupErrorSubject.asObserver()
         )
         
-        signupActionSubject.withLatestFrom(self.signupForm)
+        signupActionSubject
+            .withLatestFrom(signupFormObservable)
+            .flatMapLatest {
+                self.signupService.signup(with: $0).materialize()
+            }.debug()
+            .subscribe(onNext: { [weak self] event in
+                switch event {
+                case .next(let user):
+                    self?.signupResultSubject.onNext(user)
+                case .error(let error):
+                    self?.signupErrorSubject.onNext(error)
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }

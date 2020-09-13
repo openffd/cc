@@ -74,6 +74,7 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
         setupNextButton()
         
         let passwordTextFieldObservable = passwordTextField.rx.text.orEmpty.share(replay: 1)
+        passwordTextFieldObservable.subscribe(viewModel.input.password).disposed(by: disposeBag)
         
         passwordTextFieldObservable
             .map(viewModel.shouldShowError)

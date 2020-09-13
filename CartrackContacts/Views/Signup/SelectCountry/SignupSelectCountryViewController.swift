@@ -71,9 +71,18 @@ final class SignupSelectCountryViewController: UIViewController, ViewModelDepend
         countryPickerView.delegate = self
         countryPickerView.dataSource = self
         
-        nextButton.rx.tap
-            .subscribe(onNext: {
+        viewModel.input.country.onNext(countryPickerView.selectedCountry.name)
+        
+        nextButton.rx.tap.subscribe(viewModel.input.signupAction).disposed(by: disposeBag)
+        
+        viewModel.output.signupResult
+            .subscribe(onNext: { user in
                 self.showContacts()
+            }).disposed(by: disposeBag)
+        
+        viewModel.output.signupError
+            .subscribe(onNext: { error in
+                self.presentAlert(for: error)
             }).disposed(by: disposeBag)
     }
     
@@ -92,7 +101,7 @@ final class SignupSelectCountryViewController: UIViewController, ViewModelDepend
 
 extension SignupSelectCountryViewController: CountryPickerViewDelegate {
     func countryPickerView(_ countryPickerView: CountryPickerView, didSelectCountry country: Country) {
-        print(country.name)
+        viewModel.input.country.onNext(country.name)
     }
 }
 
