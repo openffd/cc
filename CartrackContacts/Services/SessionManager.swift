@@ -9,6 +9,7 @@
 import Foundation
 
 protocol SessionService {
+    func hasExistingSession() -> Bool
     func getCurrentSession() -> Session?
     func saveSession(_ session: Session)
     func deleteCurrentSession()
@@ -22,6 +23,10 @@ final class SessionManager: SessionService {
     
     private let standardUserDefaults: UserDefaults = .standard
     private static let sessionKey = "SavedSession"
+    
+    func hasExistingSession() -> Bool {
+        getCurrentSession() != nil
+    }
     
     func getCurrentSession() -> Session? {
         guard let data = standardUserDefaults.object(forKey: SessionManager.sessionKey) as? Data else {

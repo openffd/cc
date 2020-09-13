@@ -29,7 +29,7 @@ final class InitialViewController: UIViewController, SessionServiceDependent {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        children.forEach { $0.remove() }
+        children.forEach { $0.detachFromParent() }
         
         if !sessionService.hasExistingSession() {
             addChildViewController(landingViewController)

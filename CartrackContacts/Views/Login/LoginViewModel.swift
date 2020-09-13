@@ -8,8 +8,9 @@
 
 import RxSwift
 
-final class LoginViewModel: ViewModel, LoginServiceDependent {
+final class LoginViewModel: ViewModel, LoginServiceDependent, SessionServiceDependent {
     var loginService: LoginService = LoginManager()
+    var sessionService: SessionService = SessionManager()
     
     struct Input {
         let username: AnyObserver<String>
@@ -60,6 +61,7 @@ final class LoginViewModel: ViewModel, LoginServiceDependent {
                 switch event {
                 case .next(let user):
                     self?.loginResultSubject.onNext(user)
+                    self?.sessionService.saveSession(Session(user: user))
                 case .error(let error):
                     self?.loginErrorSubject.onNext(error)
                 default:

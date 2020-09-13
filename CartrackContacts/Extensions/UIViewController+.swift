@@ -37,7 +37,7 @@ extension UIViewController {
         child.didMove(toParent: self)
     }
     
-    func removeFromParent() {
+    func detachFromParent() {
         guard parent != nil else { return }
         willMove(toParent: nil)
         view.removeFromSuperview()

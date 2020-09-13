@@ -9,8 +9,9 @@
 import Foundation
 import RxSwift
 
-final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
+final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent, SessionServiceDependent {
     var signupService: SignupService = SignupManager()
+    var sessionService: SessionService = SessionManager()
     
     struct Input {
         let username: BehaviorSubject<String>
@@ -64,6 +65,7 @@ final class SignupSelectCountryViewModel: ViewModel, SignupServiceDependent {
                 switch event {
                 case .next(let user):
                     self?.signupResultSubject.onNext(user)
+                    self?.sessionService.saveSession(Session(user: user))
                 case .error(let error):
                     self?.signupErrorSubject.onNext(error)
                 default:

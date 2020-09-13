@@ -10,7 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ContactsViewController: UIViewController, UIScrollViewDelegate {
+final class ContactsViewController: UIViewController, UIScrollViewDelegate, SessionServiceDependent {
+    var sessionService: SessionService = SessionManager()
 
     private let disposeBag = DisposeBag()
     
@@ -81,7 +82,7 @@ final class ContactsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc private func logout() {
-        // Session reset logic here
+        sessionService.deleteCurrentSession()
         view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
