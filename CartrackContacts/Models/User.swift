@@ -30,7 +30,7 @@ enum UsernameAvailability {
 
 protocol UserDatabase {
     func createUserTable() throws
-    func insert(user: User) throws
+    func insert(username: String, digest: String, country: String) throws -> User
     func getUser(username: String, digest: String) -> User?
     func checkUser(username: String) -> UsernameAvailability
 }
