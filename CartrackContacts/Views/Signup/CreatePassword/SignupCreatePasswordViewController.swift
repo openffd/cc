@@ -97,8 +97,10 @@ final class SignupCreatePasswordViewController: UIViewController, ViewModelDepen
                 switch $0 {
                 case .invalid:
                     self.nextButton.isEnabled = false
+                    self.nextButton.alpha = 0.6
                 case .valid:
                     self.nextButton.isEnabled = true
+                    self.nextButton.alpha = 1.0
                 }
             })
             .disposed(by: disposeBag)

@@ -54,7 +54,7 @@ final class SignupEnterUsernameViewController: UIViewController, ViewModelDepend
             usernameErrorLabel.isHidden = true
             usernameErrorLabel.textColor = .systemGreen
             usernameErrorLabel.font = .helveticaNeue(size: 12)
-            usernameErrorLabel.text = "Your username should be at least \(viewModel.usernameMinimumCharacterCount) characters."
+            usernameErrorLabel.text = ""
         }
     }
     
@@ -80,8 +80,9 @@ final class SignupEnterUsernameViewController: UIViewController, ViewModelDepend
                 switch $0 {
                 case .shouldHide:
                     self.usernameErrorLabel.isHidden = true
-                case .shouldShow:
+                case .shouldShow(let message):
                     self.usernameErrorLabel.isHidden = false
+                    self.usernameErrorLabel.text = message
                 }
             })
             .disposed(by: disposeBag)
@@ -93,8 +94,10 @@ final class SignupEnterUsernameViewController: UIViewController, ViewModelDepend
                 switch $0 {
                 case .invalid:
                     self.nextButton.isEnabled = false
+                    self.nextButton.alpha = 0.6
                 case .valid:
                     self.nextButton.isEnabled = true
+                    self.nextButton.alpha = 1.0
                 }
             })
             .disposed(by: disposeBag)

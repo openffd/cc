@@ -16,4 +16,8 @@ extension String {
     var toDouble: Double {
         NumberFormatter().number(from: self)?.doubleValue ?? 0
     }
+    
+    var containsWhitespace: Bool {
+        rangeOfCharacter(from: .whitespacesAndNewlines) != nil
+    }
 }

@@ -23,12 +23,14 @@ final class SignupEnterUsernameViewModel: ViewModel, SignupServiceDependent {
         let usernameAvailability: Observable<UsernameAvailability>
     }
     
-    enum UsernameValidity {
-        case valid, invalid
+    enum UsernameValidity: Equatable {
+        case valid
+        case invalid(message: String)
     }
     
-    enum UsernameErrorVisibility {
-        case shouldShow, shouldHide
+    enum UsernameErrorVisibility: Equatable {
+        case shouldShow(message: String)
+        case shouldHide
     }
     
     let input: Input
@@ -63,16 +65,24 @@ final class SignupEnterUsernameViewModel: ViewModel, SignupServiceDependent {
     }
     
     func shouldShowError(for username: String) -> UsernameErrorVisibility {
+        if username.containsWhitespace {
+            // TODO: This is not so DRY
+            return .shouldShow(message: "Your username contains invalid characters.")
+        }
+        
         if username.count > 0 && username.count < usernameMinimumCharacterCount {
-            return .shouldShow
+            return .shouldShow(message: "Your username should be at least \(usernameMinimumCharacterCount) characters.")
         } else {
             return .shouldHide
         }
     }
     
     func validateUsername(_ username: String) -> UsernameValidity {
+        guard !username.containsWhitespace else {
+            return .invalid(message: "Your username contains invalid characters.")
+        }
         guard username.count >= usernameMinimumCharacterCount else {
-            return .invalid
+            return .invalid(message: "Your username should be at least \(usernameMinimumCharacterCount) characters.")
         }
         return .valid
     }
