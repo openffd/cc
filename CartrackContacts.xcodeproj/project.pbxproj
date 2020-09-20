@@ -844,7 +844,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ffd.CartrackContacts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ffd.cc;
 				PRODUCT_NAME = CC;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -863,7 +863,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ffd.CartrackContacts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ffd.cc;
 				PRODUCT_NAME = CC;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

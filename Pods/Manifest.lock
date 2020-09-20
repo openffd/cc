@@ -1,16 +1,22 @@
 PODS:
   - CountryPickerView (3.1.3)
+  - PubNub (4.15.5):
+    - PubNub/Core (= 4.15.5)
+  - PubNub/Core (4.15.5)
 
 DEPENDENCIES:
   - CountryPickerView
+  - PubNub (~> 4.6)
 
 SPEC REPOS:
   trunk:
     - CountryPickerView
+    - PubNub
 
 SPEC CHECKSUMS:
   CountryPickerView: 383c09949f7455de9892db7ce3400b10da090150
+  PubNub: fe24a077eb34593cdaffe20d39956703f68f2d7a
 
-PODFILE CHECKSUM: ee9e123b1c7e3ab5af547be097cbd806f9f79e43
+PODFILE CHECKSUM: 4f53299a0a175598bb3e7615445042ff2a1c49c2
 
 COCOAPODS: 1.9.3
