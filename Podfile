@@ -1,4 +1,5 @@
 platform :ios, '9.0'
+inhibit_all_warnings!
 
 target 'CartrackContacts' do
   use_frameworks!
